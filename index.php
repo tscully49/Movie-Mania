@@ -397,8 +397,16 @@
                                                     }
                                                 ?>
                                             </tr>
-
                                         </thead>
+                                        <?PHP
+                                            while ($all_genres = pg_fetch_array($diff_genres, null, PGSQL_ASSOC)) {
+                                                echo"<tr>";
+                                                foreach($all_genres as $col) { // Prints out all the info 
+                                                    echo"\n\t\t<td>$col</td>";
+                                                }
+                                                echo"\n\t</tr>";
+                                            }
+                                        ?>
                                     </table>
                                 </div>
                             </div>

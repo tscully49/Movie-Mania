@@ -277,8 +277,8 @@
 
 
 
-                                        echo"<div class="col-xs-9 text-right">";
-                                        echo"\n\t<div class="huge">$num</div>";
+                                        echo"<div class='col-xs-9 text-right'>";
+                                        echo"\n\t<div class='huge'>$num</div>";
                                         echo"\n\t<div>Movies</div>";
                                         echo"</div>";
 

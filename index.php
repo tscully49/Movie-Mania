@@ -409,6 +409,9 @@
                                         ?>
                                     </table>
                                 </div>
+                                <div class="text-right">
+                                    <a href="#">View All Genres <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>

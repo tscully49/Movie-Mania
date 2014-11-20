@@ -1,5 +1,5 @@
 <?PHP
-	 include("database.php");
+	include("../secure/database.php");
     $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
 
     if(!$conn){

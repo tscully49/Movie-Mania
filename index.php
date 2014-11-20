@@ -59,14 +59,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.php">Movie Trends</a>
+                <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
+                <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
+                <form class="navbar-form navbar-left searchbar" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
             </div>
-            <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
-		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-            <form class="navbar-form navbar-left searchbar" role="search">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
-		        </div>
-		        <button type="submit" class="btn btn-default">Submit</button>
 		    </form>
             <!-- Top Menu Items -->
             <!--<ul class="nav navbar-right top-nav">

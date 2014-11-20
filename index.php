@@ -275,7 +275,9 @@
                                             echo"<p> Connection Fail</p>";
                                         }
 
-
+                                        $result = pg_prepare($conn, "movies",'SELECT count(*) FROM movie');
+                                        $result = pg_execute($conn, "movies", array());
+                                        $num=pg_fetch_array($result, null, PGSQL_ASSOC
 
                                         echo"<div class='col-xs-9 text-right'>";
                                         echo"\n\t<div class='huge'>$num</div>";

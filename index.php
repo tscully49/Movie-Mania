@@ -65,7 +65,7 @@
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Go!</button>
             </div>
 		    </form>
             <!-- Top Menu Items -->
@@ -179,7 +179,7 @@
                         <a href="movies.php"><i class="fa fa-fw fa-film"></i> Movies</a>
                     </li>
                     <li>
-                        <a href="actors.php"><i class="fa fa-fw fa-user"></i> Actors</a>
+                        <a href="actors.html"><i class="fa fa-fw fa-user"></i> Actors</a>
                     </li>
                     <li>
                         <a href="boxOffice.php"><i class="fa fa-fw fa-money"></i> Box Office</a>

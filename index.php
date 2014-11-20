@@ -66,8 +66,6 @@
                   <input type="text" class="form-control" placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Go!</button>
-            </div>
-		    </form>
             <!-- Top Menu Items -->
             <!--<ul class="nav navbar-right top-nav">
                 <li class="dropdown">
@@ -267,10 +265,43 @@
                                     <div class="col-xs-3">
                                         <i class="fa fa-film fa-5x"></i>
                                     </div>
-                                    <div class="col-xs-9 text-right">
+                                    <?PHP
+                                        include("database.php");
+                                        $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
+                                 
+                                        if(!$conn){
+                                            echo"<p> Connection Fail</p>";
+                                        }
+
+                                        $result = pg_prepare($conn, "movies",'SELECT count(*) AS count FROM movie');
+                                        $result = pg_execute($conn, "movies", array());
+                                        $years = pg_prepare($conn, "year", 'SELECT (max(year)-min(year)) AS total FROM movie');
+                                        $years = pg_execute($conn, "year", array());
+                                        $actors = pg_prepare($conn, "actor", 'SELECT count(*) FROM actor');
+                                        $actors = pg_execute($conn, "actor", array());
+                                        $genres = pg_prepare($conn, "genre", 'SELECT count(*) FROM genre');
+                                        $genres = pg_execute($conn, "genre", array());
+
+                                        $num_movies=pg_fetch_array($result, null, PGSQL_ASSOC);
+                                        $num = $num_movies['count'];
+                                        $num_years = pg_fetch_array($years, null, PGSQL_ASSOC);
+                                        $num_years2 = $num_years['total'];
+                                        $num_actors = pg_fetch_array($actors, null, PGSQL_ASSOC);
+                                        $num_actors2 = $num_actors['count'];
+                                        $num_genres = pg_fetch_array($genres, null, PGSQL_ASSOC);
+                                        $num_genres2 = $num_genres['count'];
+
+                                        echo"<div class='col-xs-9 text-right'>";
+                                        echo"\n\t<div class='huge'>$num</div>";
+                                        echo"\n\t<div>Movies</div>";
+                                        echo"</div>";
+
+                                        pg_close($conn);
+                                    ?>
+                                    <!--<div class="col-xs-9 text-right">
                                         <div class="huge">9234</div>
                                         <div>Movies</div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                             <a href="#">
@@ -290,7 +321,9 @@
                                         <i class="fa fa-users fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">12231</div>
+                                        <?PHP
+                                            echo"<div class='huge'>$num_actors2</div>";
+                                        ?>
                                         <div>Actors/Actresses</div>
                                     </div>
                                 </div>
@@ -312,7 +345,9 @@
                                         <i class="fa fa-calendar fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">34</div>
+                                        <?PHP
+                                            echo"<div class='huge'>$num_years2</div>";
+                                        ?>
                                         <div>Years</div>
                                     </div>
                                 </div>
@@ -334,7 +369,9 @@
                                         <i class="fa fa-video-camera fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">8</div>
+                                        <?PHP
+                                            echo"<div class='huge'>$num_genres2</div>";
+                                        ?>
                                         <div>Genres</div>
                                     </div>
                                 </div>

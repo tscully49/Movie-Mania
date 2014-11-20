@@ -293,7 +293,6 @@
                                         $num_genres = pg_fetch_array($genres, null, PGSQL_ASSOC);
                                         $num_genres2 = $num_genres['count'];
 
-                                        print_r($num_years);
                                         echo"<div class='col-xs-9 text-right'>";
                                         echo"\n\t<div class='huge'>$num</div>";
                                         echo"\n\t<div>Movies</div>";

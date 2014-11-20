@@ -59,8 +59,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.php">Movie Trends</a>
-                <button type="button" class="btn btn-default navbar-btn navbar-right">Login</button>
-                <button type="button" class="btn btn-default navbar-btn navbar-right">Sign up</button>
+                <button type="button" class="btn navbar-btn navbar-right">Login</button>
+                <button type="button" class="btn navbar-btn navbar-right">Sign up</button>
                 <form class="navbar-form navbar-left searchbar" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search">

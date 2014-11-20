@@ -89,7 +89,7 @@
                         <a href="actors.php"><i class="fa fa-fw fa-user"></i> Actors</a>
                     </li>
                     <li>
-                        <a href="box_office.php"><i class="fa fa-fw fa-money"></i> Box Office</a>
+                        <a href="boxOffice.php"><i class="fa fa-fw fa-money"></i> Box Office</a>
                     </li>
                     <li>
                         <a href="error_page.php"><i class="fa fa-fw fa-calendar"></i> Year</a>

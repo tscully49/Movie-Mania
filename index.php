@@ -267,10 +267,27 @@
                                     <div class="col-xs-3">
                                         <i class="fa fa-film fa-5x"></i>
                                     </div>
-                                    <div class="col-xs-9 text-right">
+                                    <?PHP
+                                        include("/database.php");
+                                        $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
+                                 
+                                        if(!$conn){
+                                            echo"<p> Connection Fail</p>";
+                                        }
+
+
+
+                                        echo"<div class="col-xs-9 text-right">";
+                                        echo"\n\t<div class="huge">$num</div>";
+                                        echo"\n\t<div>Movies</div>";
+                                        echo"</div>";
+
+                                        pg_close($conn);
+                                    ?>
+                                    <!--<div class="col-xs-9 text-right">
                                         <div class="huge">9234</div>
                                         <div>Movies</div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                             <a href="#">

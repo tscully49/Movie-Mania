@@ -72,22 +72,22 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+                        <a href="index.php"><i class="fa fa-fw fa-home"></i> Home</a>
                     </li>
                     <li>
-                        <a href="/movies"><i class="fa fa-fw fa-film"></i> Movies</a>
+                        <a href="movies.php"><i class="fa fa-fw fa-film"></i> Movies</a>
                     </li>
                     <li>
-                        <a href="/actors"><i class="fa fa-fw fa-user"></i> Actors</a>
+                        <a href="actors.php"><i class="fa fa-fw fa-user"></i> Actors</a>
                     </li>
                     <li>
-                        <a href="box_office"><i class="fa fa-fw fa-money"></i> Box Office</a>
+                        <a href="box_office.php"><i class="fa fa-fw fa-money"></i> Box Office</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-calendar"></i> Year</a>
+                        <a href="error_page.php"><i class="fa fa-fw fa-calendar"></i> Year</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i> Rating</a>
+                        <a href="error_page.php"><i class="fa fa-fw fa-bar-chart-o"></i> Rating</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-video-camera"></i> Genre <i class="fa fa-fw fa-caret-down"></i></a>
@@ -119,10 +119,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/error_page"><i class="fa fa-fw fa-gears"></i> Statistics</a>
+                        <a href="error_page.php"><i class="fa fa-fw fa-gears"></i> Statistics</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-file"></i> About Us</a>
+                        <a href="error_page.php"><i class="fa fa-fw fa-file"></i> About Us</a>
                     </li>
                 </ul>
             </div>

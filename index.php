@@ -179,16 +179,16 @@
                         <a href="movies.php"><i class="fa fa-fw fa-film"></i> Movies</a>
                     </li>
                     <li>
-                        <a href="~cs3380f14grp12/Movie-Test/actors.php"><i class="fa fa-fw fa-user"></i> Actors</a>
+                        <a href="actors.php"><i class="fa fa-fw fa-user"></i> Actors</a>
                     </li>
                     <li>
-                        <a href="~cs3380f14grp12/Movie-Test/box_office.php"><i class="fa fa-fw fa-money"></i> Box Office</a>
+                        <a href="box_office.php"><i class="fa fa-fw fa-money"></i> Box Office</a>
                     </li>
                     <li>
-                        <a href="~cs3380f14grp12/Movie-Test/error_page.php"><i class="fa fa-fw fa-calendar"></i> Year</a>
+                        <a href="error_page.php"><i class="fa fa-fw fa-calendar"></i> Year</a>
                     </li>
                     <li>
-                        <a href="~cs3380f14grp12/Movie-Test/error_page.php"><i class="fa fa-fw fa-bar-chart-o"></i> Rating</a>
+                        <a href="error_page.php"><i class="fa fa-fw fa-bar-chart-o"></i> Rating</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-video-camera"></i> Genre <i class="fa fa-fw fa-caret-down"></i></a>
@@ -220,10 +220,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/~cs3380f14grp12/Movie-Test/error_page.php"><i class="fa fa-fw fa-gears"></i> Statistics</a>
+                        <a href="error_page.php"><i class="fa fa-fw fa-gears"></i> Statistics</a>
                     </li>
                     <li>
-                        <a href="/~cs3380f14grp12/Movie-Test/error_page.php"><i class="fa fa-fw fa-file"></i> About Us</a>
+                        <a href="error_page.php"><i class="fa fa-fw fa-file"></i> About Us</a>
                     </li>
                 </ul>
             </div>

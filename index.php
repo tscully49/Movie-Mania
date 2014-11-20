@@ -282,7 +282,7 @@
                                         $actors = pg_prepare($conn, "actor", 'SELECT count(*) FROM actor');
                                         $actors = pg_execute($conn, "actor", array());
                                         $genres = pg_prepare($conn, "genre", 'SELECT count(*) FROM genre');
-                                        $genres = pg_execure($conn, "genre", array());
+                                        $genres = pg_execute($conn, "genre", array());
 
                                         $num_movies=pg_fetch_array($result, null, PGSQL_ASSOC);
                                         $num = $num_movies['count'];

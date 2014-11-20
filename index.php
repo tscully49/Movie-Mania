@@ -173,22 +173,22 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="/~cs3380f14grp12/Movie-Test/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
+                        <a href="index.php"><i class="fa fa-fw fa-home"></i> Home</a>
                     </li>
                     <li>
-                        <a href="/~cs3380f14grp12/Movie-Test/movies.php"><i class="fa fa-fw fa-film"></i> Movies</a>
+                        <a href="movies.php"><i class="fa fa-fw fa-film"></i> Movies</a>
                     </li>
                     <li>
-                        <a href="/~cs3380f14grp12/Movie-Test/actors.php"><i class="fa fa-fw fa-user"></i> Actors</a>
+                        <a href="~cs3380f14grp12/Movie-Test/actors.php"><i class="fa fa-fw fa-user"></i> Actors</a>
                     </li>
                     <li>
-                        <a href="/~cs3380f14grp12/Movie-Test/box_office.php"><i class="fa fa-fw fa-money"></i> Box Office</a>
+                        <a href="~cs3380f14grp12/Movie-Test/box_office.php"><i class="fa fa-fw fa-money"></i> Box Office</a>
                     </li>
                     <li>
-                        <a href="/~cs3380f14grp12/Movie-Test/error_page.php"><i class="fa fa-fw fa-calendar"></i> Year</a>
+                        <a href="~cs3380f14grp12/Movie-Test/error_page.php"><i class="fa fa-fw fa-calendar"></i> Year</a>
                     </li>
                     <li>
-                        <a href="/~cs3380f14grp12/Movie-Test/error_page.php"><i class="fa fa-fw fa-bar-chart-o"></i> Rating</a>
+                        <a href="~cs3380f14grp12/Movie-Test/error_page.php"><i class="fa fa-fw fa-bar-chart-o"></i> Rating</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-video-camera"></i> Genre <i class="fa fa-fw fa-caret-down"></i></a>

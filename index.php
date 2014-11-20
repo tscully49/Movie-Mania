@@ -390,13 +390,14 @@
                                         <thead>
                                             <tr>
                                                 <?PHP
-                                                    pg_num_fields($diff_genres);
+                                                    $num_fields = pg_num_fields($diff_genres);
                                                     for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
                                                         $fieldName = pg_field_name($result, $i);
                                                         echo "\t\t\n<th>$fieldName</th>"; 
                                                     }
                                                 ?>
                                             </tr>
+
                                         </thead>
                                     </table>
                                 </div>

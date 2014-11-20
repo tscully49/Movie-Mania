@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Movie-Trends</title>
+    <title>Movie-Mania</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="templateStuff/css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Movie Trends</a>
+                <a class="navbar-brand" href="index.php">Movie Mania</a>
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
@@ -238,7 +238,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                             Welcome to Movie-Trends! <small>The Coolest Movie App Ever Made</small>
+                             Welcome to Movie-Mania! <small>The Coolest Movie App Ever Made</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">

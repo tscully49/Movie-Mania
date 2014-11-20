@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Movie-Trends</title>
+    <title>Movie-Mania</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="templateStuff/css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Movie Trends</a>
+                <a class="navbar-brand" href="index.php">Movie Mania</a>
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>

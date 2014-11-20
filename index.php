@@ -287,11 +287,11 @@
                                         $num_movies=pg_fetch_array($result, null, PGSQL_ASSOC);
                                         $num = $num_movies['count'];
                                         $num_years=pg_fetch_array($years, null, PGSQL_ASSOC);
-                                        $num_years=$num_years['total'];
+                                        $num_years2=$num_years['total'];
                                         $num_actors = pg_fetch_array($actors, null, PGSQL_ASSOC);
-                                        $num_actors = $num_actors['count'];
+                                        $num_actors2 = $num_actors['count'];
                                         $num_genres = pg_fetch_array($genres, null, PGSQL_ASSOC);
-                                        $num_genres = $num_genres['count'];
+                                        $num_genres2 = $num_genres['count'];
 
                                         echo"<div class='col-xs-9 text-right'>";
                                         echo"\n\t<div class='huge'>$num</div>";
@@ -324,7 +324,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <?PHP
-                                            echo"<div class='huge'>$num_actors</div>";
+                                            echo"<div class='huge'>$num_actors2</div>";
                                         ?>
                                         <div>Actors/Actresses</div>
                                     </div>
@@ -348,7 +348,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <?PHP
-                                            echo"<div class='huge'>$num_years</div>";
+                                            echo"<div class='huge'>$num_years2</div>";
                                         ?>
                                         <div>Years</div>
                                     </div>
@@ -372,7 +372,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <?PHP
-                                            echo"<div class='huge'>$num_genres</div>";
+                                            echo"<div class='huge'>$num_genres2</div>";
                                         ?>
                                         <div>Genres</div>
                                     </div>

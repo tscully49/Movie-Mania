@@ -278,9 +278,10 @@
                                         $result = pg_prepare($conn, "movies",'SELECT count(*) AS COUNT FROM movie');
                                         $result = pg_execute($conn, "movies", array());
                                         $line=pg_fetch_array($result, null, PGSQL_ASSOC);
+                                        $num = $line['COUNT'];
 
                                         echo"<div class='col-xs-9 text-right'>";
-                                        echo"\n\t<div class='huge'>$line['COUNT']</div>";
+                                        echo"\n\t<div class='huge'>$num</div>";
                                         echo"\n\t<div>Movies</div>";
                                         echo"</div>";
 

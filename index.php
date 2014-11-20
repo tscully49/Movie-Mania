@@ -268,7 +268,7 @@
                                         <i class="fa fa-film fa-5x"></i>
                                     </div>
                                     <?PHP
-                                        include("/database.php");
+                                        include("database.php");
                                         $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
                                  
                                         if(!$conn){

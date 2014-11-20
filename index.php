@@ -275,7 +275,7 @@
                                             echo"<p> Connection Fail</p>";
                                         }
 
-                                        $result = pg_prepare($conn, "movies",'SELECT count(*) FROM movie');
+                                        $result = pg_prepare($conn, "movies",'SELECT count(*) AS COUNT FROM movie');
                                         $result = pg_execute($conn, "movies", array());
                                         $line=pg_fetch_array($result, null, PGSQL_ASSOC);
 

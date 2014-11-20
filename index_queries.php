@@ -15,6 +15,13 @@
     $genres = pg_prepare($conn, "genre", 'SELECT count(*) FROM genre');
     $genres = pg_execute($conn, "genre", array());
 
+    $diff_genres = pg_prepare($conn, "all_genres", 'SELECT g.genre, count(mg.movie_id) FROM movie_genre as mg INNER JOIN genre as g ON (g.genre_id=mg.genre_id) GROUP BY (g.genre)');
+    $diff_genres = pg_execute($conn, "all_genres", array());
+
+
+    $all_genres = pg_fetch_array($diff_genres, null, PGSQL_ASSOC);
+    
+    
     $num_movies=pg_fetch_array($result, null, PGSQL_ASSOC);
     $num = $num_movies['count'];
     $num_years = pg_fetch_array($years, null, PGSQL_ASSOC);

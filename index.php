@@ -385,9 +385,20 @@
                                 <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> Total Genres</h3>
                             </div>
                             <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                                <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                 <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <?PHP
+                                                    pg_num_fields($diff_genres);
+                                                    for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
+                                                        $fieldName = pg_field_name($result, $i);
+                                                        echo "\t\t\n<th>$fieldName</th>"; 
+                                                    }
+                                                ?>
+                                            </tr>
+                                        </thead>
+                                    </table>
                                 </div>
                             </div>
                         </div>

@@ -287,12 +287,13 @@
                                         $num_movies=pg_fetch_array($result, null, PGSQL_ASSOC);
                                         $num = $num_movies['count'];
                                         $num_years=pg_fetch_array($years, null, PGSQL_ASSOC);
-                                        $num_years2=$num_years['total'];
+                                        $num_years2 = $num_years['total'];
                                         $num_actors = pg_fetch_array($actors, null, PGSQL_ASSOC);
                                         $num_actors2 = $num_actors['count'];
                                         $num_genres = pg_fetch_array($genres, null, PGSQL_ASSOC);
                                         $num_genres2 = $num_genres['count'];
 
+                                        print_r($num_actors);
                                         echo"<div class='col-xs-9 text-right'>";
                                         echo"\n\t<div class='huge'>$num</div>";
                                         echo"\n\t<div>Movies</div>";

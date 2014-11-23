@@ -28,8 +28,8 @@
     $num_actors2 = $num_actors['count'];
     $num_genres = pg_fetch_array($genres, null, PGSQL_ASSOC);
     $num_genres2 = $num_genres['count'];
-
-    $newjson = file_get_contents(sprintf('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?limit=10&country=us&apikey=wq44pw5725966dp9qqnxe27x', $data[1]));
+    
+    $newjson = file_get_contents(sprintf('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?limit=10&country=us&apikey=wq44pw5725966dp9qqnxe27x'));
     $new = json_decode($newjson, true);
 
 

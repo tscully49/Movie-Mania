@@ -425,9 +425,9 @@
                                     <?PHP
                                         foreach($new['movie'] as $obj) {
                                             echo"<a href='#'' class='list-group-item'>";
-                                            echo"<span class='badge'>" . $obj['movies'][$i]['audience_score'] . "</span>";
+                                            echo"<span class='badge'>" . $obj['audience_score'] . "</span>";
                                             echo"<i class='fa fa-fw fa-video-camera'></i>"; 
-                                            echo $obj['movies'][$i]['title'];
+                                            echo $obj['title'];
                                             echo"</a>";
                                         }
                                     ?>

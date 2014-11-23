@@ -426,7 +426,7 @@
                                         <span class="badge">$38053000</span>
                                         <i class="fa fa-fw fa-video-camera"></i> 
                                         <?PHP
-                                            echo "\n $new[movies][title][0]";
+                                            echo $new['movies'][0]['title'];
                                         ?>
                                     </a>
                                     <a href="#" class="list-group-item">

@@ -176,7 +176,7 @@
 
     session_start();
     //actor name from letter page
-    $actor = $_SESSION['title'];
+    $actor = $_SESSION['name'];
 
     $error_query = "SELECT name FROM actor WHERE name = $1";
 

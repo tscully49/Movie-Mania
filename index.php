@@ -431,10 +431,6 @@
                                             echo"</a>";
                                         }
                                     ?>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$SO MUCH MONEY</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Test One
-                                    </a>
                                 </div>
                                 <div class="text-right">
                                     <a href="#">View Box Office <i class="fa fa-arrow-circle-right"></i></a>

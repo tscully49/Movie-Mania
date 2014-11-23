@@ -422,40 +422,18 @@
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
+                                    <?PHP
+                                        foreach($new['movie'] as $obj) {
+                                            echo"<a href='#'' class='list-group-item'>";
+                                            echo"<span class='badge'>" . $obj['movies'][$i]['audience_score'] . "</span>";
+                                            echo"<i class='fa fa-fw fa-video-camera'></i>"; 
+                                            echo $obj['movies'][$i]['title'];
+                                            echo"</a>";
+                                        }
+                                    ?>
                                     <a href="#" class="list-group-item">
-                                        <span class="badge">$38053000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> 
-                                        <?PHP
-                                            echo $new['movies'][0]['title'];
-                                        ?>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$36010000 </span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Big Hero 6
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$29190000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Interstellar
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$6500000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Beyond the Lights
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$4625000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Gone Girl
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$4025000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> St. Vincent
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$3810000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Fury (2014)
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$3038000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Nightcrawler"
+                                        <span class="badge">$SO MUCH MONEY</span>
+                                        <i class="fa fa-fw fa-video-camera"></i> Test One
                                     </a>
                                 </div>
                                 <div class="text-right">

@@ -418,7 +418,7 @@
                     <div class="col-lg-3">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Box Office</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Now Showing </h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
@@ -433,7 +433,7 @@
                                     ?>
                                 </div>
                                 <div class="text-right">
-                                    <a href="#">View Box Office <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="#">View Movies in Theater <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -471,7 +471,7 @@
                                     </table>
                                 </div>
                                 <div class="text-right">
-                                    <a href="#">View Box Office <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="boxOffice.php">View Box Office <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>

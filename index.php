@@ -471,61 +471,25 @@
                                     <table class="table table-bordered table-hover table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Rank</th>
-                                                <th>Order Date</th>
-                                                <th>Title</th>
-                                                <th>Amount (USD)</th>
+                                               <?PHP
+                                                    $num_fields = pg_num_fields($box_office_query);
+                                                    for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
+                                                        $fieldName = pg_field_name($box_office_query, $i);
+                                                        echo "\t\t\n<th>$fieldName</th>"; 
+                                                    }
+                                                ?>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>10/21/2013</td>
-                                                <td>Shawshank Redmeption</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>10/21/2013</td>
-                                                <td>Avatar</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>10/21/2013</td>
-                                                <td>Fast and Furious</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>10/21/2013</td>
-                                                <td>Inception</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>10/21/2013</td>
-                                                <td>Top Gun</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>10/21/2013</td>
-                                                <td>The Dark Knight</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>10/21/2013</td>
-                                                <td>Step Brothers</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>10/21/2013</td>
-                                                <td>Forest Gump</td>
-                                                <td>$943.45</td>
-                                            </tr>
+                                        <?PHP
+                                            while ($all_box_office = pg_fetch_array($box_office_query, null, PGSQL_ASSOC)) {
+                                                echo"<tr>";
+                                                foreach($all_box_office as $col) { // Prints out all the info 
+                                                    echo"\n\t\t<td>$col</td>";
+                                                }
+                                                echo"\n\t</tr>";
+                                            }
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>

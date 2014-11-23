@@ -63,10 +63,10 @@
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
             <form method = "POST" action = http://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/decider.php class="navbar-form navbar-left searchbar" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" name = 'search' placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+                <div class="form-group">
+                    <input type="text" class="form-control" name='search' placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
 		    </form>
             <!-- Top Menu Items -->
             <!--<ul class="nav navbar-right top-nav">

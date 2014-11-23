@@ -186,7 +186,7 @@
         echo 'No results found ';
     }
     else{
-                echo $actor;
+            echo $actor;
             echo '\'s Profile';
 
             echo "<br/>";

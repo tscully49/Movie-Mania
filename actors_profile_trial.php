@@ -174,9 +174,9 @@
         user=cs3380f14grp12 password=bpVhIe1A") 
     or die('Could not connect: ' . pg_last_error());
 
-
+    session_start();
     //actor name from letter page
-    $actor = $_POST['search'];
+    $actor = $_SESSION['title'];
 
     $error_query = "SELECT name FROM actor WHERE name = $1";
 
@@ -184,7 +184,7 @@
     $error_check = pg_execute($dbconn, 'error', array($actor));
     if(pg_num_rows($error_check) == 0){
         echo 'No results found!!! ';
-        echo "$actor";
+        echo $actor;
     }
     else{
             echo $actor;

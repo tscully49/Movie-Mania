@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Movie-Man</title>
+    <title>Movie-Mania</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="templateStuff/css/bootstrap.min.css" rel="stylesheet">

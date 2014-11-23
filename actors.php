@@ -211,13 +211,13 @@
                     <div class="col-lg-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Search by Name</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
                             <form class="panel-body" role="search">
                                 <div class="form-group">
                                   <input type="text" class="form-control" placeholder="Search">
                                 </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="submit" class="btn btn-default pull-right">Search!</button>
                             </form>
                         </div>
                     </div>

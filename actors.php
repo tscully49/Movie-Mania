@@ -211,6 +211,15 @@
                     <div class="col-lg-4 col-lg-offset-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Search by Name</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Close the search bar div -->
+
+                    <div class="col-lg-4 col-lg-offset-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Box Office</h3>
                             </div>
                             <div class="panel-body">

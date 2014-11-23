@@ -15,7 +15,7 @@
     $genres = pg_prepare($conn, "genre", 'SELECT count(*) FROM genre');
     $genres = pg_execute($conn, "genre", array());
 
-    $diff_genres = pg_prepare($conn, "all_genres", 'SELECT g.genre AS "Genre", count(mg.movie_id) AS Movies FROM movie_genre as mg INNER JOIN genre as g ON (g.genre_id=mg.genre_id) GROUP BY (g.genre) ORDER BY count(mg.movie_id) desc');
+    $diff_genres = pg_prepare($conn, "all_genres", 'SELECT g.genre AS "Genre", count(mg.movie_id) AS "Movies" FROM movie_genre as mg INNER JOIN genre as g ON (g.genre_id=mg.genre_id) GROUP BY (g.genre) ORDER BY count(mg.movie_id) desc');
     $diff_genres = pg_execute($conn, "all_genres", array());
     $box_office_query = pg_prepare($conn, "total_box_office", 'SELECT rank() OVER (ORDER BY domestic_gross DESC) AS "Rank", title AS "Title", release_date AS "Release Date", domestic_gross AS "Total Gross" FROM movie LIMIT 10');
     $box_office_query = pg_execute($conn, "total_box_office", array());

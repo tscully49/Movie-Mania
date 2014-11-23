@@ -418,7 +418,7 @@
                     <div class="col-lg-3">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Now Showing </h3>
+                                <h3 class="panel-title"><i class="fa fa-film fa-fw"></i> Now Showing </h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
@@ -441,7 +441,7 @@
                     <div class="col-lg-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-film fa-fw"></i> Top Selling Movies</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Top Selling Movies</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">

@@ -178,12 +178,13 @@
     //actor name from letter page
     $actor = $_POST['search'];
 
-    $error_query = 'SELECT name FROM actor WHERE name = $1';
+    $error_query = "SELECT name FROM actor WHERE name = $1";
 
     pg_prepare($dbconn, 'error', $error_query);
     $error_check = pg_execute($dbconn, 'error', array($actor));
     if(pg_num_rows($error_check) == 0){
         echo 'No results found ';
+        echo $actor;
     }
     else{
             echo $actor;

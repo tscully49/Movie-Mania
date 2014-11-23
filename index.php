@@ -424,7 +424,10 @@
                                 <div class="list-group">
                                     <a href="#" class="list-group-item">
                                         <span class="badge">$38053000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Dumb and Dumber To
+                                        <i class="fa fa-fw fa-video-camera"></i> 
+                                        <?PHP 
+                                            echo"new[movies][title]";
+                                        ?>
                                     </a>
                                     <a href="#" class="list-group-item">
                                         <span class="badge">$36010000 </span>
@@ -494,7 +497,7 @@
                                     </table>
                                 </div>
                                 <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="#">View Box Office <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>

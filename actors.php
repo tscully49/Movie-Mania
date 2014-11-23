@@ -213,6 +213,12 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Search by Name</h3>
                             </div>
+                            <form class="panel-body" role="search">
+                                <div class="form-group">
+                                  <input type="text" class="form-control" placeholder="Search">
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
                         </div>
                     </div>
                     <!-- Close the search bar div -->

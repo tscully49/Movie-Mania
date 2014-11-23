@@ -30,6 +30,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+	.table{
+		width: 300px;
+	}
     	.navbar-header {
     		margin: 0 auto;
     		position: relative;
@@ -68,13 +71,13 @@
                 <a class="navbar-brand" href="index.php">Movie Mania</a>
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
-		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-            <form class="navbar-form navbar-left searchbar" role="search">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
-		        </div>
-		        <button type="submit" class="btn btn-default">Submit</button>
-		    </form>
+	    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
+            <form class="navbar-form navbar-left searchbar" role="search" action="movies.php" method="post">
+	    <div class="form-group">
+		 <input type="text" name="title" class="form-control" placeholder="Search">
+	    </div>
+	    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+	    </form>
            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -166,6 +169,42 @@
                 </div>
                 <!-- /.row -->
 
+
+<?php
+        
+        if(isset($_POST['submit'])){
+           $title = $_POST['title'];
+	   echo "About $title";
+	   $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
+
+           $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
+           pg_prepare($conn,"titlesearch",$query1);
+           $result1 = pg_execute($conn,"titlesearch",array($title));
+	  
+           echo "<table class='table'>";
+	   echo "<tbody>";
+	  
+	   $i=0;
+           while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
+                foreach($line as $col_value){
+		   $fieldname=pg_field_name($result1,$i);
+                   echo "\t\t<tr><td>$fieldname: $col_value</td></tr>\n";
+                   $i=$i+1;
+		}
+           }
+
+	   echo "</tbody>\n";
+           echo "</table>\n";
+
+
+           pg_free_result($result1);
+
+           pg_close($conn);
+        }
+
+?>
+
+<!--
                 <div class="row">
                     <div class="col-lg-3 btn-group btn-group-vertical">
                         <div class="panel panel-default">
@@ -328,10 +367,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>  -->
                 <!-- /.row -->
 
-            </div>
+<!--            </div>     -->
             <!-- /.container-fluid -->
 
         </div>

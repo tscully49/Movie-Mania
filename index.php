@@ -423,7 +423,7 @@
                             <div class="panel-body">
                                 <div class="list-group">
                                     <?PHP
-                                        foreach($new['movie'] as $obj) {
+                                        foreach($new['movies'] as $obj) {
                                             echo"<a href='#'' class='list-group-item'>";
                                             echo"<span class='badge'>" . $obj['audience_score'] . "</span>";
                                             echo"<i class='fa fa-fw fa-video-camera'></i>"; 

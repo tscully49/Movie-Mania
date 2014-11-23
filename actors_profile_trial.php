@@ -183,8 +183,8 @@
     pg_prepare($dbconn, 'error', $error_query);
     $error_check = pg_execute($dbconn, 'error', array($actor));
     if(pg_num_rows($error_check) == 0){
-        echo 'No results found ';
-        echo $actor;
+        echo 'No results found!!! ';
+        echo "$actor";
     }
     else{
             echo $actor;

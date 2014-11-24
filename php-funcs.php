@@ -92,7 +92,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                                $num_fields = pg_num_fields($this_genre);
 		                                for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
 		                                    $fieldName = pg_field_name($this_genre, $i);
-		                                    echo "\n\t\t\t\t\t\t\t<th>$fieldName</th>"; 
+		                                    echo "\n\t\t\t\t\t\t\t<th class='list-group-item'>$fieldName</th>"; 
 		                                }
 
 		                        echo"\n\t\t\t\t\t\t</tr>";
@@ -103,7 +103,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                            echo"\n\t\t\t\t\t\t<tr>";
 		                            echo"\n\t\t\t\t\t\t<a href=movie_profile?title=$movies[title] class='list-group-item'>";
 		                            foreach($info as $col) { // Prints out all the info 
-		                                echo"\n\t\t\t\t\t\t\t<td>$col<td>";
+		                                echo"\n\t\t\t\t\t\t\t$col";
 		                            }
 		                            echo"\n\t\t\t\t\t\t</a>";
 		                            echo"\n\t\t\t\t\t\t</tr>";

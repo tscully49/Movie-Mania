@@ -217,9 +217,9 @@
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
                             <form class="panel-body" role="search">
-                                <div class="form-group">
+                                <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Search">
-                                    <span><button type="submit" class="btn btn-default pull-right">Search!</button></span>
+                                    <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
                                 </div>
                             </form>
                         </div>

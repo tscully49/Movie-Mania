@@ -75,7 +75,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
     $all_genres = pg_execute($conn, "genre_query", array());
 
     while ($one_genre = pg_fetch_array($all_genres, null, PGSQL_ASSOC)) {
-    	$this_genre = pg_prepare($conn, "genre_search", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC LIMIT 10');
+    	$this_genre = pg_prepare($conn, "genre_search", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title AS "Title" FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC LIMIT 10');
     	$this_genre = pg_execute($conn, "genre_search", array($one_genre[genre]));
 
 		echo"\n<div class='col-lg-3'>";
@@ -141,7 +141,7 @@ function print_single_genre($genre) { // prints out a table for a single genre w
                                     if(!$conn){
                                         echo"<p> Connection Fail</p>";
                                     }
-                                    $this_genre = pg_prepare($conn, "genre_query", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC');
+                                    $this_genre = pg_prepare($conn, "genre_query", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title AS "Title", release_date AS "Release Date", mpaa_rating AS "Rating", rt_audience AS "Audience Rating" FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC');
                                     $this_genre = pg_execute($conn, "genre_query", array($type));
                                     $num_fields = pg_num_fields($this_genre);
                                     for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 

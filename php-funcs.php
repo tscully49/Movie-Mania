@@ -141,7 +141,7 @@ function print_single_genre($genre) { // prints out a table for a single genre w
                                     if(!$conn){
                                         echo"<p> Connection Fail</p>";
                                     }
-                                    $this_genre = pg_prepare($conn, "genre_query", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC LIMIT 10');
+                                    $this_genre = pg_prepare($conn, "genre_query", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC');
                                     $this_genre = pg_execute($conn, "genre_query", array($type));
                                     $num_fields = pg_num_fields($this_genre);
                                     for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
@@ -164,9 +164,9 @@ function print_single_genre($genre) { // prints out a table for a single genre w
                         echo"\n\t\t\t\t\t</tbody>";
                     echo"\n\t\t\t\t</table>";
                 echo"\n\t\t\t</div>";
-            	echo"\n\t\t\t<div class='text-right'>";
-                    echo"\n\t\t\t\t<a href='genre.php?genre=$one_genre[genre]'>View All Movies <i class='fa fa-arrow-circle-right'></i></a>";
-                echo"\n\t\t\t</div>";
+            	//echo"\n\t\t\t<div class='text-right'>";
+                    //echo"\n\t\t\t\t<a href='genre.php?genre=$one_genre[genre]'>View All Movies <i class='fa fa-arrow-circle-right'></i></a>";
+                //echo"\n\t\t\t</div>";
             echo"\n\t\t</div>";
         echo"\n\t</div>";
     echo"\n</div>";

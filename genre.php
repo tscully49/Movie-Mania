@@ -212,7 +212,7 @@
                 <div class="row">
                     <!-- Decides whether all the genres should be printed out or if just a single one should by checking the get parameters-->
                     <?PHP
-                        include("php-funcs.php");
+                        require("php-funcs.php");
                         //if ($_GET['genre']) {
                             //print_single_genre($_GET['genre']);
                         //}

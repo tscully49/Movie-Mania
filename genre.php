@@ -189,10 +189,7 @@
                         <h1 class="page-header">
                             Search any Actor or Actress in our Database! <small>The main actors in all of our movies!</small>
                         </h1>
-                        <?PHP
-                            $type = $_GET['genre']; 
-                            echo"<div>$type</div>";
-                        ?>
+
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-arrow-right"><span class="">Movies</span></i>
@@ -217,7 +214,7 @@
                     <?PHP
                         include("php-funcs.php");
                         if ($_GET['genre'] == "") {
-                            print_all_queries();
+                            print_all_genres();
                         }
                         else {
                             print_single_genre($_GET['genre']);

@@ -213,7 +213,7 @@
                     <!-- Decides whether all the genres should be printed out or if just a single one should by checking the get parameters-->
                     <?PHP
                         include("php-funcs.php");
-                        if ($_GET['genre'] != "All") {
+                        if (!$_GET['genre']) {
                             print_all_genres();
                         }
                         else {

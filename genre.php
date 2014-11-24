@@ -48,6 +48,10 @@
     	.movie_titles {
     		display: inline;
     	}
+        td a {
+            display:block;
+            width:100%;
+        }
     </style>
 </head>
 

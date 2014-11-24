@@ -104,28 +104,28 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-video-camera"></i> Genre <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="#">Action/Adventure</a>
+                                <a href="genre.php?genre=Action/Adventure">Action/Adventure</a>
                             </li>
                             <li>
-                                <a href="#">Comedy</a>
+                                <a href="genre.php?genre=Comedy">Comedy</a>
                             </li>
                             <li>
-                                <a href="#">Documentary</a>
+                                <a href="genre.php?genre=Documentary">Documentary</a>
                             </li>
                             <li>
-                                <a href="#">Drama</a>
+                                <a href="genre.php?genre=Drama">Drama</a>
                             </li>
                             <li>
-                                <a href="#">Horror</a>
+                                <a href="genre.php?genre=Horror">Horror</a>
                             </li>
                             <li>
-                                <a href="#">Romance</a>
+                                <a href="genre.php?genre=Romance">Romance</a>
                             </li>
                             <li>
-                                <a href="#">Sci-Fi</a>
+                                <a href="genre.php?genre=Sci-Fi">Sci-Fi</a>
                             </li>
                             <li>
-                                <a href="#">Thriller</a>
+                                <a href="genre.php?genre=Thriller">Thriller</a>
                             </li>
                         </ul>
                     </li>

@@ -82,7 +82,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		echo"\n<div class='col-lg-3'>";
 		    echo"\n\t<div class='panel panel-default'>";
 		        echo"\n\t\t<div class='panel-heading'>";
-		            echo"\n\t\t\t<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $one_genre Movies</strong></h3>"; 
+		            echo"\n\t\t\t<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $one_genre['genre'] Movies</strong></h3>"; 
 		        echo"\n\t\t</div>";
 		        echo"\n\t\t<div class='panel-body'>";
 		            echo"\n\t\t\t<div class='table-responsive'>";

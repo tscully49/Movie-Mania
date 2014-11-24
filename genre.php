@@ -215,7 +215,7 @@
                 <div class="row">
                     <!-- Decides whether all the genres should be printed out or if just a single one should by checking the get parameters-->
                     <?PHP
-                        include("php-functions.php");
+                        include("php-funcs.php");
                         if ($_GET['genre'] == "") {
                             print_all_queries();
                         }

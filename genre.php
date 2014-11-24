@@ -219,7 +219,7 @@
                                     }
                                     else {
                                         $type = "All";
-                                        echo"<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $type Movie</strong></h3>"; 
+                                        echo"<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $type Movies</strong></h3>"; 
                                     }
                                 ?>
                             </div>

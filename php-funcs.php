@@ -75,7 +75,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
     $all_genres = pg_execute($conn, "genre_query", array());
 
     while ($one_genre = pg_fetch_array($all_genres, null, PGSQL_ASSOC)) {
-    	var_dump($all_genres);
+    	echo "$all_genres";
     	$this_genre = pg_prepare($conn, "genre_search", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC LIMIT 10');
     	$this_genre = pg_execute($conn, "genre_search", array($one_genre[genre]));
 

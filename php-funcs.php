@@ -92,7 +92,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                                $num_fields = pg_num_fields($this_genre);
 		                                for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
 		                                    $fieldName = pg_field_name($this_genre, $i);
-		                                    echo "\n\t\t\t\t\t\t\t$fieldName"; 
+		                                    echo "\n\t\t\t\t\t\t\t<th class='list-group-item'>$fieldName</th>"; 
 		                                }
 
 		                        echo"\n\t\t\t\t\t\t</tr>";

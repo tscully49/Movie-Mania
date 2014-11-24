@@ -199,6 +199,7 @@
                                                 ?>
                                             </tr>
                                         </thead>
+                                        <tbody>
                                         <?PHP
                                             while ($all_genres = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
                                                 echo"<tr>";
@@ -208,6 +209,7 @@
                                                 echo"\n\t</tr>";
                                             }
                                         ?>
+                                        </tbody>
                                     </table>
                                 </div>
                             	<div class="text-right">

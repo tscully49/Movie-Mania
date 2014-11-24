@@ -99,7 +99,6 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                    echo"\n\t\t\t\t\t</thead>";
 		                    echo"\n\t\t\t\t\t<tbody>";
 		                    echo"\n\t\t\t\t\t</tbody>";
-		                    echo"\n\t\t\t\t</table>";
 
 		                        while ($info = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
 		                            //echo"\n\t\t\t\t\t\t<tr>";
@@ -112,7 +111,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                        }
 
 		                    //echo"\n\t\t\t\t\t</tbody>";
-		                //echo"\n\t\t\t\t</table>";
+		                echo"\n\t\t\t\t</table>";
 		            echo"\n\t\t\t</div>";
 		        	echo"\n\t\t\t<div class='text-right'>";
 		                echo"\n\t\t\t\t<a href='genre.php?genre=$one_genre[genre]'>View All $one_genre[genre] Movies <i class='fa fa-arrow-circle-right'></i></a>";

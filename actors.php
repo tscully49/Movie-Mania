@@ -101,10 +101,22 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-video-camera"></i> Genre <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="genre.php?genre=Action/Adventure">Action/Adventure</a>
+                                <a href="genre.php?genre=Action">Action</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=Adventure">Adventure</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=Animation">Animation</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=Biography">Biography</a>
                             </li>
                             <li>
                                 <a href="genre.php?genre=Comedy">Comedy</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=Crime">Crime</a>
                             </li>
                             <li>
                                 <a href="genre.php?genre=Documentary">Documentary</a>
@@ -113,7 +125,25 @@
                                 <a href="genre.php?genre=Drama">Drama</a>
                             </li>
                             <li>
+                                <a href="genre.php?genre=Fantasy">Fantasy</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=Film-Noir">Film-Noir</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=History">History</a>
+                            </li>
+                            <li>
                                 <a href="genre.php?genre=Horror">Horror</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=Music">Music</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=Musical">Musical</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=Mystery">Mystery</a>
                             </li>
                             <li>
                                 <a href="genre.php?genre=Romance">Romance</a>
@@ -122,7 +152,16 @@
                                 <a href="genre.php?genre=Sci-Fi">Sci-Fi</a>
                             </li>
                             <li>
+                                <a href="genre.php?genre=Sports">Sports</a>
+                            </li>
+                            <li>
                                 <a href="genre.php?genre=Thriller">Thriller</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=War">War</a>
+                            </li>
+                            <li>
+                                <a href="genre.php?genre=Western">Western</a>
                             </li>
                         </ul>
                     </li>

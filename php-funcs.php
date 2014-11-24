@@ -104,7 +104,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                            foreach($info as $col) { // Prints out all the info 
 		                            	echo"\n\t\t\t\t\t\t<td><a href=movie_profile?title=$info[title] class='list-group-item'>$col</a></td>";
 		                            }
-		                            //echo"\n\t\t\t\t\t\t</tr>";
+		                            echo"\n\t\t\t\t\t\t</tr>";
 		                        }
 
 		                    echo"\n\t\t\t\t\t</tbody>";

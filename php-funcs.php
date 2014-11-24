@@ -79,8 +79,8 @@ function print_all_genres() { // Functions which prints out a table for each gen
     	$this_genre = pg_execute($conn, "genre_search", array($one_genre[genre]));
 
 		echo"\n<div class='col-lg-3'>";
-		    echo"\n\t<div class='panel panel-default'>";
-		        echo"\n\t\t<div class='panel-heading panel-info'>";
+		    echo"\n\t<div class='panel panel-info'>";
+		        echo"\n\t\t<div class='panel-heading'>";
 		            echo"\n\t\t\t<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $one_genre[genre] Movies</strong></h3>"; 
 		        echo"\n\t\t</div>";
 		        echo"\n\t\t<div class='panel-body'>";

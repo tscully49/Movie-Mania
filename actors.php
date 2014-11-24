@@ -256,13 +256,14 @@
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
                             <form class="panel-body" role="search">
-                                <div class="form-group">
-                                  <input type="text" class="form-control" placeholder="Search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
                                 </div>
-                                <button type="submit" class="btn btn-default pull-right">Search!</button>
                             </form>
                         </div>
                     </div>
+                    <!-- Close the search bar div -->
                     <!-- Close the search bar div -->
 
                     <div class="col-lg-4">

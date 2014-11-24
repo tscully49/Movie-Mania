@@ -229,16 +229,16 @@
                     <!-- Decides whether all the genres should be printed out or if just a single one should by checking the get parameters-->
                     <?PHP
                         require("php-funcs.php");
-                        //if ($_GET['genre']) {
-                            //print_single_genre($_GET['genre']);
-                        //}
-                        //else {
+                        if ($_GET['genre']) {
+                            print_single_genre($_GET['genre']);
+                        }
+                        else {
                            print_all_genres();
-                        //}
+                        }
                     ?>
                     <!-- Prints out either all genres or just the specified one -->
 
-                    <div class="col-lg-4">
+                    <!--<div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Most Popular Actors</h3>
@@ -249,24 +249,24 @@
                                         <thead>
                                             <tr>
                                                <?PHP
-                                                    include("actor_queries.php");
+                                                    /*include("actor_queries.php");
                                                     $num_fields = pg_num_fields($pop_actors);
                                                     for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
                                                         $fieldName = pg_field_name($pop_actors, $i);
                                                         echo "\t\t\n<th>$fieldName</th>"; 
-                                                    }
+                                                    }*/
                                                 ?>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         <?PHP
-                                            while ($popular_actors = pg_fetch_array($pop_actors, null, PGSQL_ASSOC)) {
+                                            /*while ($popular_actors = pg_fetch_array($pop_actors, null, PGSQL_ASSOC)) {
                                                 echo"<tr>";
                                                 foreach($popular_actors as $col) { // Prints out all the info 
                                                     echo"\n\t\t<td>$col</td>";
                                                 }
                                                 echo"\n\t</tr>";
-                                            }
+                                            }*/
                                         ?>
                                         </tbody>
                                     </table>
@@ -276,7 +276,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <!-- /.row -->
 

@@ -65,7 +65,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Movie Mania</a> <?PHP echo $_GET['genre']; ?>
+                <a class="navbar-brand" href="index.php">Movie Mania</a>
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
@@ -212,7 +212,7 @@
                     <!-- Decides whether all the genres should be printed out or if just a single one should by checking the get parameters-->
                     <?PHP
                         include("php-functions.php");
-                        if ($_GET['genre'] == NULL) {
+                        if ($_GET['genre'] == "") {
                             print_all_queries();
                         }
                         else {

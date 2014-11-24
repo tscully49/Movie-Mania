@@ -92,25 +92,27 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                                $num_fields = pg_num_fields($this_genre);
 		                                for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
 		                                    $fieldName = pg_field_name($this_genre, $i);
-		                                    echo "\n\t\t\t\t\t\t\t<th class='list-group-item'>$fieldName</th>"; 
+		                                    echo "\n\t\t\t\t\t\t\t<th>$fieldName</th>"; 
 		                                }
 
 		                        echo"\n\t\t\t\t\t\t</tr>";
 		                    echo"\n\t\t\t\t\t</thead>";
 		                    echo"\n\t\t\t\t\t<tbody>";
+		                    echo"\n\t\t\t\t\t</tbody>";
+		                    echo"\n\t\t\t\t</table>";
 
 		                        while ($info = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
-		                            echo"\n\t\t\t\t\t\t<tr>";
+		                            //echo"\n\t\t\t\t\t\t<tr>";
 		                            foreach($info as $col) { // Prints out all the info 
-		                            	echo"\n\t\t\t\t\t\t<td href=movie_profile?title=$info[title] class='list-group-item'>";
+		                            	echo"\n\t\t\t\t\t\t<a href=movie_profile?title=$info[title] class='list-group-item'>";
 		                                echo"\n\t\t\t\t\t\t\t$col";
-		                            	echo"\n\t\t\t\t\t\t</td>";
+		                            	echo"\n\t\t\t\t\t\t</a>";
 		                            }
-		                            echo"\n\t\t\t\t\t\t</tr>";
+		                            //echo"\n\t\t\t\t\t\t</tr>";
 		                        }
 
-		                    echo"\n\t\t\t\t\t</tbody>";
-		                echo"\n\t\t\t\t</table>";
+		                    //echo"\n\t\t\t\t\t</tbody>";
+		                //echo"\n\t\t\t\t</table>";
 		            echo"\n\t\t\t</div>";
 		        	echo"\n\t\t\t<div class='text-right'>";
 		                echo"\n\t\t\t\t<a href='genre.php?genre=$one_genre[genre]'>View All $one_genre[genre] Movies <i class='fa fa-arrow-circle-right'></i></a>";

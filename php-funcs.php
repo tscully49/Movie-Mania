@@ -61,7 +61,8 @@ function printActorTable($result)
 	echo "</table>\n";
 }
 
-function print_all_genres() {
+
+function print_all_genres() { // Functions which prints out a table for each genres and displays 10 movies from that genres in the table 
 
     include("../secure/database.php");
     $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
@@ -75,7 +76,10 @@ function print_all_genres() {
 
     $all_genres = pg_fetch_array($this_genre, null, PGSQL_ASSOC)
 
-    foreach ($all_genres) {
+    foreach ($all_genres AS $one) {
+    	$genres = pg_prepare($conn, "genre_search", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC LIMIT 10');
+    	$genres = pg_execute($conn, "genre_search", array($one));
+
 		echo"\n<div class='col-lg-3'>";
 		    echo"\n\t<div class='panel panel-default'>";
 		        echo"\n\t\t<div class='panel-heading'>";
@@ -87,9 +91,9 @@ function print_all_genres() {
 		                    echo"\n\t\t\t\t\t<thead>";
 		                        echo"\n\t\t\t\t\t\t<tr>";
 
-		                                $num_fields = pg_num_fields($this_genre);
+		                                $num_fields = pg_num_fields($genres);
 		                                for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
-		                                    $fieldName = pg_field_name($this_genre, $i);
+		                                    $fieldName = pg_field_name($genres, $i);
 		                                    echo "\n\t\t\t\t\t\t\t<th>$fieldName</th>"; 
 		                                }
 
@@ -97,7 +101,7 @@ function print_all_genres() {
 		                    echo"\n\t\t\t\t\t</thead>";
 		                    echo"\n\t\t\t\t\t<tbody>";
 
-		                        while ($all_genres = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
+		                        while ($all_genres = pg_fetch_array($genres, null, PGSQL_ASSOC)) {
 		                            echo"<tr>";
 		                            foreach($all_genres as $col) { // Prints out all the info 
 		                                echo"\n\t\t<td>$col</td>";
@@ -115,9 +119,11 @@ function print_all_genres() {
 		    echo"\n\t\t</div>";
 		echo"\n\t</div>";
 	}
+	pg_close($conn);
 }
 
-function print_single_genre($genre) {
+
+function print_single_genre($genre) { // prints out a table for a single genre which is passed through the parameter
 	<div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading">

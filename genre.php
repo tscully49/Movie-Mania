@@ -167,41 +167,13 @@
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-3 btn-group btn-group-vertical">
+                    <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i><strong> Search by Last Name</strong></h3>
                             </div>
                             <div class="panel-body">
-                            	<ul class="list-group actor_name">
-                            		<a href="actor_name?letter=a" class="list-group-item btn-sm strong">A</a>
-                            		<a href="actor_name?letter=b" class="list-group-item btn-sm strong">B</a>
-                            		<a href="actor_name?letter=c" class="list-group-item btn-sm strong">C</a>
-                            		<a href="actor_name?letter=d" class="list-group-item btn-sm strong">D</a>
-                            		<a href="actor_name?letter=e" class="list-group-item btn-sm strong">E</a>
-                            		<a href="actor_name?letter=f" class="list-group-item btn-sm strong">F</a>
-                            		<a href="actor_name?letter=g" class="list-group-item btn-sm strong">G</a>
-                            		<a href="actor_name?letter=h" class="list-group-item btn-sm strong">H</a>
-                            		<a href="actor_name?letter=j" class="list-group-item btn-sm strong">I</a>
-                            		<a href="actor_name?letter=j" class="list-group-item btn-sm strong">J</a>
-                            		<a href="actor_name?letter=k" class="list-group-item btn-sm strong">K</a>
-                            		<a href="actor_name?letter=l" class="list-group-item btn-sm strong">L</a>
-                            		<a href="actor_name?letter=m" class="list-group-item btn-sm strong">M</a>
-                            		<a href="actor_name?letter=n" class="list-group-item btn-sm strong">N</a>
-                            		<a href="actor_name?letter=o" class="list-group-item btn-sm strong">O</a>
-                            		<a href="actor_name?letter=p" class="list-group-item btn-sm strong">P</a>
-                            		<a href="actor_name?letter=q" class="list-group-item btn-sm strong">Q</a>
-                            		<a href="actor_name?letter=r" class="list-group-item btn-sm strong">R</a>
-                            		<a href="actor_name?letter=s" class="list-group-item btn-sm strong">S</a>
-                            		<a href="actor_name?letter=t" class="list-group-item btn-sm strong">T</a>
-                            		<a href="actor_name?letter=u" class="list-group-item btn-sm strong">U</a>
-                            		<a href="actor_name?letter=v" class="list-group-item btn-sm strong">V</a>
-                            		<a href="actor_name?letter=w" class="list-group-item btn-sm strong">W</a>
-                            		<a href="actor_name?letter=x" class="list-group-item btn-sm strong">X</a>
-                            		<a href="actor_name?letter=y" class="list-group-item btn-sm strong">Y</a>
-                            		<a href="actor_name?letter=z" class="list-group-item btn-sm strong">Z</a>
-                            		<a href="actor_name?letter=#" class="list-group-item btn-sm strong">#</a>
-                            	</ul>
+
                             	<div class="text-right">
                                     <a href="#">View All Movies <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>

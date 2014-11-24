@@ -213,8 +213,14 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <?PHP
-                                    $type = $_GET['genre'];
-                                    echo"<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> Every $type Movie</strong></h3>";
+                                    if ($_GET['genre'] != NULL) {
+                                        $type = $_GET['genre'];
+                                        echo"<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> Every $type Movie</strong></h3>";
+                                    }
+                                    else {
+                                        $type = "All";
+                                        echo"<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $type Movie</strong></h3>"; 
+                                    }
                                 ?>
                             </div>
                             <div class="panel-body">

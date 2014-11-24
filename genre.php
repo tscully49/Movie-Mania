@@ -213,11 +213,11 @@
                     <!-- Decides whether all the genres should be printed out or if just a single one should by checking the get parameters-->
                     <?PHP
                         include("php-funcs.php");
-                        if (!$_GET['genre']) {
-                            print_all_genres();
+                        if ($_GET['genre']) {
+                            print_single_genre($_GET['genre']);
                         }
                         else {
-                            print_single_genre($_GET['genre']);
+                           print_all_genres();
                         }
                     ?>
                     <!-- Prints out either all genres or just the specified one -->

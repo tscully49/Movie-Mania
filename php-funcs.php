@@ -98,7 +98,6 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                        echo"\n\t\t\t\t\t\t</tr>";
 		                    echo"\n\t\t\t\t\t</thead>";
 		                    echo"\n\t\t\t\t\t<tbody>";
-		                    echo"\n\t\t\t\t\t</tbody>";
 
 		                        while ($info = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
 		                            //echo"\n\t\t\t\t\t\t<tr>";
@@ -110,7 +109,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                            //echo"\n\t\t\t\t\t\t</tr>";
 		                        }
 
-		                    //echo"\n\t\t\t\t\t</tbody>";
+		                    echo"\n\t\t\t\t\t</tbody>";
 		                echo"\n\t\t\t\t</table>";
 		            echo"\n\t\t\t</div>";
 		        	echo"\n\t\t\t<div class='text-right'>";

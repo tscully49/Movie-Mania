@@ -226,45 +226,36 @@
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Box Office</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Most Popular Actors</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$38053000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Dumb and Dumber To
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$36010000 </span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Big Hero 6
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$29190000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Interstellar
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$6500000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Beyond the Lights
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$4625000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Gone Girl
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$4025000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> St. Vincent
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$3810000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Fury (2014)
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$3038000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Nightcrawler"
-                                    </a>
+                                    <thead>
+                                        <tr>
+                                           <?PHP
+                                                include("actor_queries.php");
+                                                $num_fields = pg_num_fields($pop_actors);
+                                                for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
+                                                    $fieldName = pg_field_name($pop_actors, $i);
+                                                    echo "\t\t\n<th>$fieldName</th>"; 
+                                                }
+                                            ?>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?PHP
+                                        while ($popular_actors = pg_fetch_array($pop_actors, null, PGSQL_ASSOC)) {
+                                            echo"<tr>";
+                                            foreach($popular_actors as $col) { // Prints out all the info 
+                                                echo"\n\t\t<td>$col</td>";
+                                            }
+                                            echo"\n\t</tr>";
+                                        }
+                                    ?>
+                                    </tbody>
                                 </div>
                                 <div class="text-right">
-                                    <a href="#">View Box Office <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="#">View Most Popular Actors<i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>

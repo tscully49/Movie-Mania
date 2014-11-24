@@ -230,29 +230,31 @@
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
-                                    <thead>
-                                        <tr>
-                                           <?PHP
-                                                include("actor_queries.php");
-                                                $num_fields = pg_num_fields($pop_actors);
-                                                for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
-                                                    $fieldName = pg_field_name($pop_actors, $i);
-                                                    echo "\t\t\n<th>$fieldName</th>"; 
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                               <?PHP
+                                                    include("actor_queries.php");
+                                                    $num_fields = pg_num_fields($pop_actors);
+                                                    for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
+                                                        $fieldName = pg_field_name($pop_actors, $i);
+                                                        echo "\t\t\n<th>$fieldName</th>"; 
+                                                    }
+                                                ?>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?PHP
+                                            while ($popular_actors = pg_fetch_array($pop_actors, null, PGSQL_ASSOC)) {
+                                                echo"<tr>";
+                                                foreach($popular_actors as $col) { // Prints out all the info 
+                                                    echo"\n\t\t<td>$col</td>";
                                                 }
-                                            ?>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?PHP
-                                        while ($popular_actors = pg_fetch_array($pop_actors, null, PGSQL_ASSOC)) {
-                                            echo"<tr>";
-                                            foreach($popular_actors as $col) { // Prints out all the info 
-                                                echo"\n\t\t<td>$col</td>";
+                                                echo"\n\t</tr>";
                                             }
-                                            echo"\n\t</tr>";
-                                        }
-                                    ?>
-                                    </tbody>
+                                        ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="text-right">
                                     <a href="#">View Most Popular Actors<i class="fa fa-arrow-circle-right"></i></a>

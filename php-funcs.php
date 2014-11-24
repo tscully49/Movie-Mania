@@ -122,7 +122,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 }
 
 
-function print_single_genre($genre) { // prints out a table for a single genre which is passed through the parameter
+/*function print_single_genre($genre) { // prints out a table for a single genre which is passed through the parameter
 	<div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -177,6 +177,6 @@ function print_single_genre($genre) { // prints out a table for a single genre w
             </div>
         </div>
     </div>
-}
+}*/
 
 ?>

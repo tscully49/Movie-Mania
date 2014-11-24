@@ -80,7 +80,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 
 		echo"\n<div class='col-lg-3'>";
 		    echo"\n\t<div class='panel panel-default'>";
-		        echo"\n\t\t<div class='panel-heading'>";
+		        echo"\n\t\t<div class='panel-heading panel-info'>";
 		            echo"\n\t\t\t<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $one_genre[genre] Movies</strong></h3>"; 
 		        echo"\n\t\t</div>";
 		        echo"\n\t\t<div class='panel-body'>";
@@ -92,7 +92,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                                $num_fields = pg_num_fields($this_genre);
 		                                for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
 		                                    $fieldName = pg_field_name($this_genre, $i);
-		                                    echo "\n\t\t\t\t\t\t\t<th class='list-group-item'>$fieldName</th>"; 
+		                                    echo "\n\t\t\t\t\t\t\t$fieldName"; 
 		                                }
 
 		                        echo"\n\t\t\t\t\t\t</tr>";

@@ -460,7 +460,7 @@
                     <div class="col-lg-3">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-film fa-fw"></i> Now Showing </h3>
+                                <h3 class="panel-title"><i class="fa fa-film fa-fw"></i> Now Showing (In Order of Earnings)</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">

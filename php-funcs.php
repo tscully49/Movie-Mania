@@ -100,11 +100,11 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                    echo"\n\t\t\t\t\t<tbody>";
 
 		                        while ($info = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
-		                            echo"<tr>";
+		                            echo"\n\t\t\t\t\t\t<tr>";
 		                            foreach($info as $col) { // Prints out all the info 
-		                                echo"\n\t\t<td>$col</td>";
+		                                echo"\n\t\t\t\t\t\t\t<td>$col</td>";
 		                            }
-		                            echo"\n\t</tr>";
+		                            echo"\n\t\t\t\t\t\t</tr>";
 		                        }
 
 		                    echo"\n\t\t\t\t\t</tbody>";
@@ -113,35 +113,29 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		        	echo"\n\t\t\t<div class='text-right'>";
 		                echo"\n\t\t\t\t<a href='#'>View All $one_genre[genre] Movies <i class='fa fa-arrow-circle-right'></i></a>";
 		            echo"\n\t\t\t</div>";
-		        echo"\n\t\t\t</div>";
-		    echo"\n\t\t</div>";
-		echo"\n\t</div>";
+		        echo"\n\t\t</div>";
+		    echo"\n\t</div>";
+		echo"\n</div>";
 	}
 	pg_close($conn);
 }
 
 
-/*function print_single_genre($genre) { // prints out a table for a single genre which is passed through the parameter
-	<div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <?PHP
-                    if ($_GET['genre'] != NULL) {
-                        $type = $_GET['genre'];
-                        echo"<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> Every $type Movie</strong></h3>";
-                    }
-                    else {
-                        $type = "All";
-                        echo"<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $type Movies</strong></h3>"; 
-                    }
-                ?>
-            </div>
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <?PHP
+function print_single_genre($genre) { // prints out a table for a single genre which is passed through the parameter
+	echo"\n<div class='col-lg-6'>";
+        echo"\n\t<div class='panel panel-default'>";
+            echo"\n\t\t<div class='panel-heading'>";
+
+            $type = $_GET['genre'];
+            echo"<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> Every $genre Movie</strong></h3>";
+
+            echo"\n\t\t</div>";
+            echo"\n\t\t<div class='panel-body'>";
+                echo"\n\t\t\t<div class='table-responsive'>";
+                    echo"\n\t\t\t\t<table class='table table-bordered table-hover table-striped'>";
+                        echo"\n\t\t\t\t\t<thead>";
+                            echo"\n\t\t\t\t\t\t<tr>";
+
                                     include("../secure/database.php");
                                     $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
                                     if(!$conn){
@@ -152,30 +146,31 @@ function print_all_genres() { // Functions which prints out a table for each gen
                                     $num_fields = pg_num_fields($this_genre);
                                     for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
                                         $fieldName = pg_field_name($this_genre, $i);
-                                        echo "\t\t\n<th>$fieldName</th>"; 
+                                        echo "\n\t\t\t\t\t\t\t<th>$fieldName</th>"; 
                                     }
-                                ?>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?PHP
-                            while ($all_genres = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
-                                echo"<tr>";
-                                foreach($all_genres as $col) { // Prints out all the info 
-                                    echo"\n\t\t<td>$col</td>";
+
+                            echo"\n\t\t\t\t\t\t</tr>";
+                        echo"\n\t\t\t\t\t</thead>";
+                        echo"\n\t\t\t\t\t<tbody>";
+
+                            while ($movies = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
+                                echo"\n\t\t\t\t\t\t<tr>";
+                                foreach($movies as $col) { // Prints out all the info 
+                                    echo"\n\t\t\t\t\t\t\t<td>$col</td>";
                                 }
-                                echo"\n\t</tr>";
+                                echo"\n\t\t\t\t\t\t</tr>";
                             }
-                        ?>
-                        </tbody>
-                    </table>
-                </div>
-            	<div class="text-right">
-                    <a href="#">View All Movies <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-}*/
+
+                        echo"\n\t\t\t\t\t</tbody>";
+                    echo"\n\t\t\t\t</table>";
+                echo"\n\t\t\t</div>";
+            	echo"\n\t\t\t<div class='text-right'>";
+                    echo"\n\t\t\t\t<a href='#''>View All Movies <i class='fa fa-arrow-circle-right'></i></a>";
+                echo"\n\t\t\t</div>";
+            echo"\n\t\t</div>";
+        echo"\n\t</div>";
+    echo"\n</div>";
+    pg_close($conn);
+}
 
 ?>

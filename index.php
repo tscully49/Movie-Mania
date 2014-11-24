@@ -194,6 +194,9 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-video-camera"></i> Genre <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse pre-scrollable">
                             <li>
+                                <a href="genre.php">All Genres</a>
+                            </li>
+                            <li>
                                 <a href="genre.php?genre=Action">Action</a>
                             </li>
                             <li>

@@ -75,9 +75,8 @@ function print_all_genres() { // Functions which prints out a table for each gen
     $all_genres = pg_execute($conn, "genre_query", array());
 
     while ($one_genre = pg_fetch_array($all_genres, null, PGSQL_ASSOC)) {
-    	echo "$all_genres";
     	$this_genre = pg_prepare($conn, "genre_search", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC LIMIT 10');
-    	$this_genre = pg_execute($conn, "genre_search", array('Comedy'));
+    	$this_genre = pg_execute($conn, "genre_search", array($one_genre[genre]));
 
 		echo"\n<div class='col-lg-3'>";
 		    echo"\n\t<div class='panel panel-default'>";
@@ -112,7 +111,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                echo"\n\t\t\t\t</table>";
 		            echo"\n\t\t\t</div>";
 		        	echo"\n\t\t\t<div class='text-right'>";
-		                echo"\n\t\t\t\t<a href='#'>View All $one_genre Movies <i class='fa fa-arrow-circle-right'></i></a>";
+		                echo"\n\t\t\t\t<a href='#'>View All $one_genre[genre] Movies <i class='fa fa-arrow-circle-right'></i></a>";
 		            echo"\n\t\t\t</div>";
 		        echo"\n\t\t\t</div>";
 		    echo"\n\t\t</div>";

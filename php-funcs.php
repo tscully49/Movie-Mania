@@ -111,7 +111,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                echo"\n\t\t\t\t</table>";
 		            echo"\n\t\t\t</div>";
 		        	echo"\n\t\t\t<div class='text-right'>";
-		                echo"\n\t\t\t\t<a href='#'>View All $one_genre[genre] Movies <i class='fa fa-arrow-circle-right'></i></a>";
+		                echo"\n\t\t\t\t<a href='genre.php?genre=$one_genre[genre]'>View All $one_genre[genre] Movies <i class='fa fa-arrow-circle-right'></i></a>";
 		            echo"\n\t\t\t</div>";
 		        echo"\n\t\t</div>";
 		    echo"\n\t</div>";
@@ -165,7 +165,7 @@ function print_single_genre($genre) { // prints out a table for a single genre w
                     echo"\n\t\t\t\t</table>";
                 echo"\n\t\t\t</div>";
             	echo"\n\t\t\t<div class='text-right'>";
-                    echo"\n\t\t\t\t<a href='#''>View All Movies <i class='fa fa-arrow-circle-right'></i></a>";
+                    echo"\n\t\t\t\t<a href='genre.php?genre=$one_genre[genre]'>View All Movies <i class='fa fa-arrow-circle-right'></i></a>";
                 echo"\n\t\t\t</div>";
             echo"\n\t\t</div>";
         echo"\n\t</div>";

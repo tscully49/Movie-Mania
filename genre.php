@@ -190,7 +190,7 @@
                             Search any Actor or Actress in our Database! <small>The main actors in all of our movies!</small>
                         </h1>
                         <?PHP 
-                            echo"<div>$_GET['genre']</div>";
+                            echo" $_GET['genre'] ";
                         ?>
                         <ol class="breadcrumb">
                             <li class="active">

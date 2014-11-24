@@ -189,6 +189,9 @@
                         <h1 class="page-header">
                             Search any Actor or Actress in our Database! <small>The main actors in all of our movies!</small>
                         </h1>
+                        <?PHP 
+                            echo "<div>$_GET['genre']</div>";
+                        ?>
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-arrow-right"><span class="">Movies</span></i>

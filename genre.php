@@ -48,6 +48,9 @@
     	.movie_titles {
     		display: inline;
     	}
+        tbody td {
+            padding: 0px;
+        }
     </style>
 </head>
 

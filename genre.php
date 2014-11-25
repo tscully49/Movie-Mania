@@ -60,9 +60,6 @@
             margin: 0px;
             padding: 0px;
         }
-        button {
-            width: 100%;
-        }
     </style>
 </head>
 

@@ -60,6 +60,9 @@
             margin: 0px;
             padding: 0px;
         }
+        input {
+            width: 100%;
+        }
     </style>
 </head>
 

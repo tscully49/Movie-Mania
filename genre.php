@@ -62,6 +62,7 @@
         }
         #this-one {
             width: 100%;
+            text-align: left;
         }
     </style>
 </head>

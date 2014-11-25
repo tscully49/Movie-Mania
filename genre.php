@@ -58,9 +58,6 @@
         }
         a {
             margin: 0px;
-        }
-        .list-group-item {
-            margin: 0px;
             padding: 0px;
         }
     </style>

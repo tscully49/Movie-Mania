@@ -102,7 +102,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                        while ($info = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
 		                            //echo"\n\t\t\t\t\t\t<tr>";
 		                            foreach($info as $col) { // Prints out all the info 
-		                            	echo"\n\t\t\t\t\t\t<form action='movie_profile.php' method='post'><td><input type='submit' name='movie' value='$col' class='list-group-item'></input></td></form>";
+		                            	echo"\n\t\t\t\t\t\t<form action='movie_profile.php' method='post'><td><input type='submit' name='movie' value='$col' class='list-group-item btn btn-default'></input></td></form>";
 		                            }
 		                            echo"\n\t\t\t\t\t\t</tr>";
 		                        }

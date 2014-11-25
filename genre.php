@@ -60,7 +60,7 @@
             margin: 0px;
             padding: 0px;
         }
-        input {
+        #this-one {
             width: 100%;
         }
     </style>

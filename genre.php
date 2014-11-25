@@ -51,6 +51,9 @@
         tbody td {
             padding: 0px;
         }
+        a {
+            margin: 0px;
+        }
     </style>
 </head>
 

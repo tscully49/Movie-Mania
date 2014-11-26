@@ -31,7 +31,7 @@
     <![endif]-->
     <style>
 	.table{
-		width: 300px;
+		width: 400px;
 	}
     	.navbar-header {
     		margin: 0 auto;
@@ -223,14 +223,14 @@
            pg_prepare($conn,"titlesearch",$query1);
            $result1 = pg_execute($conn,"titlesearch",array($title));
 	  
-           echo "<table class='table'>";
+           echo "<table class='table table-striped'>";
 	   echo "<tbody>";
 	  
 	   $i=0;
            while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
                 foreach($line as $col_value){
 		   $fieldname=pg_field_name($result1,$i);
-                   echo "\t\t<tr><td>$fieldname: $col_value</td></tr>\n";
+                   echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
                    $i=$i+1;
 		}
            }
@@ -246,6 +246,37 @@
 
 ?>
 
+<?php
+   if(isset($_POST['search'])){
+           $title = $_POST['title2'];
+           echo "About $title";
+           $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
+
+           $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
+           pg_prepare($conn,"titlesearch",$query1);
+           $result1 = pg_execute($conn,"titlesearch",array($title));
+
+           echo "<table class='table table-striped'>";
+           echo "<tbody>";
+
+           $i=0;
+           while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
+                foreach($line as $col_value){
+                   $fieldname=pg_field_name($result1,$i);
+                   echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
+                   $i=$i+1;
+                }
+           }
+
+           echo "</tbody>\n";
+           echo "</table>\n";
+
+
+           pg_free_result($result1);
+
+           pg_close($conn);
+  }
+?>
 
                 <div class="row">
                     <div class="col-lg-12">
@@ -253,10 +284,10 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
-                            <form class="panel-body" role="search">
+                            <form class="panel-body" role="search" action="movies.php" method="post">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
+                                    <input type="text" name="title2" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn"><button type="submit" name="search" class="btn btn-default">Search!</button></span>
                                 </div>
                             </form>
                         </div>

@@ -232,10 +232,10 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
-                            <form class="panel-body" role="search">
+                            <form class="panel-body" role="search" action="movies.php" method="post">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
+                                    <input type="text" name="title2" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn"><button type="submit" name="search" class="btn btn-default">Search!</button></span>
                                 </div>
                             </form>
                         </div>

@@ -70,7 +70,7 @@
             width: auto;
             height: auto;
             text-align: center;
-            vertical-align: middle;
+            vertical-align: text-middle;
         }
     </style>
 </head>

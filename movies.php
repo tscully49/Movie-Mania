@@ -281,7 +281,7 @@
 <?php
     if(!isset($_POST['search']) && !isset($POST['submit'])){
        $title = $_POST['title3'];
-       echo "<h3>About <strong>$title</strong></h3>";
+       echo "<h3>About <u><strong>$title</strong></u></h3>";
        $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
 
        $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";

@@ -312,7 +312,7 @@
     }
 
     session_start();
-    if (isset($_SESSION['title']) {
+    if (isset($_SESSION['title'])) {
         $title = $_SESSION['title'];
            echo "<h3>About <u><strong>$title</strong></u></h3>";
            $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");

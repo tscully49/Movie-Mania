@@ -72,11 +72,11 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 	    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-            <form class="navbar-form navbar-left searchbar" role="search" action="movies.php" method="post">
-	    <div class="form-group">
-		 <input type="text" name="title" class="form-control" placeholder="Search">
-	    </div>
-	    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+        <form class="navbar-form navbar-left searchbar" role="search" action="movies.php" method="post">
+	       <div class="form-group">
+		      <input type="text" name="title" class="form-control" placeholder="Search">
+	       </div>
+	       <button type="submit" name="submit" class="btn btn-default">Submit</button>
 	    </form>
            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->

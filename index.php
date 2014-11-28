@@ -424,7 +424,7 @@
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> Total Genres</h3>
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <Strong>Total Genres</Strong></h3>
                             </div>
                             <div class="panel-body">
                                  <div class="table-responsive">
@@ -483,7 +483,7 @@
                     <div class="col-lg-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Top Selling Movies</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> <strong>Top Selling Movies</strong></h3>
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">

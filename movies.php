@@ -310,6 +310,38 @@
            pg_close($conn);
         }
     }
+
+    session_start();
+    if (isset($_SESSION['title']) {
+        $title = $_SESSION['title'];
+           echo "<h3>About <u><strong>$title</strong></u></h3>";
+           $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
+
+           $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
+           pg_prepare($conn,"titlesearch",$query1);
+           $result1 = pg_execute($conn,"titlesearch",array($title));
+
+           echo "<table class='table table-striped'>";
+           echo "<tbody>";
+
+           $i=0;
+           while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
+                foreach($line as $col_value){
+                   $fieldname=pg_field_name($result1,$i);
+                   echo "\t\t<tr><td><strong>$fieldname</strong></td><td>$col_value</td></tr>\n";
+                   $i=$i+1;
+                }
+           }
+
+           echo "</tbody>\n";
+           echo "</table>\n";
+
+
+           pg_free_result($result1);
+
+           pg_close($conn);
+    }
+    session_destroy();
 ?>
                 <div class="row">
                     <div class="col-lg-12">

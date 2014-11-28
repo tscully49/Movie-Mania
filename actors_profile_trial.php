@@ -419,6 +419,7 @@
     }
 
 */
+    session_destroy();
 ?>
 
         </div>

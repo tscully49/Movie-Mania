@@ -66,11 +66,8 @@
         }
         tr td {
             margin: auto;
-            padding: auto;
-            width: auto;
-            height: auto;
+            padding: 0px;
             text-align: center;
-            vertical-align: text-middle;
         }
     </style>
 </head>

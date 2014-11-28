@@ -216,7 +216,7 @@
         
     if(isset($_POST['submit'])){
         $title = $_POST['title'];
-	    echo "About $title";
+	    echo "<h3>About <strong><u>$title</u></strong></h3>";
 	    $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
 
         $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
@@ -230,7 +230,7 @@
         while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
             foreach($line as $col_value){
 	            $fieldname=pg_field_name($result1,$i);
-                echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
+                echo "\t\t<tr><td><strong>$fieldname</strong></td><td>$col_value</td></tr>\n";
                 $i=$i+1;
 	        }
         }
@@ -249,7 +249,7 @@
 <?php
     if(isset($_POST['search'])){
        $title = $_POST['title2'];
-       echo "About $title";
+       echo "<h3>About <strong><u>$title</u></strong></h3>";
        $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
 
        $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
@@ -263,7 +263,7 @@
        while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
             foreach($line as $col_value){
                $fieldname=pg_field_name($result1,$i);
-               echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
+               echo "\t\t<tr><td><strong>$fieldname</strong></td><td>$col_value</td></tr>\n";
                $i=$i+1;
             }
        }

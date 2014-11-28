@@ -85,12 +85,12 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-            <form class="navbar-form navbar-left searchbar" role="search">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
-		        </div>
-		        <button type="submit" class="btn btn-default">Submit</button>
-		    </form>
+            <form method = "POST" action = "decider.php" class="navbar-form navbar-left searchbar" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" name='search' placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">

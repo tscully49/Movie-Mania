@@ -102,7 +102,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 		                        while ($info = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
 		                            echo"\n\t\t\t\t\t\t<tr>";
 		                            foreach($info as $col) { // Prints out all the info 
-		                            	echo"\n\t\t\t\t\t\t<td id='this_thing'><form action='movies.php' method='post'><input type='submit' name='submit' value='$col' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
+		                            	echo"\n\t\t\t\t\t\t<td id='this_thing'><form action='movies.php' method='post'><input type='submit' name='title3' value='$col' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
 		                            }
 		                            echo"\n\t\t\t\t\t\t</tr>";
 		                        }
@@ -159,7 +159,7 @@ function print_single_genre($genre) { // prints out a table for a single genre w
                                 foreach($movies as $col) { // Prints out all the info 
                                     //echo"\n\t\t\t\t\t\t\t<a href=movie.php><td>$col</td></a>";
                                     if ($number == 1) {
-	                                    echo"\n\t\t\t\t\t\t\t<td id='this_thing'><form action='movie_profile.php' method='post'><input type='submit' name='submit' value='$col' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
+	                                    echo"\n\t\t\t\t\t\t\t<td id='this_thing'><form action='movies.php' method='post'><input type='submit' name='title3' value='$col' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
                                 	}
                                 	else {
                                 		echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$col</td>";

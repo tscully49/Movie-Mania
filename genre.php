@@ -64,6 +64,12 @@
             width: 100%;
             text-align: left;
         }
+        tr td {
+            margin: auto;
+            padding: auto;
+            width: auto;
+            height: auto;
+        }
     </style>
 </head>
 

@@ -63,6 +63,7 @@
         }
         #this_thing{
             padding: 0px;
+            vertical-align: middle;
         }
     </style>
 </head>

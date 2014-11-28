@@ -159,10 +159,10 @@ function print_single_genre($genre) { // prints out a table for a single genre w
                                 foreach($movies as $col) { // Prints out all the info 
                                     //echo"\n\t\t\t\t\t\t\t<a href=movie.php><td>$col</td></a>";
                                     if ($number == 1) {
-	                                    echo"\n\t\t\t\t\t\t\t<td><form action='movie_profile.php' method='post'><input type='submit' name='movie' value='$col' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
+	                                    echo"\n\t\t\t\t\t\t\t<td id='this_thing'><form action='movie_profile.php' method='post'><input type='submit' name='movie' value='$col' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
                                 	}
                                 	else {
-                                		echo"\n\t\t\t\t\t\t\t<td>$col</td>";
+                                		echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$col</td>";
                                 	}
                                 	$number++;
                                 }

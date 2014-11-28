@@ -48,14 +48,6 @@
     	.movie_titles {
     		display: inline;
     	}
-        tbody td {
-            padding: 0px;
-            margin: 0px;
-        }
-        td tbody {
-            padding: 0px;
-            margin: 0px;
-        }
         a {
             margin: 0px;
             padding: 0px;
@@ -68,6 +60,9 @@
             margin: auto;
             padding: 0px;
             text-align: center;
+        }
+        #this_thing{
+            padding: 0px;
         }
     </style>
 </head>

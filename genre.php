@@ -69,6 +69,7 @@
             padding: auto;
             width: auto;
             height: auto;
+            text-align: center;
         }
     </style>
 </head>

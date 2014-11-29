@@ -218,17 +218,20 @@
 
     session_start();
     //actor name from letter page
-    $actor = $_SESSION['name'];
+    
 
-    $error_query = "SELECT name FROM actor WHERE name = $1";
+    $id = $_GET['id'];
+    $error_query = "SELECT name FROM actor WHERE id = $1";
 
     pg_prepare($dbconn, 'error', $error_query);
-    $error_check = pg_execute($dbconn, 'error', array($actor));
+    $error_check = pg_execute($dbconn, 'error', array($id));
     if(pg_num_rows($error_check) == 0){
         echo 'No results found!!! ';
         echo $actor;
     }
     else{
+            $actor_name = pg_fetch_array($error_check,null,PGSQL_NUM);
+            $actor = $actor_name[0];
             echo $actor;
             echo '\'s Profile';
 

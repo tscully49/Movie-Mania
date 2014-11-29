@@ -223,7 +223,7 @@
                             		<a href="actor_name?letter=e" class="list-group-item btn-sm strong">E</a>
                             		<a href="actor_name?letter=f" class="list-group-item btn-sm strong">F</a>
                             		<a href="actor_name?letter=g" class="list-group-item btn-sm strong">G</a>
-                            		<a href="actor_name?letter=h" class="list-group-item btn-sm strong">H</a>
+                            		<a href="actor_name?letter= " class="list-group-item btn-sm strong">H</a>
                             		<a href="actor_name?letter=j" class="list-group-item btn-sm strong">I</a>
                             		<a href="actor_name?letter=j" class="list-group-item btn-sm strong">J</a>
                             		<a href="actor_name?letter=k" class="list-group-item btn-sm strong">K</a>
@@ -255,9 +255,9 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
-                            <form class="panel-body" role="search">
+                            <form class="panel-body" role="search" method = "GET" action = actor_name.php>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
+                                    <input type="text" class="form-control" name = "letter" placeholder="Search">
                                     <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
                                 </div>
                             </form>

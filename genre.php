@@ -206,15 +206,22 @@
                         <h1 class="page-header">
                             Search any Movie by Genre! <small>The Genres for all of our movies!</small>
                         </h1>
-
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-arrow-right"><span class="">Genres</span></i>
-                            </li>
-                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
+                <div class="col-lg-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Pie Chart with Tooltips</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="flot-chart">
+                                    <div class = "genre-container">
+                                        <div id="genres"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 <div class="row">
                     <div class="col-lg-12">
@@ -316,6 +323,11 @@
     <script src="templateStuff/js/plugins/morris/raphael.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris-data.js"></script>
+
+      <!--HighCharts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="charts.js"></script>
 
 </body>
 

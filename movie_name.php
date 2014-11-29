@@ -1,8 +1,4 @@
-<?php
-session_start();
-print_r($_GET);
 
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,10 +18,11 @@ print_r($_GET);
                         $movies = pg_execute($dbconn, 'movies', array($substring."%"));
 
                         //check that query was successful       
-                        if(pg_num_rows($movies == 0)){
+                        if(pg_num_rows($movies) == 0){
                            
                             header('Location: https://babbage.cs.missouri.edu/~amr6d5/Movie-Mania/no_result.php');
                         }
+
     ?>
 
     <meta charset="utf-8">
@@ -262,7 +259,7 @@ print_r($_GET);
                     echo "</div>";
                         //start table
                         echo "<table border=\"1\">\n";
-                        
+                            
                         //add column labels
                         
                        

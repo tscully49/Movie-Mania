@@ -3,23 +3,24 @@
 
 <head>
 <?php
-   $letter = $_GET['letter'];
+    //get the substring/first letter of the actor's name from actors.php
+   $substring = $_GET['substring'];
 
-                    $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
-                    user=cs3380f14grp12 password=bpVhIe1A") 
-                    or die('Could not connect: ' . pg_last_error());
+    $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
+    user=cs3380f14grp12 password=bpVhIe1A") 
+    or die('Could not connect: ' . pg_last_error());
 
-                        $actor_query = 'SELECT id,name FROM actor WHERE name ilike $1';
+    //select any actors whose names start with the letter of the clicked button or contain the substring searched for in the actors search bar
+    $actor_query = 'SELECT id,name FROM actor WHERE name ilike $1';
 
+        pg_prepare($dbconn, 'actors', $actor_query);
+        $actors = pg_execute($dbconn, 'actors', array($substring."%"));
 
-                        pg_prepare($dbconn, 'actors', $actor_query);
-                        $actors = pg_execute($dbconn, 'actors', array($letter."%"));
-
-                        //check that query was successful 
-                        if(pg_num_rows($actors) == 0){
-                           
-                            header('Location: https://babbage.cs.missouri.edu/~amr6d5/Movie-Mania/no_result.php');
-                        }
+        //if no actors contained the substring, redirect to the no results page
+        if(pg_num_rows($actors) == 0){
+           
+            header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
+        }
     ?>
 
     <meta charset="utf-8">
@@ -88,9 +89,10 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-           <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
+             <!--allows user to search for a movie/actor name, or part of a movie/actor name-->
+            <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" name='letter' placeholder="Search">
+                    <input type="text" class="form-control" name='substring' placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
@@ -206,7 +208,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Actor Profile
+                            Actor Results
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -228,40 +230,29 @@
                 <!-- /.row -->
 
                 <?php
-                 
-
-           
-                         echo"<div class=\"row\">";
-                    echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
-                       echo "<div class=\"panel panel-default\">";
-                            echo "<div class=\"panel-heading\">";
-                               echo "<h3 class=\"panel-title\"><i class=\"fa fa-tasks fa-fw\"></i><strong> Select Actor</strong></h3>";
-                           echo "</div>";
-                           echo "<div class=\"panel-body\">";
+                            
+                    echo"<div class=\"row\">";
+                        echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
+                            echo "<div class=\"panel panel-default\">";
+                                echo "<div class=\"panel-heading\">";
+                                    echo "<h3 class=\"panel-title\"><i class=\"fa fa-tasks fa-fw\"></i><strong> Select Actor</strong></h3>";
+                                echo "</div>";
+                                echo "<div class=\"panel-body\">";
                           
-                               echo "<ul class=\"list-group actor_profile_trial\">";
-                                     while($line=pg_fetch_array($actors,null,PGSQL_NUM)){
-                           
-                                 
-                                        echo "<a href=\"actors_profile_trial?id=$line[0]\"class=\"list-group-item btn-sm strong\">$line[1] </a>";
-                                        
-                                
-                                    }
-                                echo "</ul>";
+                                    echo "<ul class=\"list-group actor_profile_trial\">";
+                                        //for each returned row, display $line[1](actor's name), and send $line[0] as a GET variable called 'id' if clicked. 
+                                        while($line=pg_fetch_array($actors,null,PGSQL_NUM)){
+                                            echo "<a href=\"actors_profile_trial?id=$line[0]\"class=\"list-group-item btn-sm strong\">$line[1] </a>";
+                                        }
+                                    echo "</ul>";
 
-                            echo "<div class=\"text-right\">";  
+                                echo "<div class=\"text-right\">";  
                                                          
                            echo "</div>";
                        echo "</div>";
                     echo "</div>";
-                        //start table
-                        echo "<table border=\"1\">\n";
-                        
-                        //add column labels
-                        
-                       
-
-               
+                                           
+              
                 ?>
 
         </div>

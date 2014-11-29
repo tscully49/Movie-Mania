@@ -1,28 +1,31 @@
+<?php
+session_start();
+print_r($_GET);
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <?php
-   $substring = $_GET['letter'];
+    //get substring or letter from movies.php
+   $substring = $_GET['substring'];
 
-                    $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
-                    user=cs3380f14grp12 password=bpVhIe1A") 
-                    or die('Could not connect: ' . pg_last_error());
+    $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
+    user=cs3380f14grp12 password=bpVhIe1A") 
+    or die('Could not connect: ' . pg_last_error());
 
-                        $movie_query = 'SELECT id,title FROM movie WHERE title ilike $1';
+    //select all movies whose title starts with the substring
+    $movie_query = 'SELECT id,title FROM movie WHERE title ilike $1';
+    pg_prepare($dbconn, 'movies', $movie_query);
+    $movies = pg_execute($dbconn, 'movies', array($substring."%"));
 
-
-                        pg_prepare($dbconn, 'movies', $movie_query);
-                        $movies = pg_execute($dbconn, 'movies', array($substring."%"));
-
-                        //check that query was successful       
-                        if(pg_num_rows($movies) == 0){
-                           
-                            header('Location: https://babbage.cs.missouri.edu/~amr6d5/Movie-Mania/no_result.php');
-                        }
-
+    //if no movies start with the substring, redirect to no results page      
+    if(pg_num_rows($movies == 0)){
+       
+        header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
+    }
     ?>
 
     <meta charset="utf-8">
@@ -91,9 +94,10 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
+             <!--allows user to search for a movie/actor name, or part of a movie/actor name-->
             <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" name='letter' placeholder="Search">
+                    <input type="text" class="form-control" name='substring' placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
@@ -231,18 +235,16 @@
                 <!-- /.row -->
 
                 <?php
-                 
-
-           
-                         echo"<div class=\"row\">";
+                          
+                echo"<div class=\"row\">";
                     echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
                        echo "<div class=\"panel panel-default\">";
                             echo "<div class=\"panel-heading\">";
                                echo "<h3 class=\"panel-title\"><i class=\"fa fa-tasks fa-fw\"></i><strong> Select Movie</strong></h3>";
                            echo "</div>";
                            echo "<div class=\"panel-body\">";
-                          
-                               echo "<ul class=\"list-group actor_profile_trial\">";
+                                echo "<ul class=\"list-group actor_profile_trial\">";
+                                    //for each returned row, display $line[1](movies's name), and send $line[0] as a GET variable called 'id' if clicked. 
                                      while($line=pg_fetch_array($movies,null,PGSQL_NUM)){
                            
                                  
@@ -259,7 +261,7 @@
                     echo "</div>";
                         //start table
                         echo "<table border=\"1\">\n";
-                            
+                        
                         //add column labels
                         
                        

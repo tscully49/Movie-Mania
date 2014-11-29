@@ -3,32 +3,28 @@
 
 <head>
 <?php
-   $letter = $_GET['letter'];
+    //get substring that user searched for
+    $substring = $_GET['substring'];
 
-                    $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
-                    user=cs3380f14grp12 password=bpVhIe1A") 
-                    or die('Could not connect: ' . pg_last_error());
+    $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
+    user=cs3380f14grp12 password=bpVhIe1A") 
+    or die('Could not connect: ' . pg_last_error());
 
-                        $actor_query = 'SELECT id,name FROM actor WHERE name ilike $1';
+    //select the name and id of any actor name that contains the substring
+    $actor_query = 'SELECT id,name FROM actor WHERE name ilike $1';
+    pg_prepare($dbconn, 'actors', $actor_query);
+    $actors = pg_execute($dbconn, 'actors', array($substring."%"));
 
+    //select the name and id of any movie title that contains the substring
+    $movie_query = 'SELECT id,title FROM movie WHERE title ilike $1';
+    pg_prepare($dbconn, 'movies', $movie_query);
+    $movies = pg_execute($dbconn, 'movies', array($substring."%"));
 
-                        pg_prepare($dbconn, 'actors', $actor_query);
-                        $actors = pg_execute($dbconn, 'actors', array($letter."%"));
-
-                      
-
-                        $movie_query = 'SELECT id,title FROM movie WHERE title ilike $1';
-
-
-                        pg_prepare($dbconn, 'movies', $movie_query);
-                        $movies = pg_execute($dbconn, 'movies', array($letter."%"));
-
-                         //check that query was successful 
-                        if(pg_num_rows($actors) == 0 && pg_num_rows($movies) == 0){
-                            session_start();
-                            $_SESSION['substring'] = $letter;
-                            header('Location: https://babbage.cs.missouri.edu/~amr6d5/Movie-Mania/no_result.php');
-                        }
+    //if no movies and no actor names contained the substring, redirect to the no results page 
+    if(pg_num_rows($actors) == 0 && pg_num_rows($movies) == 0){
+        
+        header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
+    }
     ?>
 
     <meta charset="utf-8">
@@ -97,9 +93,11 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-           <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
+
+             <!--allows user to search for a movie/actor name, or part of a movie/actor name-->
+            <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" name='letter' placeholder="Search">
+                    <input type="text" class="form-control" name='substring' placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
@@ -237,46 +235,35 @@
                 <!-- /.row -->
 
                 <?php
-                 
+                    echo"<div class=\"row\">";
+                        echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
+                            echo "<div class=\"panel panel-default\">";
+                                echo "<div class=\"panel-heading\">";
+                                    echo "<h3 class=\"panel-title\"><i class=\"fa fa-tasks fa-fw\"></i><strong> Select Movie or Actor</strong></h3>";
+                                echo "</div>";
+                                echo "<div class=\"panel-body\">";
+                                    echo "<ul class=\"list-group actor_profile_trial\">";
 
-           
-                         echo"<div class=\"row\">";
-                    echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
-                       echo "<div class=\"panel panel-default\">";
-                            echo "<div class=\"panel-heading\">";
-                               echo "<h3 class=\"panel-title\"><i class=\"fa fa-tasks fa-fw\"></i><strong> Select Movie or Actor</strong></h3>";
-                           echo "</div>";
-                           echo "<div class=\"panel-body\">";
-                          
-                               echo "<ul class=\"list-group actor_profile_trial\">";
-                                     while($line=pg_fetch_array($actors,null,PGSQL_NUM)){
-                           
-                                 
-                                        echo "<a href=\"actors_profile_trial?id=$line[0]\"class=\"list-group-item btn-sm strong\">$line[1] </a>";
+                                        //print out buttons for each actor name that contained the substring
+                                        while($line=pg_fetch_array($actors,null,PGSQL_NUM)){
+                                           
+                                           //$line[1] is the actor's name. If clicked, send $line[0] (the actor's id) as a GET variable to the actor profile page.
+                                           echo "<a href=\"actors_profile_trial?id=$line[0]\"class=\"list-group-item btn-sm strong\">$line[1] </a>";
+                                        }
                                         
-                                
-                                    }
-                                     while($line2=pg_fetch_array($movies,null,PGSQL_NUM)){
-                           
-                                 
-                                        echo "<a href=\"movie_profile?id=$line2[0]\"class=\"list-group-item btn-sm strong\">$line2[1] </a>";
-                                        
-                                
-                                    }
+                                        //print out buttons for each movie title that contained the substring
+                                        while($line2=pg_fetch_array($movies,null,PGSQL_NUM)){
+                                           
+                                           //$line[1] is the movie's title. If clicked, send $line[0] (the movies's id) as a GET variable to the movie profile page.
+                                            echo "<a href=\"movie_profile?id=$line2[0]\"class=\"list-group-item btn-sm strong\">$line2[1] </a>";
+                                        }
 
                                 echo "</ul>";
-
-                            echo "<div class=\"text-right\">";  
-                                                         
-                           echo "</div>";
+                                echo "<div class=\"text-right\">";  
+                         echo "</div>";
                        echo "</div>";
                     echo "</div>";
-                        //start table
-                        echo "<table border=\"1\">\n";
-                        
-                        //add column labels
-                        
-                       
+                           
 
                
                 ?>

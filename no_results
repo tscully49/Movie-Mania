@@ -69,12 +69,12 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-            <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" name='letter' placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+            <form class="navbar-form navbar-left searchbar" role="search">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search">
+		        </div>
+		        <button type="submit" class="btn btn-default">Submit</button>
+		    </form>
            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -99,72 +99,30 @@
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-video-camera"></i> Genre <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse pre-scrollable">
+                        <ul id="demo" class="collapse">
                             <li>
-                                <a href="genre.php">All Genres</a>
+                                <a href="#">Action/Adventure</a>
                             </li>
                             <li>
-                                <a href="genre.php?genre=Action">Action</a>
+                                <a href="#">Comedy</a>
                             </li>
                             <li>
-                                <a href="genre.php?genre=Adventure">Adventure</a>
+                                <a href="#">Documentary</a>
                             </li>
                             <li>
-                                <a href="genre.php?genre=Animation">Animation</a>
+                                <a href="#">Drama</a>
                             </li>
                             <li>
-                                <a href="genre.php?genre=Biography">Biography</a>
+                                <a href="#">Horror</a>
                             </li>
                             <li>
-                                <a href="genre.php?genre=Comedy">Comedy</a>
+                                <a href="#">Romance</a>
                             </li>
                             <li>
-                                <a href="genre.php?genre=Crime">Crime</a>
+                                <a href="#">Sci-Fi</a>
                             </li>
                             <li>
-                                <a href="genre.php?genre=Documentary">Documentary</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Drama">Drama</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Fantasy">Fantasy</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Film-Noir">Film-Noir</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=History">History</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Horror">Horror</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Music">Music</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Musical">Musical</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Mystery">Mystery</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Romance">Romance</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Sci-Fi">Sci-Fi</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Sports">Sports</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Thriller">Thriller</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=War">War</a>
-                            </li>
-                            <li>
-                                <a href="genre.php?genre=Western">Western</a>
+                                <a href="#">Thriller</a>
                             </li>
                         </ul>
                     </li>

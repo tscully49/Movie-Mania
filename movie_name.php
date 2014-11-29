@@ -1,7 +1,32 @@
+<?php
+session_start();
+print_r($_GET);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<?php
+   $substring = $_GET['letter'];
+
+                    $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
+                    user=cs3380f14grp12 password=bpVhIe1A") 
+                    or die('Could not connect: ' . pg_last_error());
+
+                        $movie_query = 'SELECT id,title FROM movie WHERE title ilike $1';
+
+
+                        pg_prepare($dbconn, 'movies', $movie_query);
+                        $movies = pg_execute($dbconn, 'movies', array($substring."%"));
+
+                        //check that query was successful       
+                        if(pg_num_rows($movies == 0)){
+                           
+                            header('Location: https://babbage.cs.missouri.edu/~amr6d5/Movie-Mania/no_result.php');
+                        }
+    ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -187,7 +212,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Actor Profile
+                            Movie Search Results
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -208,9 +233,42 @@
                 </div>
                 <!-- /.row -->
 
-                No Results Found
+                <?php
+                 
 
-    
+           
+                         echo"<div class=\"row\">";
+                    echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
+                       echo "<div class=\"panel panel-default\">";
+                            echo "<div class=\"panel-heading\">";
+                               echo "<h3 class=\"panel-title\"><i class=\"fa fa-tasks fa-fw\"></i><strong> Select Movie</strong></h3>";
+                           echo "</div>";
+                           echo "<div class=\"panel-body\">";
+                          
+                               echo "<ul class=\"list-group actor_profile_trial\">";
+                                     while($line=pg_fetch_array($movies,null,PGSQL_NUM)){
+                           
+                                 
+                                        echo "<a href=\"movie_profile?id=$line[0]\"class=\"list-group-item btn-sm strong\">$line[1] </a>";
+                                        
+                                
+                                    }
+                                echo "</ul>";
+
+                            echo "<div class=\"text-right\">";  
+                                                         
+                           echo "</div>";
+                       echo "</div>";
+                    echo "</div>";
+                        //start table
+                        echo "<table border=\"1\">\n";
+                        
+                        //add column labels
+                        
+                       
+
+               
+                ?>
 
         </div>
         <!-- /#page-wrapper -->

@@ -2,6 +2,25 @@
 <html lang="en">
 
 <head>
+<?php
+   $letter = $_GET['letter'];
+
+                    $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
+                    user=cs3380f14grp12 password=bpVhIe1A") 
+                    or die('Could not connect: ' . pg_last_error());
+
+                        $actor_query = 'SELECT id,name FROM actor WHERE name ilike $1';
+
+
+                        pg_prepare($dbconn, 'actors', $actor_query);
+                        $actors = pg_execute($dbconn, 'actors', array($letter."%"));
+
+                        //check that query was successful 
+                        if(pg_num_rows($actors) == 0){
+                           
+                            header('Location: https://babbage.cs.missouri.edu/~amr6d5/Movie-Mania/no_result.php');
+                        }
+    ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,7 +88,7 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-            <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
+           <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" name='letter' placeholder="Search">
                 </div>
@@ -208,9 +227,42 @@
                 </div>
                 <!-- /.row -->
 
-                No Results Found
+                <?php
+                 
 
-    
+           
+                         echo"<div class=\"row\">";
+                    echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
+                       echo "<div class=\"panel panel-default\">";
+                            echo "<div class=\"panel-heading\">";
+                               echo "<h3 class=\"panel-title\"><i class=\"fa fa-tasks fa-fw\"></i><strong> Select Actor</strong></h3>";
+                           echo "</div>";
+                           echo "<div class=\"panel-body\">";
+                          
+                               echo "<ul class=\"list-group actor_profile_trial\">";
+                                     while($line=pg_fetch_array($actors,null,PGSQL_NUM)){
+                           
+                                 
+                                        echo "<a href=\"actors_profile_trial?id=$line[0]\"class=\"list-group-item btn-sm strong\">$line[1] </a>";
+                                        
+                                
+                                    }
+                                echo "</ul>";
+
+                            echo "<div class=\"text-right\">";  
+                                                         
+                           echo "</div>";
+                       echo "</div>";
+                    echo "</div>";
+                        //start table
+                        echo "<table border=\"1\">\n";
+                        
+                        //add column labels
+                        
+                       
+
+               
+                ?>
 
         </div>
         <!-- /#page-wrapper -->

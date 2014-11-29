@@ -48,14 +48,6 @@
     	.movie_titles {
     		display: inline;
     	}
-        tbody td {
-            padding: 0px;
-            margin: 0px;
-        }
-        td tbody {
-            padding: 0px;
-            margin: 0px;
-        }
         a {
             margin: 0px;
             padding: 0px;
@@ -63,6 +55,15 @@
         #this-one {
             width: 100%;
             text-align: left;
+        }
+        tr td {
+            margin: auto;
+            padding: 0px;
+            text-align: center;
+        }
+        #this_thing{
+            padding: 0px;
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -85,12 +86,12 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-            <form class="navbar-form navbar-left searchbar" role="search">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
-		        </div>
-		        <button type="submit" class="btn btn-default">Submit</button>
-		    </form>
+            <form method = "POST" action = "decider.php" class="navbar-form navbar-left searchbar" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" name='search' placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -232,10 +233,10 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
-                            <form class="panel-body" role="search">
+                            <form class="panel-body" role="search" action="movies.php" method="post">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
+                                    <input type="text" name="title2" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn"><button type="submit" name="search" class="btn btn-default">Search!</button></span>
                                 </div>
                             </form>
                         </div>

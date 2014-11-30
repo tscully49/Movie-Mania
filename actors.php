@@ -69,13 +69,15 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-            <form method = "POST" action = "decider.php" class="navbar-form navbar-left searchbar" role="search">
+            
+            <!--allows user to search for a movie/actor name, or part of a movie/actor name-->
+            <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" name='search' placeholder="Search">
+                    <input type="text" class="form-control" name='substring' placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
-           
+            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -212,37 +214,38 @@
                     <div class="col-lg-3 btn-group btn-group-vertical">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i><strong> Search by Last Name</strong></h3>
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i><strong> Search by First Name</strong></h3>
                             </div>
                             <div class="panel-body">
                             	<ul class="list-group actor_name">
-                            		<a href="actor_name?letter=a" class="list-group-item btn-sm strong">A</a>
-                            		<a href="actor_name?letter=b" class="list-group-item btn-sm strong">B</a>
-                            		<a href="actor_name?letter=c" class="list-group-item btn-sm strong">C</a>
-                            		<a href="actor_name?letter=d" class="list-group-item btn-sm strong">D</a>
-                            		<a href="actor_name?letter=e" class="list-group-item btn-sm strong">E</a>
-                            		<a href="actor_name?letter=f" class="list-group-item btn-sm strong">F</a>
-                            		<a href="actor_name?letter=g" class="list-group-item btn-sm strong">G</a>
-                            		<a href="actor_name?letter=h" class="list-group-item btn-sm strong">H</a>
-                            		<a href="actor_name?letter=j" class="list-group-item btn-sm strong">I</a>
-                            		<a href="actor_name?letter=j" class="list-group-item btn-sm strong">J</a>
-                            		<a href="actor_name?letter=k" class="list-group-item btn-sm strong">K</a>
-                            		<a href="actor_name?letter=l" class="list-group-item btn-sm strong">L</a>
-                            		<a href="actor_name?letter=m" class="list-group-item btn-sm strong">M</a>
-                            		<a href="actor_name?letter=n" class="list-group-item btn-sm strong">N</a>
-                            		<a href="actor_name?letter=o" class="list-group-item btn-sm strong">O</a>
-                            		<a href="actor_name?letter=p" class="list-group-item btn-sm strong">P</a>
-                            		<a href="actor_name?letter=q" class="list-group-item btn-sm strong">Q</a>
-                            		<a href="actor_name?letter=r" class="list-group-item btn-sm strong">R</a>
-                            		<a href="actor_name?letter=s" class="list-group-item btn-sm strong">S</a>
-                            		<a href="actor_name?letter=t" class="list-group-item btn-sm strong">T</a>
-                            		<a href="actor_name?letter=u" class="list-group-item btn-sm strong">U</a>
-                            		<a href="actor_name?letter=v" class="list-group-item btn-sm strong">V</a>
-                            		<a href="actor_name?letter=w" class="list-group-item btn-sm strong">W</a>
-                            		<a href="actor_name?letter=x" class="list-group-item btn-sm strong">X</a>
-                            		<a href="actor_name?letter=y" class="list-group-item btn-sm strong">Y</a>
-                            		<a href="actor_name?letter=z" class="list-group-item btn-sm strong">Z</a>
-                            		<a href="actor_name?letter=#" class="list-group-item btn-sm strong">#</a>
+                                    <!--send the letter as a get variable called 'substring' to actor_name.php if clicked-->
+                            		<a href="actor_name?substring=a" class="list-group-item btn-sm strong">A</a>
+                            		<a href="actor_name?substring=b" class="list-group-item btn-sm strong">B</a>
+                            		<a href="actor_name?substring=c" class="list-group-item btn-sm strong">C</a>
+                            		<a href="actor_name?substring=d" class="list-group-item btn-sm strong">D</a>
+                            		<a href="actor_name?substring=e" class="list-group-item btn-sm strong">E</a>
+                            		<a href="actor_name?substring=f" class="list-group-item btn-sm strong">F</a>
+                            		<a href="actor_name?substring=g" class="list-group-item btn-sm strong">G</a>
+                            		<a href="actor_name?substring=h" class="list-group-item btn-sm strong">H</a>
+                            		<a href="actor_name?substring=i" class="list-group-item btn-sm strong">I</a>
+                            		<a href="actor_name?substring=j" class="list-group-item btn-sm strong">J</a>
+                            		<a href="actor_name?substring=k" class="list-group-item btn-sm strong">K</a>
+                            		<a href="actor_name?substring=l" class="list-group-item btn-sm strong">L</a>
+                            		<a href="actor_name?substring=m" class="list-group-item btn-sm strong">M</a>
+                            		<a href="actor_name?substring=n" class="list-group-item btn-sm strong">N</a>
+                            		<a href="actor_name?substring=o" class="list-group-item btn-sm strong">O</a>
+                            		<a href="actor_name?substring=p" class="list-group-item btn-sm strong">P</a>
+                            		<a href="actor_name?substring=q" class="list-group-item btn-sm strong">Q</a>
+                            		<a href="actor_name?substring=r" class="list-group-item btn-sm strong">R</a>
+                            		<a href="actor_name?substring=s" class="list-group-item btn-sm strong">S</a>
+                            		<a href="actor_name?substring=t" class="list-group-item btn-sm strong">T</a>
+                            		<a href="actor_name?substring=u" class="list-group-item btn-sm strong">U</a>
+                            		<a href="actor_name?substring=v" class="list-group-item btn-sm strong">V</a>
+                            		<a href="actor_name?substring=w" class="list-group-item btn-sm strong">W</a>
+                            		<a href="actor_name?substring=x" class="list-group-item btn-sm strong">X</a>
+                            		<a href="actor_name?substring=y" class="list-group-item btn-sm strong">Y</a>
+                            		<a href="actor_name?substring=z" class="list-group-item btn-sm strong">Z</a>
+                            		<a href="actor_name?substring=#" class="list-group-item btn-sm strong">#</a>
                             	</ul>
                             	<div class="text-right">
                                     <a href="#">View All Movies <i class="fa fa-arrow-circle-right"></i></a>
@@ -255,9 +258,11 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
-                            <form class="panel-body" role="search">
+
+                            <!--allows user to search for actor name or part of actor name. sends searched value to actor_name.php as a GET variable.-->
+                            <form class="panel-body" role="search" method = "GET" action = actor_name.php>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
+                                    <input type="text" class="form-control" name = "substring" placeholder="Search">
                                     <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
                                 </div>
                             </form>

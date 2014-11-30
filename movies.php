@@ -30,9 +30,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-	.table{
-		width: 400px;
-	}
     	.navbar-header {
     		margin: 0 auto;
     		position: relative;
@@ -71,13 +68,15 @@
                 <a class="navbar-brand" href="index.php">Movie Mania</a>
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
-	    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-        <form method = "POST" action = "decider.php" class="navbar-form navbar-left searchbar" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" name='search' placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
+            
+             <!--allows user to search for a movie/actor name, or part of a movie/actor name-->
+            <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" name='substring' placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -190,7 +189,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Search any Movie in our Database! <small>The most popular movies from each year</small>
+                            Search any Movie in our Database! <small>The main actors in all of our movies!</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -205,197 +204,182 @@
                     <div class="col-lg-12">
                         <div class="alert alert-info alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Search Movies</strong> Search by Title or Genre                       
+                            <i class="fa fa-info-circle"></i>  <strong>Search Actors/Actresses</strong> Search for Actors/Actresses                     
                         </div>
                     </div>
                 </div>
                 <!-- /.row -->
 
-
-<?php
-        
-    if(isset($_POST['submit'])){
-        $title = $_POST['title'];
-	    echo "<h3>About <strong><u>$title</u></strong></h3>";
-	    $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
-
-        $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
-        pg_prepare($conn,"titlesearch",$query1);
-        $result1 = pg_execute($conn,"titlesearch",array($title));
-	  
-        echo "<table class='table table-striped'>";
-	    echo "<tbody>";
-	  
-	    $i=0;
-        while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
-            foreach($line as $col_value){
-	            $fieldname=pg_field_name($result1,$i);
-                echo "\t\t<tr><td><strong>$fieldname</strong></td><td>$col_value</td></tr>\n";
-                $i=$i+1;
-	        }
-        }
-
-	    echo "</tbody>\n";
-        echo "</table>\n";
-
-
-        pg_free_result($result1);
-
-        pg_close($conn);
-    }
-
-?>
-
-<?php
-    if(isset($_POST['search'])){
-       $title = $_POST['title2'];
-       echo "<h3>About <strong><u>$title</u></strong></h3>";
-       $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
-
-       $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
-       pg_prepare($conn,"titlesearch",$query1);
-       $result1 = pg_execute($conn,"titlesearch",array($title));
-
-       echo "<table class='table table-striped'>";
-       echo "<tbody>";
-
-       $i=0;
-       while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
-            foreach($line as $col_value){
-               $fieldname=pg_field_name($result1,$i);
-               echo "\t\t<tr><td><strong>$fieldname</strong></td><td>$col_value</td></tr>\n";
-               $i=$i+1;
-            }
-       }
-
-       echo "</tbody>\n";
-       echo "</table>\n";
-
-
-       pg_free_result($result1);
-
-       pg_close($conn);
-    }
-?>
-
-<?php
-    if(!isset($_POST['search']) && !isset($POST['submit'])){
-       if ($_POST['title3']) {
-           $title = $_POST['title3'];
-           echo "<h3>About <u><strong>$title</strong></u></h3>";
-           $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
-
-           $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
-           pg_prepare($conn,"titlesearch",$query1);
-           $result1 = pg_execute($conn,"titlesearch",array($title));
-
-           echo "<table class='table table-striped'>";
-           echo "<tbody>";
-
-           $i=0;
-           while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
-                foreach($line as $col_value){
-                   $fieldname=pg_field_name($result1,$i);
-                   echo "\t\t<tr><td><strong>$fieldname</strong></td><td>$col_value</td></tr>\n";
-                   $i=$i+1;
-                }
-           }
-
-           echo "</tbody>\n";
-           echo "</table>\n";
-
-
-           pg_free_result($result1);
-
-           pg_close($conn);
-        }
-    }
-
-    session_start();
-    if (isset($_SESSION['title'])) {
-        $title = $_SESSION['title'];
-           echo "<h3>About <u><strong>$title</strong></u></h3>";
-           $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
-
-           $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
-           pg_prepare($conn,"titlesearch",$query1);
-           $result1 = pg_execute($conn,"titlesearch",array($title));
-
-           echo "<table class='table table-striped'>";
-           echo "<tbody>";
-
-           $i=0;
-           while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
-                foreach($line as $col_value){
-                   $fieldname=pg_field_name($result1,$i);
-                   echo "\t\t<tr><td><strong>$fieldname</strong></td><td>$col_value</td></tr>\n";
-                   $i=$i+1;
-                }
-           }
-
-           echo "</tbody>\n";
-           echo "</table>\n";
-
-
-           pg_free_result($result1);
-
-           pg_close($conn);
-    }
-    session_destroy();
-?>
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-3 btn-group btn-group-vertical">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i><strong> Search by Letter</strong></h3>
+                            </div>
+                            <div class="panel-body">
+                            	<ul class="list-group movie_name">
+                                    <!--send the letter as a get variable called 'substring' to movie_name.php if clicked-->
+                            		<a href="movie_name?substring=a" class="list-group-item btn-sm strong">A</a>
+                            		<a href="movie_name?substring=b" class="list-group-item btn-sm strong">B</a>
+                            		<a href="movie_name?substring=c" class="list-group-item btn-sm strong">C</a>
+                            		<a href="movie_name?substring=d" class="list-group-item btn-sm strong">D</a>
+                            		<a href="movie_name?substring=e" class="list-group-item btn-sm strong">E</a>
+                            		<a href="movie_name?substring=f" class="list-group-item btn-sm strong">F</a>
+                            		<a href="movie_name?substring=g" class="list-group-item btn-sm strong">G</a>
+                            		<a href="movie_name?substring=h" class="list-group-item btn-sm strong">H</a>
+                            		<a href="movie_name?substring=j" class="list-group-item btn-sm strong">I</a>
+                            		<a href="movie_name?substring=j" class="list-group-item btn-sm strong">J</a>
+                            		<a href="movie_name?substring=k" class="list-group-item btn-sm strong">K</a>
+                            		<a href="movie_name?substring=l" class="list-group-item btn-sm strong">L</a>
+                            		<a href="movie_name?substring=m" class="list-group-item btn-sm strong">M</a>
+                            		<a href="movie_name?substring=n" class="list-group-item btn-sm strong">N</a>
+                            		<a href="movie_name?substring=o" class="list-group-item btn-sm strong">O</a>
+                            		<a href="movie_name?substring=p" class="list-group-item btn-sm strong">P</a>
+                            		<a href="movie_name?substring=q" class="list-group-item btn-sm strong">Q</a>
+                            		<a href="movie_name?substring=r" class="list-group-item btn-sm strong">R</a>
+                            		<a href="movie_name?substring=s" class="list-group-item btn-sm strong">S</a>
+                            		<a href="movie_name?substring=t" class="list-group-item btn-sm strong">T</a>
+                            		<a href="movie_name?substring=u" class="list-group-item btn-sm strong">U</a>
+                            		<a href="movie_name?substring=v" class="list-group-item btn-sm strong">V</a>
+                            		<a href="movie_name?substring=w" class="list-group-item btn-sm strong">W</a>
+                            		<a href="movie_name?substring=x" class="list-group-item btn-sm strong">X</a>
+                            		<a href="movie_name?substring=y" class="list-group-item btn-sm strong">Y</a>
+                            		<a href="movie_name?substring=z" class="list-group-item btn-sm strong">Z</a>
+                            		<a href="movie_name?substring=#" class="list-group-item btn-sm strong">#</a>
+                            	</ul>
+                            	<div class="text-right">
+                                    <a href="#">View All Movies <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
-                            <form class="panel-body" role="search" action="movies.php" method="post">
+
+                             <!--allows user to search for movie title or part of movie title. sends searched value to movie_name.php as a GET variable.-->
+                            <form class="panel-body" role="search" method = "GET" action = movie_name.php>
                                 <div class="input-group">
-                                    <input type="text" name="title2" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn"><button type="submit" name="search" class="btn btn-default">Search!</button></span>
+                                    <input type="text" class="form-control" name = "substring" placeholder="Search">
+                                    <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <!-- Close the search bar div -->
+                    <!-- Close the search bar div -->
 
-                    <!--<div class="col-lg-3 btn-group btn-group-vertical">
+                    <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i><strong> Search by First Letter</strong></h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Most Popular Actors</h3>
                             </div>
                             <div class="panel-body">
-                            	<ul class="list-group movie_titles">
-                            		<a href="/movie_titles?letter=a" class="list-group-item btn-sm strong">A</a>
-                            		<a href="/movie_titles?letter=b" class="list-group-item btn-sm strong">B</a>
-                            		<a href="/movie_titles?letter=c" class="list-group-item btn-sm strong">C</a>
-                            		<a href="/movie_titles?letter=d" class="list-group-item btn-sm strong">D</a>
-                            		<a href="/movie_titles?letter=e" class="list-group-item btn-sm strong">E</a>
-                            		<a href="/movie_titles?letter=f" class="list-group-item btn-sm strong">F</a>
-                            		<a href="/movie_titles?letter=g" class="list-group-item btn-sm strong">G</a>
-                            		<a href="/movie_titles?letter=h" class="list-group-item btn-sm strong">H</a>
-                            		<a href="/movie_titles?letter=j" class="list-group-item btn-sm strong">I</a>
-                            		<a href="/movie_titles?letter=j" class="list-group-item btn-sm strong">J</a>
-                            		<a href="/movie_titles?letter=k" class="list-group-item btn-sm strong">K</a>
-                            		<a href="/movie_titles?letter=l" class="list-group-item btn-sm strong">L</a>
-                            		<a href="/movie_titles?letter=m" class="list-group-item btn-sm strong">M</a>
-                            		<a href="/movie_titles?letter=n" class="list-group-item btn-sm strong">N</a>
-                            		<a href="/movie_titles?letter=o" class="list-group-item btn-sm strong">O</a>
-                            		<a href="/movie_titles?letter=p" class="list-group-item btn-sm strong">P</a>
-                            		<a href="/movie_titles?letter=q" class="list-group-item btn-sm strong">Q</a>
-                            		<a href="/movie_titles?letter=r" class="list-group-item btn-sm strong">R</a>
-                            		<a href="/movie_titles?letter=s" class="list-group-item btn-sm strong">S</a>
-                            		<a href="/movie_titles?letter=t" class="list-group-item btn-sm strong">T</a>
-                            		<a href="/movie_titles?letter=u" class="list-group-item btn-sm strong">U</a>
-                            		<a href="/movie_titles?letter=v" class="list-group-item btn-sm strong">V</a>
-                            		<a href="/movie_titles?letter=w" class="list-group-item btn-sm strong">W</a>
-                            		<a href="/movie_titles?letter=x" class="list-group-item btn-sm strong">X</a>
-                            		<a href="/movie_titles?letter=y" class="list-group-item btn-sm strong">Y</a>
-                            		<a href="/movie_titles?letter=z" class="list-group-item btn-sm strong">Z</a>
-                            		<a href="/movie_titles?letter=#" class="list-group-item btn-sm strong">#</a>
-                            	</ul>
-                            	<div class="text-right">
-                                    <a href="#">View All Movies <i class="fa fa-arrow-circle-right"></i></a>
+                                <div class="list-group">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                               <?PHP
+                                                    include("actor_queries.php");
+                                                    $num_fields = pg_num_fields($pop_actors);
+                                                    for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
+                                                        $fieldName = pg_field_name($pop_actors, $i);
+                                                        echo "\t\t\n<th>$fieldName</th>"; 
+                                                    }
+                                                ?>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?PHP
+                                            while ($popular_actors = pg_fetch_array($pop_actors, null, PGSQL_ASSOC)) {
+                                                echo"<tr>";
+                                                foreach($popular_actors as $col) { // Prints out all the info 
+                                                    echo"\n\t\t<td>$col</td>";
+                                                }
+                                                echo"\n\t</tr>";
+                                            }
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-right">
+                                    <a href="#">View Most Popular Actors<i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-lg-offset-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-film fa-fw"></i> Top Selling Movies</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Order Date</th>
+                                                <th>Title</th>
+                                                <th>Amount (USD)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>10/21/2013</td>
+                                                <td>Shawshank Redmeption</td>
+                                                <td>$321.33</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>10/21/2013</td>
+                                                <td>Avatar</td>
+                                                <td>$234.34</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>10/21/2013</td>
+                                                <td>Fast and Furious</td>
+                                                <td>$724.17</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>10/21/2013</td>
+                                                <td>Inception</td>
+                                                <td>$23.71</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>10/21/2013</td>
+                                                <td>Top Gun</td>
+                                                <td>$8345.23</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>10/21/2013</td>
+                                                <td>The Dark Knight</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>10/21/2013</td>
+                                                <td>Step Brothers</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>10/21/2013</td>
+                                                <td>Forest Gump</td>
+                                                <td>$943.45</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-right">
+                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>

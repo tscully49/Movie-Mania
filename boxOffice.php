@@ -212,44 +212,29 @@
                     <div class="col-lg-4">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Donut Chart Example</h3>
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Combination Chart with Tooltips</h3>
                             </div>
                             <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                                <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
+                                    <div id="combo"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Bar Graph Example</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-bar-chart"></div>
-                                <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h4>Pick one. Data is hard coded right now
+                    <br>
+                    <br>
                     <div class="col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Bar Graph with Tooltips</h3>
                             </div>
                             <div class="panel-body">
-                                <div class="flot-chart">
-                                    <div class="flot-chart-content" id="flot-bar-chart"></div>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                    <div class = "grossing-container">
+                                        <div id="grossing"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <br><br>
                     <div class="col-lg-4 col-lg-offset-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -392,6 +377,11 @@
     <script src="templateStuff/js/plugins/morris/raphael.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris-data.js"></script>
+
+      <!--HighCharts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="charts.js"></script>
 
 </body>
 

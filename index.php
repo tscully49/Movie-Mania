@@ -62,9 +62,11 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-            <form method = "POST" action = "decider.php" class="navbar-form navbar-left searchbar" role="search">
+
+            <!--allows user to search for a movie/actor name, or part of a movie/actor name-->
+            <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" name='search' placeholder="Search">
+                    <input type="text" class="form-control" name='substring' placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
 		    </form>
@@ -322,7 +324,7 @@
                                     </div>-->
                                 </div>
                             </div>
-                            <a href="movies.php">
+                            <a href="#">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Movies</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -346,7 +348,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="actors.php">
+                            <a href="#">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Actors/Actresses</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -370,7 +372,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="error_page.php">
+                            <a href="#">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Years</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -394,7 +396,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="genre.php">
+                            <a href="#">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Genres</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -424,7 +426,7 @@
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <Strong>Total Genres</Strong></h3>
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> Total Genres</h3>
                             </div>
                             <div class="panel-body">
                                  <div class="table-responsive">
@@ -483,7 +485,7 @@
                     <div class="col-lg-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> <strong>Top Selling Movies</strong></h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Top Selling Movies</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">

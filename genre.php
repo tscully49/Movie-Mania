@@ -325,8 +325,8 @@
     <script src="templateStuff/js/plugins/morris/morris-data.js"></script>
 
       <!--HighCharts -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script type="text/javascript" src="charts.js"></script>
 
 </body>

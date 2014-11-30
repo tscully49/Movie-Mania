@@ -17,7 +17,7 @@ print_r($_GET);
     or die('Could not connect: ' . pg_last_error());
 
     //select all movies whose title starts with the substring
-    $movie_query = 'SELECT id,title FROM movie WHERE title ilike $1';
+    $movie_query = 'SELECT id,title FROM movie WHERE title ilike $1 ORDER BY title ASC';
     pg_prepare($dbconn, 'movies', $movie_query);
     $movies = pg_execute($dbconn, 'movies', array($substring."%"));
 

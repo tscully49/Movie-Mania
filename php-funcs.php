@@ -75,7 +75,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
     $all_genres = pg_execute($conn, "genre_query", array());
 
     while ($one_genre = pg_fetch_array($all_genres, null, PGSQL_ASSOC)) {
-    	$this_genre = pg_prepare($conn, "genre_search", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title AS "Title", movie.id AS "Movie ID" FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC LIMIT 10');
+    	$this_genre = pg_prepare($conn, "genre_search", 'WITH id_list AS (SELECT movie_id FROM movie_genre as mg INNER JOIN genre as g ON (mg.genre_id = g.genre_id) WHERE g.genre = $1) SELECT title AS "Title", movie.id AS "id" FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title ASC LIMIT 10');
     	$this_genre = pg_execute($conn, "genre_search", array($one_genre[genre]));
 
 		echo"\n<div class='col-lg-3'>";
@@ -101,9 +101,9 @@ function print_all_genres() { // Functions which prints out a table for each gen
 
 		                        while ($info = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
 		                            echo"\n\t\t\t\t\t\t<tr>";
-		                            foreach($info as $col) { // Prints out all the info 
-		                            	echo"\n\t\t\t\t\t\t<td id='this_thing'><form action='movies.php?id=$info[Movie ID]' method='post'><input type='submit' name='title3' value='$info[Title]' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
-		                            }
+		                            //foreach($info as $col) { // Prints out all the info 
+		                            	echo"\n\t\t\t\t\t\t<td id='this_thing'><form action='movies.php?id=$info[id]' method='post'><input type='submit' name='title3' value='$info[Title]' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
+		                            //}
 		                            echo"\n\t\t\t\t\t\t</tr>";
 		                        }
 

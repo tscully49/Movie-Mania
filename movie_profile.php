@@ -30,6 +30,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+	.table{
+		width: 400px;
+	}
     	.navbar-header {
     		margin: 0 auto;
     		position: relative;
@@ -68,13 +71,13 @@
                 <a class="navbar-brand" href="index.php">Movie Mania</a>
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
-		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-            <form method = "POST" action = "decider.php" class="navbar-form navbar-left searchbar" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" name='search' placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+	    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
+            <form class="navbar-form navbar-left searchbar" role="search" action="movies.php" method="post">
+	    <div class="form-group">
+		 <input type="text" name="title" class="form-control" placeholder="Search">
+	    </div>
+	    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+	    </form>
            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -187,7 +190,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Search any Actor or Actress in our Database! <small>The main actors in all of our movies!</small>
+                            Search any Movie in our Database! <small>The most popular movies from each year</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -202,155 +205,140 @@
                     <div class="col-lg-12">
                         <div class="alert alert-info alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Search Actors/Actresses</strong> Search for Actors/Actresses                     
+                            <i class="fa fa-info-circle"></i>  <strong>Search Movies</strong> Search by Title or Genre                       
                         </div>
                     </div>
                 </div>
                 <!-- /.row -->
 
+
+<?php
+        
+       
+	   
+	   $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
+	   $id = $_GET['id'];
+           $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (id = $1)";
+           pg_prepare($conn,"titlesearch",$query1);
+           $result1 = pg_execute($conn,"titlesearch",array($id));
+
+           $movie_title = pg_fetch_array($result1,null,PGSQL_NUM);
+           $title = $movie_title[1];
+
+           echo "About $title";
+
+            $query2 = "SELECT DISTINCT ON (title) * FROM movie WHERE (id = $1)";
+           pg_prepare($conn,"titlesearch",$query2);
+           $result2 = pg_execute($conn,"titlesearch",array($id));
+	  
+           echo "<table class='table table-striped'>";
+	   echo "<tbody>";
+	  
+	   $i=0;
+           while($line = pg_fetch_array($result2,null,PGSQL_ASSOC)){
+                foreach($line as $col_value){
+		   $fieldname=pg_field_name($result2,$i);
+                   echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
+                   $i=$i+1;
+		}
+           }
+
+	   echo "</tbody>\n";
+           echo "</table>\n";
+
+
+           pg_free_result($result1);
+
+           pg_close($conn);
+        
+
+?>
+
+<?php
+   if(isset($_POST['search'])){
+           $title = $_POST['title2'];
+           echo "About $title";
+           $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
+
+           $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
+           pg_prepare($conn,"titlesearch",$query1);
+           $result1 = pg_execute($conn,"titlesearch",array($title));
+
+           echo "<table class='table table-striped'>";
+           echo "<tbody>";
+
+           $i=0;
+           while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
+                foreach($line as $col_value){
+                   $fieldname=pg_field_name($result1,$i);
+                   echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
+                   $i=$i+1;
+                }
+           }
+
+           echo "</tbody>\n";
+           echo "</table>\n";
+
+
+           pg_free_result($result1);
+
+           pg_close($conn);
+  }
+?>
+
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="panel panel-yellow">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Combination Chart with Tooltips</h3>
-                            </div>
-                            <div class="panel-body">
-                                    <div id="combo"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <h4>Pick one. Data is hard coded right now
-                    <br>
-                    <br>
-                    <div class="col-lg-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Bar Graph with Tooltips</h3>
-                            </div>
-                            <div class="panel-body">
-                                    <div class = "grossing-container">
-                                        <div id="grossing"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br><br>
-                    <div class="col-lg-4 col-lg-offset-5">
+                    <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Box Office</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$38053000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Dumb and Dumber To
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$36010000 </span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Big Hero 6
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$29190000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Interstellar
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$6500000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Beyond the Lights
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$4625000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Gone Girl
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$4025000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> St. Vincent
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$3810000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Fury (2014)
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$3038000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Nightcrawler"
-                                    </a>
+                            <form class="panel-body" role="search" action="movies.php" method="post">
+                                <div class="input-group">
+                                    <input type="text" name="title2" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn"><button type="submit" name="search" class="btn btn-default">Search!</button></span>
                                 </div>
-                                <div class="text-right">
-                                    <a href="#">View Box Office <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-lg-offset-5">
+                    <!-- Close the search bar div -->
+
+                    <!--<div class="col-lg-3 btn-group btn-group-vertical">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-film fa-fw"></i> Top Selling Movies</h3>
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i><strong> Search by First Letter</strong></h3>
                             </div>
                             <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Rank</th>
-                                                <th>Order Date</th>
-                                                <th>Title</th>
-                                                <th>Amount (USD)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>10/21/2013</td>
-                                                <td>Shawshank Redmeption</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>10/21/2013</td>
-                                                <td>Avatar</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>10/21/2013</td>
-                                                <td>Fast and Furious</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>10/21/2013</td>
-                                                <td>Inception</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>10/21/2013</td>
-                                                <td>Top Gun</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>10/21/2013</td>
-                                                <td>The Dark Knight</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>10/21/2013</td>
-                                                <td>Step Brothers</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>10/21/2013</td>
-                                                <td>Forest Gump</td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                            	<ul class="list-group movie_titles">
+                            		<a href="/movie_titles?letter=a" class="list-group-item btn-sm strong">A</a>
+                            		<a href="/movie_titles?letter=b" class="list-group-item btn-sm strong">B</a>
+                            		<a href="/movie_titles?letter=c" class="list-group-item btn-sm strong">C</a>
+                            		<a href="/movie_titles?letter=d" class="list-group-item btn-sm strong">D</a>
+                            		<a href="/movie_titles?letter=e" class="list-group-item btn-sm strong">E</a>
+                            		<a href="/movie_titles?letter=f" class="list-group-item btn-sm strong">F</a>
+                            		<a href="/movie_titles?letter=g" class="list-group-item btn-sm strong">G</a>
+                            		<a href="/movie_titles?letter=h" class="list-group-item btn-sm strong">H</a>
+                            		<a href="/movie_titles?letter=j" class="list-group-item btn-sm strong">I</a>
+                            		<a href="/movie_titles?letter=j" class="list-group-item btn-sm strong">J</a>
+                            		<a href="/movie_titles?letter=k" class="list-group-item btn-sm strong">K</a>
+                            		<a href="/movie_titles?letter=l" class="list-group-item btn-sm strong">L</a>
+                            		<a href="/movie_titles?letter=m" class="list-group-item btn-sm strong">M</a>
+                            		<a href="/movie_titles?letter=n" class="list-group-item btn-sm strong">N</a>
+                            		<a href="/movie_titles?letter=o" class="list-group-item btn-sm strong">O</a>
+                            		<a href="/movie_titles?letter=p" class="list-group-item btn-sm strong">P</a>
+                            		<a href="/movie_titles?letter=q" class="list-group-item btn-sm strong">Q</a>
+                            		<a href="/movie_titles?letter=r" class="list-group-item btn-sm strong">R</a>
+                            		<a href="/movie_titles?letter=s" class="list-group-item btn-sm strong">S</a>
+                            		<a href="/movie_titles?letter=t" class="list-group-item btn-sm strong">T</a>
+                            		<a href="/movie_titles?letter=u" class="list-group-item btn-sm strong">U</a>
+                            		<a href="/movie_titles?letter=v" class="list-group-item btn-sm strong">V</a>
+                            		<a href="/movie_titles?letter=w" class="list-group-item btn-sm strong">W</a>
+                            		<a href="/movie_titles?letter=x" class="list-group-item btn-sm strong">X</a>
+                            		<a href="/movie_titles?letter=y" class="list-group-item btn-sm strong">Y</a>
+                            		<a href="/movie_titles?letter=z" class="list-group-item btn-sm strong">Z</a>
+                            		<a href="/movie_titles?letter=#" class="list-group-item btn-sm strong">#</a>
+                            	</ul>
+                            	<div class="text-right">
+                                    <a href="#">View All Movies <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -377,12 +365,6 @@
     <script src="templateStuff/js/plugins/morris/raphael.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris-data.js"></script>
-
-      <!--HighCharts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-
-    <script type="text/javascript" src="charts.js"></script>
 
 </body>
 

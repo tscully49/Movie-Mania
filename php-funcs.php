@@ -122,7 +122,7 @@ function print_all_genres() { // Functions which prints out a table for each gen
 
 
 function print_single_genre($genre) { // prints out a table for a single genre which is passed through the parameter
-	echo"\n<div class='col-lg-6'>";
+	echo"\n<div class='col-lg-12'>";
         echo"\n\t<div class='panel panel-default'>";
             echo"\n\t\t<div class='panel-heading'>";
 
@@ -159,7 +159,10 @@ function print_single_genre($genre) { // prints out a table for a single genre w
                                 foreach($movies as $col) { // Prints out all the info 
                                     //echo"\n\t\t\t\t\t\t\t<a href=movie.php><td>$col</td></a>";
                                     if ($number == 1) {
-	                                    echo"\n\t\t\t\t\t\t\t<td id='this_thing'><form action='movie_profile.php?id=movies[id]' method='post'><input type='submit' name='title3' value='$col' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
+	                                    echo"\n\t\t\t\t\t\t\t<td id='this_thing'><form action='movie_profile.php?id=movies[id]' method='post'><input type='submit' name='title3' value='$movies[Title]' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
+                                		//echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$movies[Release Date]</td>"
+                                		//echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$movies[Rating]</td>"
+                                		//echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$movies[Audience Rating]</td>"
                                 	}
                                 	if($number == 5){
                                 		continue;

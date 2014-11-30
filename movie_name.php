@@ -10,7 +10,7 @@ print_r($_GET);
 <head>
 <?php
     //get substring or letter from movies.php
-   $substring = $_GET['substring'];
+    $substring = $_GET['substring'];
 
     $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
     user=cs3380f14grp12 password=bpVhIe1A") 
@@ -259,14 +259,6 @@ print_r($_GET);
                            echo "</div>";
                        echo "</div>";
                     echo "</div>";
-                        //start table
-                        echo "<table border=\"1\">\n";
-                        
-                        //add column labels
-                        
-                       
-
-               
                 ?>
 
         </div>

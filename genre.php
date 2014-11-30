@@ -212,7 +212,7 @@
                 <div class="col-lg-12">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Pie Chart with Tooltips</h3>
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Number of Movies in each Genre</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="flot-chart">

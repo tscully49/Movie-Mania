@@ -324,7 +324,7 @@
                                     </div>-->
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="movies.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Movies</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -348,7 +348,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="actors.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Actors/Actresses</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -372,7 +372,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="error_page.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Years</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -396,7 +396,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="genre.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Genres</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -426,7 +426,7 @@
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> Total Genres</h3>
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Total Genres</strong></h3>
                             </div>
                             <div class="panel-body">
                                  <div class="table-responsive">
@@ -454,7 +454,7 @@
                                     </table>
                                 </div>
                                 <div class="text-right">
-                                    <a href="#">View All Genres <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="genre.php">View All Genres <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -485,7 +485,7 @@
                     <div class="col-lg-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Top Selling Movies</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> <strong>Top Selling Movies</strong></h3>
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">

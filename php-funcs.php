@@ -163,6 +163,7 @@ function print_single_genre($genre) { // prints out a table for a single genre w
                                 		//echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$movies[Release Date]</td>"
                                 		//echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$movies[Rating]</td>"
                                 		//echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$movies[Audience Rating]</td>"
+                                		$number++;
                                 	}
                                 	if($number == 5 || $number == 2){
                                 		$number++;
@@ -170,8 +171,9 @@ function print_single_genre($genre) { // prints out a table for a single genre w
                                 	}
                                 	else {
                                 		echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$col</td>";
+                                		$number++;
                                 	}
-                                	$number++;
+                                	//$number++;
                                 }
                                 echo"\n\t\t\t\t\t\t</tr>";
                             }

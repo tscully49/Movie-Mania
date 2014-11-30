@@ -253,9 +253,9 @@
                      //returns names of all the movies an actor was in
                     $movie_query = 'WITH id_list AS (
                             SELECT actor_in_movie.movie_id
-                            FROM actor_in_movie INNER JOIN actor ON (actor_in_movie.actor_id = actor.id)
+                            FROM actor_in_movie INNER JOIN actor ON (actor_in_movie.actor_id = actor.id) 
                             WHERE actor.name = $1
-                            )
+                            ) 
                         SELECT DISTINCT (title) title
                         FROM movie INNER JOIN id_list ON (id_list.movie_id = movie.id) ORDER BY title';
 

@@ -219,7 +219,6 @@
                             </div>
                         </div>
                     </div>
-                    <h4>Pick one. Data is hard coded right now
                     <br>
                     <br>
                     <div class="col-lg-6">
@@ -235,126 +234,6 @@
                         </div>
                     </div>
                     <br><br>
-                    <div class="col-lg-4 col-lg-offset-5">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Box Office</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$38053000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Dumb and Dumber To
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$36010000 </span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Big Hero 6
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$29190000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Interstellar
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$6500000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Beyond the Lights
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$4625000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Gone Girl
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$4025000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> St. Vincent
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$3810000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Fury (2014)
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">$3038000</span>
-                                        <i class="fa fa-fw fa-video-camera"></i> Nightcrawler"
-                                    </a>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View Box Office <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-lg-offset-5">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-film fa-fw"></i> Top Selling Movies</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Rank</th>
-                                                <th>Order Date</th>
-                                                <th>Title</th>
-                                                <th>Amount (USD)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>10/21/2013</td>
-                                                <td>Shawshank Redmeption</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>10/21/2013</td>
-                                                <td>Avatar</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>10/21/2013</td>
-                                                <td>Fast and Furious</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>10/21/2013</td>
-                                                <td>Inception</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>10/21/2013</td>
-                                                <td>Top Gun</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>10/21/2013</td>
-                                                <td>The Dark Knight</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>10/21/2013</td>
-                                                <td>Step Brothers</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>10/21/2013</td>
-                                                <td>Forest Gump</td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.row -->
 

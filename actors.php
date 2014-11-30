@@ -274,7 +274,7 @@
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Most Popular Actors</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> <strong>Most Popular Actors</strong></h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
@@ -313,73 +313,37 @@
                     <div class="col-lg-4 col-lg-offset-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-film fa-fw"></i> Top Selling Movies</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> <strong>Most Popular Directors</strong></h3>
                             </div>
                             <div class="panel-body">
-                                <div class="table-responsive">
+                                <div class="list-group">
                                     <table class="table table-bordered table-hover table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Rank</th>
-                                                <th>Order Date</th>
-                                                <th>Title</th>
-                                                <th>Amount (USD)</th>
+                                               <?PHP
+                                                    $num_fields = pg_num_fields($pop_directors);
+                                                    for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
+                                                        $fieldName = pg_field_name($pop_directors, $i);
+                                                        echo "\t\t\n<th>$fieldName</th>"; 
+                                                    }
+                                                ?>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>10/21/2013</td>
-                                                <td>Shawshank Redmeption</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>10/21/2013</td>
-                                                <td>Avatar</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>10/21/2013</td>
-                                                <td>Fast and Furious</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>10/21/2013</td>
-                                                <td>Inception</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>10/21/2013</td>
-                                                <td>Top Gun</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>10/21/2013</td>
-                                                <td>The Dark Knight</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>10/21/2013</td>
-                                                <td>Step Brothers</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>10/21/2013</td>
-                                                <td>Forest Gump</td>
-                                                <td>$943.45</td>
-                                            </tr>
+                                        <?PHP
+                                            while ($popular_directors = pg_fetch_array($pop_directors, null, PGSQL_ASSOC)) {
+                                                echo"<tr>";
+                                                foreach($popular_directors as $col) { // Prints out all the info 
+                                                    echo"\n\t\t<td>$col</td>";
+                                                }
+                                                echo"\n\t</tr>";
+                                            }
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="#">View Most Popular Actors<i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>

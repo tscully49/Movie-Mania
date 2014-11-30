@@ -274,7 +274,7 @@
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Most Popular Actors</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> <strong>Most Popular Actors</strong></h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
@@ -313,7 +313,7 @@
                     <div class="col-lg-4 col-lg-offset-5">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Most Popular Directors</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> <strong>Most Popular Directors</strong></h3>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">

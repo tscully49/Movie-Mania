@@ -248,7 +248,7 @@
                             		<a href="actor_name?substring=#" class="list-group-item btn-sm strong">#</a>
                             	</ul>
                             	<div class="text-right">
-                                    <a href="#">View All Movies <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="actor_name?substring=">View All Actors <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>

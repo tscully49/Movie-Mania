@@ -165,7 +165,7 @@ function print_single_genre($genre) { // prints out a table for a single genre w
                                 		//echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$movies[Audience Rating]</td>"
                                 		$number++;
                                 	}
-                                	if($number == 5 || $number == 2){
+                                	if($number == 6 || $number == 2){
                                 		$number++;
                                 		continue;
                                 	}

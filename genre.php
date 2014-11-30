@@ -209,7 +209,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Pie Chart with Tooltips</h3>
@@ -222,6 +222,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
                 <div class="row">
                     <div class="col-lg-12">
@@ -319,12 +320,13 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="templateStuff/js/bootstrap.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
+    <!-- Morris Charts JavaScript
     <script src="templateStuff/js/plugins/morris/raphael.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris-data.js"></script>
+    -->
 
-      <!--HighCharts -->
+    <!--HighCharts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script type="text/javascript" src="charts.js"></script>

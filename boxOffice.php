@@ -373,10 +373,11 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="templateStuff/js/bootstrap.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
+    <!-- Morris Charts JavaScript
     <script src="templateStuff/js/plugins/morris/raphael.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris-data.js"></script>
+    -->
 
       <!--HighCharts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

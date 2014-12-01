@@ -10,7 +10,7 @@
     user=cs3380f14grp12 password=bpVhIe1A") 
     or die('Could not connect: ' . pg_last_error());
 
-    if ($substring == '#') {
+    if (!ctype_alpha($substring)) {
         $new_string = "'^[0-9]'";
         $actor_query = "SELECT id,name FROM actor WHERE name ~ '^[0-9]' ORDER BY name ASC";
 
@@ -244,7 +244,6 @@
                 <!-- /.row -->
 
                 <?php
-                    print_r($_GET['substring']);
                     echo"<div class=\"row\">";
                         echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
                             echo "<div class=\"panel panel-default\">";

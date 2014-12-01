@@ -213,6 +213,11 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Number of Movies in each Genre</h3>
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-arrow-right"><span class="">Movies</span></i>
+                                    </li>
+                                </ol>
                             </div>
                             <div class="panel-body">
                                 <div class="flot-chart">

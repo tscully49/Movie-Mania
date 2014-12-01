@@ -201,16 +201,6 @@
                 </div>
                 <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Search Movies</strong> Search by Title or Genre                       
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
 
 <?php
         
@@ -225,7 +215,7 @@
            $movie_title = pg_fetch_array($result1,null,PGSQL_NUM);
            $title = $movie_title[1];
 
-           echo "About $title";
+           echo "<h3>About <u><strong>$title</strong></u></h3>";
 
             $query2 = "SELECT DISTINCT ON (title) * FROM movie WHERE (id = $1)";
            pg_prepare($conn,"titlesearch",$query2);
@@ -238,7 +228,7 @@
            while($line = pg_fetch_array($result2,null,PGSQL_ASSOC)){
                 foreach($line as $col_value){
 		   $fieldname=pg_field_name($result2,$i);
-                   echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
+                   echo "\t\t<tr><td>$fieldname</td><td><strong>$col_value</strong></td></tr>\n";
                    $i=$i+1;
 		}
            }

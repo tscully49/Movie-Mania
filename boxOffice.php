@@ -305,7 +305,7 @@
                     </div>
                 
                     <div class="col-lg-4">
-                        <div class="panel panel-purple">
+                        <div class="panel panel-yellow">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Total Gross by Director</strong></h3>
                             </div>

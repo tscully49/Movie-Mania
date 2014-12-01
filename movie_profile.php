@@ -278,14 +278,16 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
                             </div>
-                            <form class="panel-body" role="search" action="movies.php" method="post">
+
+                             <!--allows user to search for movie title or part of movie title. sends searched value to movie_name.php as a GET variable.-->
+                            <form class="panel-body" role="search" method = "GET" action = movie_name.php>
                                 <div class="input-group">
-                                    <input type="text" name="title2" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn"><button type="submit" name="search" class="btn btn-default">Search!</button></span>
+                                    <input type="text" class="form-control" name = "substring" placeholder="Search">
+                                    <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
                                 </div>
                             </form>
                         </div>

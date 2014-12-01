@@ -253,7 +253,7 @@
                             echo "\t\t<tr><td>IMDB Rating</td><td>$col_value</td></tr>\n";
                             break;
                         }
-                        default {
+                        default : {
                            echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
                            break;
                         }

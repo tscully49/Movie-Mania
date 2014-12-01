@@ -244,7 +244,7 @@
                 <!-- /.row -->
 
                 <?php
-                    print_r($substring);
+                    print_r($_GET['substring']);
                     echo"<div class=\"row\">";
                         echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
                             echo "<div class=\"panel panel-default\">";

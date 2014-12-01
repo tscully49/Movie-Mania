@@ -12,7 +12,7 @@
 
     if (!ctype_alpha($substring)) {
         $new_string = "'^[0-9]'";
-        $movie_query = "SELECT id,title FROM movie WHERE name ~ '^[0-9]' ORDER BY title ASC";
+        $movie_query = "SELECT id,title FROM movie WHERE title ~ '^[0-9]' ORDER BY title ASC";
 
         pg_prepare($dbconn, 'movie', $movie_query);
         $movies = pg_execute($dbconn, 'movie', array());

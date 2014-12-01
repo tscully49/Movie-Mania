@@ -4,12 +4,20 @@
 <head>
 <?php
     //get the substring/first letter of the actor's name from actors.php
-   $substring = $_GET['substring'];
+    $substring = $_GET['substring'];
 
     $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
     user=cs3380f14grp12 password=bpVhIe1A") 
     or die('Could not connect: ' . pg_last_error());
 
+    if ($substring == "#") {
+        $substring = "'^[0-9]+'";
+        $actor_query = 'SELECT id,name FROM actor WHERE name regexp $1 ORDER BY name ASC';
+
+        pg_prepare($dbconn, 'actors', $actor_query);
+        $actors = pg_execute($dbconn, 'actors', array($substring."%"));
+    }
+    else {
     //select any actors whose names start with the letter of the clicked button or contain the substring searched for in the actors search bar
     $actor_query = 'SELECT id,name FROM actor WHERE name ilike $1 ORDER BY name ASC';
 
@@ -21,6 +29,7 @@
            
             header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
         }
+    }
     ?>
 
     <meta charset="utf-8">

@@ -15,7 +15,7 @@
         $actor_query = 'SELECT id,name FROM actor WHERE name regexp $1 ORDER BY name ASC';
 
         pg_prepare($dbconn, 'actors', $actor_query);
-        $actors = pg_execute($dbconn, 'actors', array($substring."%"));
+        $actors = pg_execute($dbconn, 'actors', array($substring));
     }
     else {
     //select any actors whose names start with the letter of the clicked button or contain the substring searched for in the actors search bar

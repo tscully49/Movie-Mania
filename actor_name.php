@@ -12,10 +12,10 @@
 
     if ($substring == "#") {
         $substring = "'^[0-9]'";
-        $actor_query = "SELECT id,name FROM actor WHERE name ~ $1 ORDER BY name ASC";
+        $actor_query = "SELECT id,name FROM actor WHERE name ~ '^[0-9]' ORDER BY name ASC";
 
         pg_prepare($dbconn, 'actors', $actor_query);
-        $actors = pg_execute($dbconn, 'actors', array($substring));
+        $actors = pg_execute($dbconn, 'actors', array());
 
         if(pg_num_rows($actors) == 0){
             pg_close($conn);

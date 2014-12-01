@@ -11,7 +11,7 @@
     or die('Could not connect: ' . pg_last_error());
 
     if ($substring == "#") {
-        $substring = "^[0-9]+";
+        $substring = "'^[0-9]'";
         $actor_query = "SELECT id,name FROM actor WHERE name ~ $1 ORDER BY name ASC";
 
         pg_prepare($dbconn, 'actors', $actor_query);

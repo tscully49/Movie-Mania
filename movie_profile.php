@@ -30,9 +30,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-	.table{
-		width: 400px;
-	}
     	.navbar-header {
     		margin: 0 auto;
     		position: relative;
@@ -201,7 +198,7 @@
                 </div>
                 <!--/.row -->
 
-
+                <div class="col-lg-6">
 <?php
         
        
@@ -324,6 +321,7 @@
            pg_close($conn);
   }
 ?>
+                </div>
 
                 <div class="row">
                     <div class="col-lg-12">

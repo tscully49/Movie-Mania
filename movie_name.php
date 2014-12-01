@@ -10,15 +10,29 @@
     user=cs3380f14grp12 password=bpVhIe1A") 
     or die('Could not connect: ' . pg_last_error());
 
-    //select all movies whose title starts with the substring
-    $movie_query = 'SELECT id,title FROM movie WHERE title ilike $1 ORDER BY title ASC';
-    pg_prepare($dbconn, 'movies', $movie_query);
-    $movies = pg_execute($dbconn, 'movies', array($substring."%"));
+    if (!ctype_alpha($substring)) {
+        $new_string = "'^[0-9]'";
+        $movie_query = "SELECT id,title FROM movie WHERE name ~ '^[0-9]' ORDER BY title ASC";
 
-    //if no movies start with the substring, redirect to no results page      
-    if(pg_num_rows($movies == 0)){
-       
-        header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
+        pg_prepare($dbconn, 'movie', $movie_query);
+        $movies = pg_execute($dbconn, 'movie', array());
+
+        if(pg_num_rows($movies) == 0){
+            pg_close($conn);
+            header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
+        }
+    }
+    else {
+        //select all movies whose title starts with the substring
+        $movie_query = 'SELECT id,title FROM movie WHERE title ilike $1 ORDER BY title ASC';
+        pg_prepare($dbconn, 'movies', $movie_query);
+        $movies = pg_execute($dbconn, 'movies', array($substring."%"));
+
+        //if no movies start with the substring, redirect to no results page      
+        if(pg_num_rows($movies == 0)){
+            pg_close($conn);
+            header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
+        }
     }
     ?>
 

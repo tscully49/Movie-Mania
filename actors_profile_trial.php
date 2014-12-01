@@ -232,13 +232,13 @@
                     else{
                             $actor_name = pg_fetch_array($error_check,null,PGSQL_NUM);
                             $actor = $actor_name[0];
-                            echo"<h3>".$actor."'s Profile</h3>";
+                            echo"<h3><strong>".$actor."'s</strong> Profile</h3>";
 
 
                     echo "<br/>";
 
 	                echo "<div id='table1'>";
-                    echo 'Movies Starred In:';
+                    echo '<strong><u>Movies Starred In:</u></strong>';
 	                echo "<br/><br/>";
                      //returns names of all the movies an actor was in
                     $movie_query = 'WITH id_list AS (
@@ -309,7 +309,7 @@
             
 
 	               echo "<div id='table2'>";
-                    echo 'Number of Movies Starred in per Genre';
+                    echo '<strong><u>Number of Movies Starred in per Genre</u></strong>';
 	                echo "<br/><br/>";
                     //start table
 	    
@@ -364,8 +364,8 @@
 
                
                 echo "<div id='table3'>"; 
-                echo 'Success of movies by genre <br/>';
-                echo 'Measured by average Rotten Tomato Critic rating for each genre';
+                echo '<strong><u>Success of movies by genre</strong></u> <br/>';
+                echo '<u>Measured by <strong>average</strong> Rotten Tomato Critic rating for each genre</u>';
                 
                 //start table
                 echo "<table class='table table-striped'>\n";

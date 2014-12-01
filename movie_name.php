@@ -222,7 +222,7 @@
                     <div class="col-lg-12">
                         <div class="alert alert-info alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Search Actors/Actresses</strong> Search for Actors/Actresses                     
+                            <i class="fa fa-info-circle"></i>  <strong>Select Movie from list</strong> Or search for a new Movie!                    
                         </div>
                     </div>
                 </div>

@@ -190,7 +190,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Search any Movie in our Database! <small>The most popular movies from each year</small>
+                            Movie Profile
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -199,7 +199,7 @@
                         </ol>
                     </div>
                 </div>
-                <!-- /.row -->
+                <!--/.row -->
 
 
 <?php

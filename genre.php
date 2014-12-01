@@ -206,6 +206,11 @@
                         <h1 class="page-header">
                             Search any Movie by Genre! <small>The Genres for all of our movies!</small>
                         </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-arrow-right"><span class="">Movies</span></i>
+                            </li>
+                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -213,11 +218,6 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Number of Movies in each Genre</h3>
-                                <ol class="breadcrumb">
-                                    <li class="active">
-                                        <i class="fa fa-arrow-right"><span class="">Movies</span></i>
-                                    </li>
-                                </ol>
                             </div>
                             <div class="panel-body">
                                 <div class="flot-chart">

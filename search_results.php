@@ -217,7 +217,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-arrow-right"><span class="">Movies</span></i>
+                                <i class="fa fa-arrow-right"><span class="">Movies/Actors</span></i>
                             </li>
                         </ol>
                     </div>

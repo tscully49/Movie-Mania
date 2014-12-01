@@ -187,11 +187,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Search any Actor or Actress in our Database! <small>The main actors in all of our movies!</small>
+                            Box Office <small>Some anaysis from the Box Office</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-arrow-right"><span class="">Movies</span></i>
+                                <i class="fa fa-arrow-right"><span class="">Box Office</span></i>
                             </li>
                         </ol>
                     </div>
@@ -202,7 +202,7 @@
                     <div class="col-lg-12">
                         <div class="alert alert-info alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Search Actors/Actresses</strong> Search for Actors/Actresses                     
+                            <i class="fa fa-info-circle"></i>  <strong>Check out the Box Office</strong> Some info from the Box Office                     
                         </div>
                     </div>
                 </div>
@@ -219,21 +219,18 @@
                             </div>
                         </div>
                     </div>
-                    <br>
-                    <br>
                     <div class="col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Bar Graph with Tooltips</h3>
                             </div>
                             <div class="panel-body">
-                                    <div class = "grossing-container">
-                                        <div id="grossing"></div>
+                                <div class = "grossing-container">
+                                    <div id="grossing"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br><br>
                 </div>
                 <!-- /.row -->
 

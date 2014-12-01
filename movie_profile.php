@@ -260,8 +260,8 @@
            $i=0;
            while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
                 foreach($line as $col_value){
-                    $fieldname=pg_field_name($result1,$i);
-                    if ($fieldname == "mpaa_rating") {
+                    $fieldname = pg_field_name($result1, $i);
+                    if ($fieldname == 'mpaa_rating') {
                         echo "\t\t<tr><td>MPAA Rating</td><td>$col_value</td></tr>\n";
                     }
                     if ($fieldname == "release_date") {

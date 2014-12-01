@@ -242,6 +242,7 @@
                                         <thead>
                                             <tr>
                                                 <?PHP
+                                                    require("boxOffice_queries.php");
                                                     $num_fields = pg_num_fields($Box_years);
                                                     for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
                                                         $fieldName = pg_field_name($Box_years, $i);

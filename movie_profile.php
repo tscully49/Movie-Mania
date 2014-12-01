@@ -260,9 +260,29 @@
            $i=0;
            while($line = pg_fetch_array($result1,null,PGSQL_ASSOC)){
                 foreach($line as $col_value){
-                   $fieldname=pg_field_name($result1,$i);
-                   echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
-                   $i=$i+1;
+                    $fieldname=pg_field_name($result1,$i);
+                    if ($fieldname == "mpaa_rating") {
+                        echo "\t\t<tr><td>MPAA Rating</td><td>$col_value</td></tr>\n";
+                    }
+                    if ($fieldname == "release_date") {
+                        echo "\t\t<tr><td>Release Date</td><td>$col_value</td></tr>\n";
+                    }
+                    if ($fieldname == "domestic_gross") {
+                        echo "\t\t<tr><td>Domestic Gross</td><td>$col_value</td></tr>\n";
+                    }
+                    if ($fieldname == "rt_critic") {
+                        echo "\t\t<tr><td>Critic Rating</td><td>$col_value</td></tr>\n";
+                    }
+                    if ($fieldname == "rt_audience") {
+                        echo "\t\t<tr><td>Audience Rating</td><td>$col_value</td></tr>\n";
+                    }
+                    if ($fieldname == "imdb") {
+                        echo "\t\t<tr><td>IMDB Rating</td><td>$col_value</td></tr>\n";
+                    }
+                    else {
+                       echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
+                    }
+                    $i=$i+1;
                 }
            }
 

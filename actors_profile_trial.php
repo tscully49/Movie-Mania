@@ -430,24 +430,24 @@
 
 */
 ?>
-        <div class="col-lg-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Search by Name</h3>
-                </div>
-
-                <!--allows user to search for actor name or part of actor name. sends searched value to actor_name.php as a GET variable.-->
-                <form class="panel-body" role="search" method = "GET" action = actor_name.php>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name = "substring" placeholder="Search">
-                        <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
-                    </div>
-                </form>
-            </div>
-        </div>
         </div>
         <!-- /#page-wrapper -->
 
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Search by Name</h3>
+            </div>
+
+            <!--allows user to search for actor name or part of actor name. sends searched value to actor_name.php as a GET variable.-->
+            <form class="panel-body" role="search" method = "GET" action = actor_name.php>
+                <div class="input-group">
+                    <input type="text" class="form-control" name = "substring" placeholder="Search">
+                    <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
+                </div>
+            </form>
+        </div>
+    </div>
     </div>
     <!-- /#wrapper -->
 

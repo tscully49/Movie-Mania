@@ -12,10 +12,15 @@
 
     if ($substring == "#") {
         $substring = "^[0-9]+";
-        $actor_query = 'SELECT id,name FROM actor WHERE name regexp $1 ORDER BY name ASC';
+        $actor_query = "SELECT id,name FROM actor WHERE name REGEXP '^[0-9]' ORDER BY name ASC";
 
         pg_prepare($dbconn, 'actors', $actor_query);
-        $actors = pg_execute($dbconn, 'actors', array($substring));
+        $actors = pg_execute($dbconn, 'actors', array());
+
+        if(pg_num_rows($actors) == 0){
+            pg_close($conn);
+            header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
+        }
     }
     else {
     //select any actors whose names start with the letter of the clicked button or contain the substring searched for in the actors search bar
@@ -26,7 +31,7 @@
 
         //if no actors contained the substring, redirect to the no results page
         if(pg_num_rows($actors) == 0){
-           
+            pg_close($conn);
             header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
         }
     }

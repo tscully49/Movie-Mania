@@ -230,31 +230,55 @@
     		        $fieldname=pg_field_name($result2,$i);
                     switch ($fieldname) {
                         case 'mpaa_rating': {
-                            echo "\t\t<tr><td>MPAA Rating</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>MPAA Rating</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         case "release_date": {
-                            echo "\t\t<tr><td>Release Date</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>Release Date</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         case "domestic_gross": {
-                            echo "\t\t<tr><td>Domestic Gross</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>Domestic Gross</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         case "rt_critic": {
-                            echo "\t\t<tr><td>Critic Rating</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>Critic Rating</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         case "rt_audience": {
-                            echo "\t\t<tr><td>Audience Rating</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>Audience Rating</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         case "imdb": {
-                            echo "\t\t<tr><td>IMDB Rating</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>IMDB Rating</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "runtime": {
+                            echo "\t\t<tr><td>Runtime (min)</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "id": {
+                            echo "\t\t<tr><td>Movie ID</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "metascore": {
+                            echo "\t\t<tr><td>Metascore</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "title": {
+                            echo "\t\t<tr><td>Title</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "year": {
+                            echo "\t\t<tr><td>Year</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "plot": {
+                            echo "\t\t<tr><td>Movie Plot</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         default : {
-                           echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
+                           echo "\t\t<tr><td>$fieldname</td><td><strong>$col_value</strong></td></tr>\n";
                            break;
                         }
                     }
@@ -292,31 +316,55 @@
                     $fieldname = pg_field_name($result1, $i);
                     switch ($fieldname) {
                         case 'mpaa_rating': {
-                            echo "\t\t<tr><td>MPAA Rating</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>MPAA Rating</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         case "release_date": {
-                            echo "\t\t<tr><td>Release Date</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>Release Date</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         case "domestic_gross": {
-                            echo "\t\t<tr><td>Domestic Gross</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>Domestic Gross</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         case "rt_critic": {
-                            echo "\t\t<tr><td>Critic Rating</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>Critic Rating</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         case "rt_audience": {
-                            echo "\t\t<tr><td>Audience Rating</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>Audience Rating</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         case "imdb": {
-                            echo "\t\t<tr><td>IMDB Rating</td><td>$col_value</td></tr>\n";
+                            echo "\t\t<tr><td>IMDB Rating</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "runtime": {
+                            echo "\t\t<tr><td>Runtime (min)</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "id": {
+                            echo "\t\t<tr><td>Movie ID</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "metascore": {
+                            echo "\t\t<tr><td>Metascore</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "title": {
+                            echo "\t\t<tr><td>Title</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "year": {
+                            echo "\t\t<tr><td>Year</td><td><strong>$col_value</strong></td></tr>\n";
+                            break;
+                        }
+                        case "plot": {
+                            echo "\t\t<tr><td>Movie Plot</td><td><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         default : {
-                           echo "\t\t<tr><td>$fieldname</td><td>$col_value</td></tr>\n";
+                           echo "\t\t<tr><td>$fieldname</td><td><strong>$col_value</strong></td></tr>\n";
                            break;
                         }
                     }

@@ -51,6 +51,9 @@
         td {
             white-space: nowrap;
         }
+        #this {
+            white-space: pre-wrap;
+        }
     </style>
 </head>
 
@@ -274,7 +277,7 @@
                             break;
                         }
                         case "plot": {
-                            echo "\t\t<tr><td>Movie Plot</td><td><strong>$col_value</strong></td></tr>\n";
+                            echo "\t\t<tr><td>Movie Plot</td><td id='this'><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         default : {
@@ -360,7 +363,7 @@
                             break;
                         }
                         case "plot": {
-                            echo "\t\t<tr><td>Movie Plot</td><td><strong>$col_value</strong></td></tr>\n";
+                            echo "\t\t<tr><td>Movie Plot</td><td id='this'><strong>$col_value</strong></td></tr>\n";
                             break;
                         }
                         default : {

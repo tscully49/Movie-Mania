@@ -9,7 +9,7 @@
     $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
     user=cs3380f14grp12 password=bpVhIe1A") 
     or die('Could not connect: ' . pg_last_error());
-    echo "$substring\n\n\n";
+    echo $substring;
     if ($substring == '#') {
         $substring = "'^[0-9]'";
         $actor_query = "SELECT id,name FROM actor WHERE name ~ '^[0-9]' ORDER BY name ASC";

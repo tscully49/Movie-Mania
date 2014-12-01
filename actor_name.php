@@ -10,9 +10,8 @@
     user=cs3380f14grp12 password=bpVhIe1A") 
     or die('Could not connect: ' . pg_last_error());
 
-    print_r($substring);
     if ($substring == '#') {
-        $substring = "'^[0-9]'";
+        $new_string = "'^[0-9]'";
         $actor_query = "SELECT id,name FROM actor WHERE name ~ '^[0-9]' ORDER BY name ASC";
 
         pg_prepare($dbconn, 'actors', $actor_query);
@@ -245,7 +244,7 @@
                 <!-- /.row -->
 
                 <?php
-                            
+                    print_r($substring);
                     echo"<div class=\"row\">";
                         echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
                             echo "<div class=\"panel panel-default\">";

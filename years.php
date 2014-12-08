@@ -247,7 +247,12 @@
                     <!-- Decides whether all the genres should be printed out or if just a single one should by checking the get parameters-->
                     <?PHP
                         require("php-funcs.php");
-                        print_all_years();
+                        if ($_GET['year']) {
+                            print_single_year($_GET['year']);
+                        }
+                        else {
+                            print_all_years();
+                        }
                     ?>
                     <!-- Prints out either all genres or just the specified one -->
 

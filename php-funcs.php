@@ -239,13 +239,82 @@ function print_all_years() { // Functions which prints out a table for each genr
 		                echo"\n\t\t\t\t</table>";
 		            echo"\n\t\t\t</div>";
 		        	echo"\n\t\t\t<div class='text-right'>";
-		                echo"\n\t\t\t\t<a href='genre.php?genre=$one_year[year]'>View All $one_year[year] Movies <i class='fa fa-arrow-circle-right'></i></a>";
+		                echo"\n\t\t\t\t<a href='years.php?year=$one_year[year]'>View All $one_year[year] Movies <i class='fa fa-arrow-circle-right'></i></a>";
 		            echo"\n\t\t\t</div>";
 		        echo"\n\t\t</div>";
 		    echo"\n\t</div>";
 		echo"\n</div>";
 	}
 	pg_close($conn);
+}
+
+function print_single_year($year) { // prints out a table for a single year which is passed through the parameter
+	echo"\n<div class='col-lg-12'>";
+        echo"\n\t<div class='panel panel-default'>";
+            echo"\n\t\t<div class='panel-heading'>";
+
+            $type = $_GET['year'];
+            echo"<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> Every $year Movie</strong></h3>";
+
+            echo"\n\t\t</div>";
+            echo"\n\t\t<div class='panel-body'>";
+                echo"\n\t\t\t<div class='table-responsive'>";
+                    echo"\n\t\t\t\t<table class='table table-bordered table-hover table-striped'>";
+                        echo"\n\t\t\t\t\t<thead>";
+                            echo"\n\t\t\t\t\t\t<tr>";
+
+                                    include("../secure/database.php");
+                                    $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
+                                    if(!$conn){
+                                        echo"<p> Connection Fail</p>";
+                                    }
+                                    $this_year = pg_prepare($conn, "year_query", 'SELECT title AS "Title", release_date AS "Release Date", mpaa_rating AS "Rating", rt_audience AS "Audience Rating", id FROM movie WHERE (year = $1) ORDER BY title ASC');
+                                    $this_year = pg_execute($conn, "year_query", array($type));
+                                    $num_fields = pg_num_fields($this_year);
+                                    for ($i=0;$i<$num_fields-1;$i++) { // Prints out all headers for the fields 
+                                        $fieldName = pg_field_name($this_year, $i);
+                                        echo "\n\t\t\t\t\t\t\t<th>$fieldName</th>"; 
+                                    }
+
+                            echo"\n\t\t\t\t\t\t</tr>";
+                        echo"\n\t\t\t\t\t</thead>";
+                        echo"\n\t\t\t\t\t<tbody>";
+
+                            while ($movies = pg_fetch_array($this_year, null, PGSQL_ASSOC)) {
+                                echo"\n\t\t\t\t\t\t<tr>";
+                                $number = 1;
+                                foreach($movies as $col) { // Prints out all the info 
+                                    //echo"\n\t\t\t\t\t\t\t<a href=movie.php><td>$col</td></a>";
+                                    if ($number == 1) {
+	                                    echo"\n\t\t\t\t\t\t\t<td id='this_thing'><form action='movie_profile.php?id=$movies[id]' method='post'><input type='submit' name='title3' value='$col' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
+                                		//echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$movies[Release Date]</td>"
+                                		//echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$movies[Rating]</td>"
+                                		//echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$movies[Audience Rating]</td>"
+                                		$number++;
+                                	}
+                                	if($number == 6 || $number == 2){
+                                		$number++;
+                                		continue;
+                                	}
+                                	else {
+                                		echo"\n\t\t\t\t\t\t\t<td id='this_thing'>$col</td>";
+                                		$number++;
+                                	}
+                                	//$number++;
+                                }
+                                echo"\n\t\t\t\t\t\t</tr>";
+                            }
+
+                        echo"\n\t\t\t\t\t</tbody>";
+                    echo"\n\t\t\t\t</table>";
+                echo"\n\t\t\t</div>";
+            	//echo"\n\t\t\t<div class='text-right'>";
+                    //echo"\n\t\t\t\t<a href='genre.php?genre=$one_genre[genre]'>View All Movies <i class='fa fa-arrow-circle-right'></i></a>";
+                //echo"\n\t\t\t</div>";
+            echo"\n\t\t</div>";
+        echo"\n\t</div>";
+    echo"\n</div>";
+    pg_close($conn);
 }
 
 ?>

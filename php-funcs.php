@@ -203,7 +203,7 @@ function print_all_years() { // Functions which prints out a table for each genr
     $all_years = pg_execute($conn, "year_query", array());
 
     while ($one_year = pg_fetch_array($all_years, null, PGSQL_ASSOC)) {
-    	$this_year = pg_prepare($conn, "year_search", "SELECT title AS 'Title', id FROM movie WHERE (year = $1) ORDER BY title ASC LIMIT 10");
+    	$this_year = pg_prepare($conn, "year_search", 'SELECT title AS "Title", id FROM movie WHERE (year = $1) ORDER BY title ASC LIMIT 10');
     	$this_year = pg_execute($conn, "year_search", array($one_year[year]));
 
 		echo"\n<div class='col-lg-3'>";

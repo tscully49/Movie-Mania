@@ -199,7 +199,7 @@ function print_all_years() { // Functions which prints out a table for each genr
         echo"<p> Connection Fail</p>";
     }
 
-    $all_years = pg_prepare($conn, "year_query", 'SELECT year FROM movie GROUP BY year ORDER BY year ASC');
+    $all_years = pg_prepare($conn, "year_query", 'SELECT count(title) AS "count", year FROM movie GROUP BY year ORDER BY year ASC');
     $all_years = pg_execute($conn, "year_query", array());
 
     while ($one_year = pg_fetch_array($all_years, null, PGSQL_ASSOC)) {
@@ -209,7 +209,7 @@ function print_all_years() { // Functions which prints out a table for each genr
 		echo"\n<div class='col-lg-3'>";
 		    echo"\n\t<div class='panel panel-info'>";
 		        echo"\n\t\t<div class='panel-heading'>";
-		            echo"\n\t\t\t<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $one_year[year]'s Movies</strong></h3>"; 
+		            echo"\n\t\t\t<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $one_year[year]'s Movies --- ($one_year[count]) movies</strong></h3>"; 
 		        echo"\n\t\t</div>";
 		        echo"\n\t\t<div class='panel-body'>";
 		            echo"\n\t\t\t<div class='table-responsive'>";

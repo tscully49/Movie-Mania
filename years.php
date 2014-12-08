@@ -204,7 +204,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Search any Movie by Genre! <small>The Genres for all of our movies!</small>
+                            Search any Movie by Year! <small>The Years for all of our movies!</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -219,7 +219,7 @@
                     <div class="col-lg-12">
                         <div class="alert alert-info alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Search Movies by Genre</strong> Pick a Genre on the left or select from the lists!                    
+                            <i class="fa fa-info-circle"></i>  <strong>Search Movies by Year</strong> Pick a Year on the left or select from the lists!                    
                         </div>
                     </div>
                 </div>

@@ -217,9 +217,9 @@ function print_all_years() { // Functions which prints out a table for each genr
 		                    echo"\n\t\t\t\t\t<thead>";
 		                        echo"\n\t\t\t\t\t\t<tr>";
 
-		                                $num_fields = pg_num_fields($this_genre);
+		                                $num_fields = pg_num_fields($this_year);
 		                                for ($i=0;$i<$num_fields-1;$i++) { // Prints out all headers for the fields 
-		                                    $fieldName = pg_field_name($this_genre, $i);
+		                                    $fieldName = pg_field_name($this_year, $i);
 		                                    echo "\n\t\t\t\t\t\t\t<th>$fieldName</th>"; 
 		                                }
 
@@ -227,7 +227,7 @@ function print_all_years() { // Functions which prints out a table for each genr
 		                    echo"\n\t\t\t\t\t</thead>";
 		                    echo"\n\t\t\t\t\t<tbody>";
 
-		                        while ($info = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
+		                        while ($info = pg_fetch_array($this_year, null, PGSQL_ASSOC)) {
 		                            echo"\n\t\t\t\t\t\t<tr>";
 		                            //foreach($info as $col) { // Prints out all the info 
 		                            	echo"\n\t\t\t\t\t\t<td id='this_thing'><form action='movie_profile.php?id=$info[id]' method='post'><input type='submit' name='title3' value='$info[title]' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";

@@ -190,7 +190,7 @@ function print_single_genre($genre) { // prints out a table for a single genre w
     pg_close($conn);
 }
 
-function print_all_genres() { // Functions which prints out a table for each genres and displays 10 movies from that genres in the table 
+function print_all_years() { // Functions which prints out a table for each genres and displays 10 movies from that genres in the table 
 
     include("../secure/database.php");
     $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database

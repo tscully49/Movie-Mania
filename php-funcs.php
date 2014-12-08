@@ -203,7 +203,7 @@ function print_all_years() { // Functions which prints out a table for each genr
     $all_years = pg_execute($conn, "year_query", array());
 
     while ($one_year = pg_fetch_array($all_years, null, PGSQL_ASSOC)) {
-    	$this_year = pg_prepare($conn, "year_search", "SELECT title FROM movie WHERE (year = $1) ORDER BY title ASC");
+    	$this_year = pg_prepare($conn, "year_search", "SELECT title, id FROM movie WHERE (year = $1) ORDER BY title ASC");
     	$this_year = pg_execute($conn, "year_search", array($one_year[year]));
 
 		echo"\n<div class='col-lg-3'>";
@@ -230,7 +230,7 @@ function print_all_years() { // Functions which prints out a table for each genr
 		                        while ($info = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
 		                            echo"\n\t\t\t\t\t\t<tr>";
 		                            //foreach($info as $col) { // Prints out all the info 
-		                            	echo"\n\t\t\t\t\t\t<td id='this_thing'><form action='movie_profile.php?id=$info[id]' method='post'><input type='submit' name='title3' value='$info[Title]' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
+		                            	echo"\n\t\t\t\t\t\t<td id='this_thing'><form action='movie_profile.php?id=$info[id]' method='post'><input type='submit' name='title3' value='$info[title]' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
 		                            //}
 		                            echo"\n\t\t\t\t\t\t</tr>";
 		                        }
@@ -239,7 +239,7 @@ function print_all_years() { // Functions which prints out a table for each genr
 		                echo"\n\t\t\t\t</table>";
 		            echo"\n\t\t\t</div>";
 		        	echo"\n\t\t\t<div class='text-right'>";
-		                echo"\n\t\t\t\t<a href='genre.php?genre=$one_genre[genre]'>View All $one_genre[genre] Movies <i class='fa fa-arrow-circle-right'></i></a>";
+		                echo"\n\t\t\t\t<a href='genre.php?genre=$one_year[year]'>View All $one_year[year] Movies <i class='fa fa-arrow-circle-right'></i></a>";
 		            echo"\n\t\t\t</div>";
 		        echo"\n\t\t</div>";
 		    echo"\n\t</div>";

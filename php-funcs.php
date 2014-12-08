@@ -190,4 +190,62 @@ function print_single_genre($genre) { // prints out a table for a single genre w
     pg_close($conn);
 }
 
+function print_all_genres() { // Functions which prints out a table for each genres and displays 10 movies from that genres in the table 
+
+    include("../secure/database.php");
+    $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
+
+    if(!$conn){
+        echo"<p> Connection Fail</p>";
+    }
+
+    $all_years = pg_prepare($conn, "year_query", 'SELECT year FROM movie GROUP BY year ORDER BY year ASC');
+    $all_years = pg_execute($conn, "year_query", array());
+
+    while ($one_year = pg_fetch_array($all_years, null, PGSQL_ASSOC)) {
+    	$this_year = pg_prepare($conn, "year_search", "SELECT title FROM movie WHERE (year = $1) ORDER BY title ASC";
+    	$this_year = pg_execute($conn, "year_search", array($one_year[year]));
+
+		echo"\n<div class='col-lg-3'>";
+		    echo"\n\t<div class='panel panel-info'>";
+		        echo"\n\t\t<div class='panel-heading'>";
+		            echo"\n\t\t\t<h3 class='panel-title'><i class='fa fa-tasks fa-fw'></i><strong> $one_genre[genre] Movies</strong></h3>"; 
+		        echo"\n\t\t</div>";
+		        echo"\n\t\t<div class='panel-body'>";
+		            echo"\n\t\t\t<div class='table-responsive'>";
+		                echo"\n\t\t\t\t<table class='table table-bordered table-hover table-striped'>";
+		                    echo"\n\t\t\t\t\t<thead>";
+		                        echo"\n\t\t\t\t\t\t<tr>";
+
+		                                $num_fields = pg_num_fields($this_genre);
+		                                for ($i=0;$i<$num_fields-1;$i++) { // Prints out all headers for the fields 
+		                                    $fieldName = pg_field_name($this_genre, $i);
+		                                    echo "\n\t\t\t\t\t\t\t<th>$fieldName</th>"; 
+		                                }
+
+		                        echo"\n\t\t\t\t\t\t</tr>";
+		                    echo"\n\t\t\t\t\t</thead>";
+		                    echo"\n\t\t\t\t\t<tbody>";
+
+		                        while ($info = pg_fetch_array($this_genre, null, PGSQL_ASSOC)) {
+		                            echo"\n\t\t\t\t\t\t<tr>";
+		                            //foreach($info as $col) { // Prints out all the info 
+		                            	echo"\n\t\t\t\t\t\t<td id='this_thing'><form action='movie_profile.php?id=$info[id]' method='post'><input type='submit' name='title3' value='$info[Title]' class='list-group-item btn btn-default id' id='this-one'></input></form></td>";
+		                            //}
+		                            echo"\n\t\t\t\t\t\t</tr>";
+		                        }
+
+		                    echo"\n\t\t\t\t\t</tbody>";
+		                echo"\n\t\t\t\t</table>";
+		            echo"\n\t\t\t</div>";
+		        	echo"\n\t\t\t<div class='text-right'>";
+		                echo"\n\t\t\t\t<a href='genre.php?genre=$one_genre[genre]'>View All $one_genre[genre] Movies <i class='fa fa-arrow-circle-right'></i></a>";
+		            echo"\n\t\t\t</div>";
+		        echo"\n\t\t</div>";
+		    echo"\n\t</div>";
+		echo"\n</div>";
+	}
+	pg_close($conn);
+}
+
 ?>

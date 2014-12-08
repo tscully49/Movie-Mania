@@ -2,39 +2,6 @@
 <html lang="en">
 
 <head>
-<?php
-    //get substring or letter from movies.php
-    $substring = $_GET['substring'];
-
-    $dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 
-    user=cs3380f14grp12 password=bpVhIe1A") 
-    or die('Could not connect: ' . pg_last_error());
-
-    if (!ctype_alpha($substring)) {
-        $new_string = "'^[0-9]'";
-        $movie_query = "SELECT id,title FROM movie WHERE title ~ '^[0-9]' ORDER BY title ASC";
-
-        pg_prepare($dbconn, 'movie', $movie_query);
-        $movies = pg_execute($dbconn, 'movie', array());
-
-        if(pg_num_rows($movies) == 0){
-            pg_close($conn);
-            header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
-        }
-    }
-    else {
-        //select all movies whose title starts with the substring
-        $movie_query = 'SELECT id,title FROM movie WHERE title ilike $1 ORDER BY title ASC';
-        pg_prepare($dbconn, 'movies', $movie_query);
-        $movies = pg_execute($dbconn, 'movies', array($substring."%"));
-
-        //if no movies start with the substring, redirect to no results page      
-        if(pg_num_rows($movies == 0)){
-            pg_close($conn);
-            header('Location: https://babbage.cs.missouri.edu/~cs3380f14grp12/Movie-Mania/no_result.php');
-        }
-    }
-    ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,6 +48,23 @@
     	.movie_titles {
     		display: inline;
     	}
+        a {
+            margin: 0px;
+            padding: 0px;
+        }
+        #this-one {
+            width: 100%;
+            text-align: left;
+        }
+        tr td {
+            margin: auto;
+            padding: 0px;
+            text-align: center;
+        }
+        #this_thing{
+            padding: 0px;
+            vertical-align: middle;
+        }
     </style>
 </head>
 
@@ -102,8 +86,7 @@
             </div>
             <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
 		    <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
-             <!--allows user to search for a movie/actor name, or part of a movie/actor name-->
-            <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
+           <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" name='substring' placeholder="Search">
                 </div>
@@ -221,7 +204,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Movie Search Results
+                            Search any Movie by Genre! <small>The Genres for all of our movies!</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -231,43 +214,101 @@
                     </div>
                 </div>
                 <!-- /.row -->
+                <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Number of Movies in each Genre</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="flot-chart">
+                                    <div class = "genre-container">
+                                        <div id="genres"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="alert alert-info alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Select Movie from list</strong> Or search for a new Movie!                    
+                            <i class="fa fa-info-circle"></i>  <strong>Search Movies by Genre</strong> Pick a Genre on the left or select from the lists!                    
                         </div>
                     </div>
                 </div>
                 <!-- /.row -->
+                
+                <div class="row">
 
-                <?php
-                          
-                echo"<div class=\"row\">";
-                    echo "<div class=\"col-lg-3 btn-group btn-group-vertical\">";
-                       echo "<div class=\"panel panel-default\">";
-                            echo "<div class=\"panel-heading\">";
-                               echo "<h3 class=\"panel-title\"><i class=\"fa fa-tasks fa-fw\"></i><strong> Select Movie</strong></h3>";
-                           echo "</div>";
-                           echo "<div class=\"panel-body\">";
-                                echo "<ul class=\"list-group actor_profile_trial\">";
-                                    //for each returned row, display $line[1](movies's name), and send $line[0] as a GET variable called 'id' if clicked. 
-                                     while($line=pg_fetch_array($movies,null,PGSQL_NUM)){
-                           
-                                 
-                                        echo "<a href=\"movie_profile?id=$line[0]\"class=\"list-group-item btn-sm strong\">$line[1] </a>";
-                                        
-                                
-                                    }
-                                echo "</ul>";
+                    <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i><strong> Search by Name</strong></h3>
+                            </div>
 
-                            echo "<div class=\"text-right\">";  
-                                                         
-                           echo "</div>";
-                       echo "</div>";
-                    echo "</div>";
-                ?>
+                            <!--allows user to search for movie title or part of movie title. sends searched value to movie_name.php as a GET variable.-->
+                            <form class="panel-body" role="search" method = "GET" action = movie_name.php>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name = "substring" placeholder="Search">
+                                    <span class="input-group-btn"><button type="submit" class="btn btn-default">Search!</button></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Close the search bar div -->
+
+                    <!-- Decides whether all the genres should be printed out or if just a single one should by checking the get parameters-->
+                    <?PHP
+                        require("php-funcs.php");
+                        print_all_years();
+                    ?>
+                    <!-- Prints out either all genres or just the specified one -->
+
+                    <!--<div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Most Popular Actors</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                               <?PHP
+                                                    /*include("actor_queries.php");
+                                                    $num_fields = pg_num_fields($pop_actors);
+                                                    for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
+                                                        $fieldName = pg_field_name($pop_actors, $i);
+                                                        echo "\t\t\n<th>$fieldName</th>"; 
+                                                    }*/
+                                                ?>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?PHP
+                                            /*while ($popular_actors = pg_fetch_array($pop_actors, null, PGSQL_ASSOC)) {
+                                                echo"<tr>";
+                                                foreach($popular_actors as $col) { // Prints out all the info 
+                                                    echo"\n\t\t<td>$col</td>";
+                                                }
+                                                echo"\n\t</tr>";
+                                            }*/
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-right">
+                                    <a href="#">View Most Popular Actors<i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
 
         </div>
         <!-- /#page-wrapper -->
@@ -286,6 +327,11 @@
     <script src="templateStuff/js/plugins/morris/morris.min.js"></script>
     <script src="templateStuff/js/plugins/morris/morris-data.js"></script>
     -->
+
+    <!--HighCharts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="charts.js"></script>
 
 </body>
 

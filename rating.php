@@ -212,7 +212,7 @@
                     <div class="col-lg-4">
                         <div class="panel panel-red">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Average Rating by Genre</strong></h3>
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Average Ratings by Genre</strong></h3>
                             </div>
                             <div class="panel-body">
                                  <div class="table-responsive">
@@ -244,6 +244,75 @@
                         </div>
                     </div>
 
+                    <div class="col-lg-4">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Average Ratings by Gross</strong></h3>
+                            </div>
+                            <div class="panel-body">
+                                 <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <?PHP
+                                                    require("ratings_queries.php");
+                                                    $num_fields = pg_num_fields($result5);
+                                                    for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
+                                                        $fieldName = pg_field_name($result5, $i);
+                                                        echo "\t\t\n<th>$fieldName</th>"; 
+                                                    }
+                                                ?>
+                                            </tr>
+                                        </thead>
+                                        <?PHP
+                                            while ($all_genres = pg_fetch_array($result5, null, PGSQL_ASSOC)) {
+                                                echo"<tr>";
+                                                foreach($all_genres as $col) { // Prints out all the info 
+                                                    echo"\n\t\t<td>$col</td>";
+                                                }
+                                                echo"\n\t</tr>";
+                                            }
+                                        ?>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Average Ratings by MPAA Rating</strong></h3>
+                            </div>
+                            <div class="panel-body">
+                                 <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <?PHP
+                                                    require("ratings_queries.php");
+                                                    $num_fields = pg_num_fields($result6);
+                                                    for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
+                                                        $fieldName = pg_field_name($result6, $i);
+                                                        echo "\t\t\n<th>$fieldName</th>"; 
+                                                    }
+                                                ?>
+                                            </tr>
+                                        </thead>
+                                        <?PHP
+                                            while ($all_genres = pg_fetch_array($result6, null, PGSQL_ASSOC)) {
+                                                echo"<tr>";
+                                                foreach($all_genres as $col) { // Prints out all the info 
+                                                    echo"\n\t\t<td>$col</td>";
+                                                }
+                                                echo"\n\t</tr>";
+                                            }
+                                        ?>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- MAKE A GRAPH THAT SHOWS TOTAL GROSS BY EACH YEAR -->
 
@@ -285,7 +354,7 @@
                     <div class="col-lg-4">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Total Gross by Director</strong></h3>
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Average Ratings by Director</strong></h3>
                             </div>
                             <div class="panel-body">
                                  <div class="table-responsive">
@@ -293,17 +362,52 @@
                                         <thead>
                                             <tr>
                                                 <?PHP
-                                                    require("boxOffice_queries.php");
-                                                    $num_fields = pg_num_fields($Box_directors);
+                                                    require("ratings_queries.php");
+                                                    $num_fields = pg_num_fields($result3);
                                                     for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
-                                                        $fieldName = pg_field_name($Box_directors, $i);
+                                                        $fieldName = pg_field_name($result3, $i);
                                                         echo "\t\t\n<th>$fieldName</th>"; 
                                                     }
                                                 ?>
                                             </tr>
                                         </thead>
                                         <?PHP
-                                            while ($all_genres = pg_fetch_array($Box_directors, null, PGSQL_ASSOC)) {
+                                            while ($all_genres = pg_fetch_array($result3, null, PGSQL_ASSOC)) {
+                                                echo"<tr>";
+                                                foreach($all_genres as $col) { // Prints out all the info 
+                                                    echo"\n\t\t<td>$col</td>";
+                                                }
+                                                echo"\n\t</tr>";
+                                            }
+                                        ?>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Average Ratings by Actor</strong></h3>
+                            </div>
+                            <div class="panel-body">
+                                 <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <?PHP
+                                                    require("ratings_queries.php");
+                                                    $num_fields = pg_num_fields($result4);
+                                                    for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
+                                                        $fieldName = pg_field_name($result4, $i);
+                                                        echo "\t\t\n<th>$fieldName</th>"; 
+                                                    }
+                                                ?>
+                                            </tr>
+                                        </thead>
+                                        <?PHP
+                                            while ($all_genres = pg_fetch_array($result4, null, PGSQL_ASSOC)) {
                                                 echo"<tr>";
                                                 foreach($all_genres as $col) { // Prints out all the info 
                                                     echo"\n\t\t<td>$col</td>";

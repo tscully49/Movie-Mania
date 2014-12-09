@@ -12,13 +12,13 @@
     $result2 = pg_prepare($conn, "rt_by_year", 'SELECT year AS "Year", round(avg(rt_critic),2) AS "Average Critic Rating" FROM movie GROUP BY year ORDER BY year ASC');
     $result2 = pg_execute($conn, "rt_by_year", array());
 
-    $result3 = pg_prepare($conn, "rt_by_director", 'WITH id_list AS (SELECT name, movie_id FROM director INNER JOIN director_of_movie ON (director.id = director_of_movie.director_id)) SELECT name AS "Name", round(avg(rt_critic),2) AS "Average Critic Rating", count(title) AS "# of Movies Made" FROM movie as m INNER JOIN id_list as i ON (m.id = i.movie_id) GROUP BY name HAVING (count(title) > 10) ORDER BY avg(rt_critic) DESC');
+    $result3 = pg_prepare($conn, "rt_by_director", 'WITH id_list AS (SELECT name, movie_id FROM director INNER JOIN director_of_movie ON (director.id = director_of_movie.director_id)) SELECT name AS "Name", round(avg(rt_critic),2) AS "Average Critic Rating", count(title) AS "# of Movies Made" FROM movie as m INNER JOIN id_list as i ON (m.id = i.movie_id) GROUP BY name HAVING (count(title) > 10) ORDER BY avg(rt_critic) DESC LIMIT 20');
 	$result3 = pg_execute($conn, "rt_by_director", array());
 
-	$result4 = pg_prepare($conn, "rt_by_actor", 'WITH id_list AS (SELECT name, movie_id FROM actor INNER JOIN actor_in_movie ON (actor.id = actor_in_movie.actor_id)) SELECT name AS "Name", round(avg(rt_critic),2) AS "Average Critic Rating", count(title) AS "# of Movies" FROM movie as m INNER JOIN id_list as i ON (m.id = i.movie_id) GROUP BY name HAVING (count(title) > 4) ORDER BY avg(rt_critic) DESC');
+	$result4 = pg_prepare($conn, "rt_by_actor", 'WITH id_list AS (SELECT name, movie_id FROM actor INNER JOIN actor_in_movie ON (actor.id = actor_in_movie.actor_id)) SELECT name AS "Name", round(avg(rt_critic),2) AS "Average Critic Rating", count(title) AS "# of Movies" FROM movie as m INNER JOIN id_list as i ON (m.id = i.movie_id) GROUP BY name HAVING (count(title) > 4) ORDER BY avg(rt_critic) DESC LIMIT 20');
 	$result4 = pg_execute($conn, "rt_by_actor", array());
 
-	$result5 = pg_prepare($conn, "rt_by_box", 'SELECT title, domestic_gross, rt_critic, rt_audience, imdb AS "IMDB Rating" FROM movie ORDER BY domestic_gross DESC');
+	$result5 = pg_prepare($conn, "rt_by_box", 'SELECT title, domestic_gross, rt_critic, rt_audience, imdb AS "IMDB Rating" FROM movie ORDER BY domestic_gross DESC LIMIT 10');
 	$result5 = pg_execute($conn, "rt_by_box", array());
 
 	$result6 = pg_prepare($conn, "rt_by_rating", 'SELECT mpaa_rating AS "MPAA Rating", round(avg(rt_critic),2) AS "Avg Critic Rating", round(avg(rt_audience),2) AS "Avg Audience Rating", round(avg(imdb :: numeric),2) AS "Avg IMDB Rating", count(title) AS "# of Movies" FROM movie GROUP BY mpaa_rating HAVING (count(title) > 10) ORDER BY mpaa_rating ASC');

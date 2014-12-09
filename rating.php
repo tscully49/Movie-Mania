@@ -313,9 +313,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
                     <!-- MAKE A GRAPH THAT SHOWS TOTAL GROSS BY EACH YEAR -->
-
+                <div class="row">
                     <div class="col-lg-4">
                         <div class="panel panel-green">
                             <div class="panel-heading">
@@ -352,7 +353,7 @@
                     </div>
                 
                     <div class="col-lg-4">
-                        <div class="panel panel-yellow">
+                        <div class="panel panel-red">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Average Ratings by Director</strong></h3>
                             </div>
@@ -387,7 +388,7 @@
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="panel panel-yellow">
+                        <div class="panel panel-blue">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Average Ratings by Actor</strong></h3>
                             </div>

@@ -112,7 +112,7 @@
                         <a href="years.php"><i class="fa fa-fw fa-calendar"></i> Year</a>
                     </li>
                     <li>
-                        <a href="error_page.php"><i class="fa fa-fw fa-bar-chart-o"></i> Rating</a>
+                        <a href="rating.php"><i class="fa fa-fw fa-bar-chart-o"></i> Rating</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-video-camera"></i> Genre <i class="fa fa-fw fa-caret-down"></i></a>

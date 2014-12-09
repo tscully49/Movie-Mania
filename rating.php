@@ -250,7 +250,7 @@
                     <div class="col-lg-4">
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Total Gross by Genre</strong></h3>
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i> <strong>Average Ratings by Year</strong></h3>
                             </div>
                             <div class="panel-body">
                                  <div class="table-responsive">
@@ -258,19 +258,19 @@
                                         <thead>
                                             <tr>
                                                 <?PHP
-                                                    require("boxOffice_queries.php");
-                                                    $num_fields = pg_num_fields($Box_genres);
+                                                    require("ratings_queries.php");
+                                                    $num_fields = pg_num_fields($result2);
                                                     for ($i=0;$i<$num_fields;$i++) { // Prints out all headers for the fields 
-                                                        $fieldName = pg_field_name($Box_genres, $i);
+                                                        $fieldName = pg_field_name($result2, $i);
                                                         echo "\t\t\n<th>$fieldName</th>"; 
                                                     }
                                                 ?>
                                             </tr>
                                         </thead>
                                         <?PHP
-                                            while ($all_genres = pg_fetch_array($Box_genres, null, PGSQL_ASSOC)) {
+                                            while ($all_years = pg_fetch_array($result2, null, PGSQL_ASSOC)) {
                                                 echo"<tr>";
-                                                foreach($all_genres as $col) { // Prints out all the info 
+                                                foreach($all_years as $col) { // Prints out all the info 
                                                     echo"\n\t\t<td>$col</td>";
                                                 }
                                                 echo"\n\t</tr>";

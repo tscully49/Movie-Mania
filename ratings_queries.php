@@ -1,4 +1,4 @@
-<?php
+<?PHP
 	include("../secure/database.php");
     $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
 
@@ -21,7 +21,7 @@
 	$result5 = pg_prepare($conn, "rt_by_box", 'SELECT title, domestic_gross, rt_critic, rt_audience, imdb AS "IMDB Rating" FROM movie ORDER BY domestic_gross DESC');
 	$result5 = pg_execute($conn, "rt_by_box", array());
 
-	$result6 = pg_prepare($conn, "rt_by_rating", 'SELECT mpaa_rating AS "MPAA Rating", round(avg(rt_critic),2) AS "Avg Critic Rating", round(avg(rt_audience),2) AS "Avg Audience Rating", round(avg(imdb :: numeric),2) AS "Avg IMDB Rating", count(title) AS "# of Movies" FROM movie GROUP BY mpaa_rating HAVING (count(title) > 10) ORDER BY mpaa_rating ASC')
+	$result6 = pg_prepare($conn, "rt_by_rating", 'SELECT mpaa_rating AS "MPAA Rating", round(avg(rt_critic),2) AS "Avg Critic Rating", round(avg(rt_audience),2) AS "Avg Audience Rating", round(avg(imdb :: numeric),2) AS "Avg IMDB Rating", count(title) AS "# of Movies" FROM movie GROUP BY mpaa_rating HAVING (count(title) > 10) ORDER BY mpaa_rating ASC');
 	$result6 = pg_execute($conn, "rt_by_rating", array());
 
 	pg_close($conn);

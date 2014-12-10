@@ -209,7 +209,13 @@
         
        
 	   
-	   $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
+	    include("../secure/database.php");
+        $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
+
+        if(!$conn){
+            echo"<p> Connection Fail</p>";
+        }
+
 	   $id = $_GET['id'];
            $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (id = $1)";
            pg_prepare($conn,"titlesearch",$query1);
@@ -304,7 +310,12 @@
    if(isset($_POST['search'])){
            $title = $_POST['title2'];
            echo "About $title";
-           $conn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A");
+           include("../secure/database.php");
+            $conn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
+
+            if(!$conn){
+                echo"<p> Connection Fail</p>";
+            }
 
            $query1 = "SELECT DISTINCT ON (title) * FROM movie WHERE (title = $1)";
            pg_prepare($conn,"titlesearch",$query1);

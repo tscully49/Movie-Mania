@@ -187,11 +187,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Actor Profile
+                            Uh oh...
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-arrow-right"><span class="">Actors</span></i>
+                                <i class="fa fa-arrow-right"><span class="">Problems were made</span></i>
                             </li>
                         </ol>
                     </div>
@@ -202,7 +202,7 @@
                     <div class="col-lg-12">
                         <div class="alert alert-info alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Search Actors/Actresses</strong> Search for Actors/Actresses                     
+                            <i class="fa fa-info-circle"></i>  <strong>No Results Found!!!</strong> Try again...                     
                         </div>
                     </div>
                 </div>

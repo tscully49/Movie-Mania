@@ -1,8 +1,12 @@
 <?php
   //decides whether to send search value to movie page or actor profile page
   session_start();
-	$dbconn=pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=cs3380f14grp12 user=cs3380f14grp12 password=bpVhIe1A") 
-  or die('Could not connect: ' . pg_last_error());
+    include("../secure/database.php");
+    $dbconn=pg_connect(HOST. " ".DBNAME." ".USERNAME." ".PASSWORD); // Connects to the database
+
+    if(!$dbconn){
+        echo"<p> Connection Fail</p>";
+    }
 
 
   //checks if search value was an actor name

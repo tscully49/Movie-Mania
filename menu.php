@@ -75,7 +75,6 @@
         tr td {
             margin: auto;
             padding: 0px;
-            text-align: center;
         }
         #this_thing{
             padding: 0px;

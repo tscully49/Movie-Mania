@@ -274,7 +274,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="error_page.php">
+                            <a href="years.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Years</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -377,9 +377,6 @@
                                             echo"</a>";
                                         }
                                     ?>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View Movies in Theater <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>

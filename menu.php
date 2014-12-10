@@ -204,12 +204,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <!--<li>
                         <a href="error_page.php"><i class="fa fa-fw fa-gears"></i> Statistics</a>
                     </li>
                     <li>
                         <a href="error_page.php"><i class="fa fa-fw fa-file"></i> About Us</a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

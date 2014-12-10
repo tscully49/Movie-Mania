@@ -83,8 +83,8 @@
                 </button>
                 <a class="navbar-brand" href="index.php">Movie Mania</a>
             </div>
-            <button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
-            <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>
+            <!--<button type="button" class="btn btn-default navbar-btn navbar-right bar">Login</button>
+            <button type="button" class="btn btn-default navbar-btn navbar-right bar">Sign up</button>-->
 
             <!--allows user to search for a movie/actor name, or part of a movie/actor name-->
             <form method = "GET" action = search_results.php class="navbar-form navbar-left searchbar" role="search">

@@ -64,6 +64,23 @@
         #this {
             white-space: pre-wrap;
         }
+        a {
+            margin: 0px;
+            padding: 0px;
+        }
+        #this-one {
+            width: 100%;
+            text-align: left;
+        }
+        tr td {
+            margin: auto;
+            padding: 0px;
+            text-align: center;
+        }
+        #this_thing{
+            padding: 0px;
+            vertical-align: middle;
+        }
     </style>
 </head>
 

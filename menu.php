@@ -198,6 +198,3 @@
             </div>
             <!-- /.navbar-collapse -->
         </nav>
-
-</body>
-</html>

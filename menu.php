@@ -41,6 +41,29 @@
     	.searchbar {
     		margin-left:7rem;
     	}
+        .movie_titles {
+            display: inline;
+        }
+        #table1{
+            float: left;
+        }
+        #table2{
+            float: left;
+            padding: 0 14px;
+        }
+        #table3{
+            float: left;
+        }
+        .strong {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        td {
+            white-space: nowrap;
+        }
+        #this {
+            white-space: pre-wrap;
+        }
     </style>
 </head>
 
